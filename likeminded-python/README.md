@@ -9,5 +9,13 @@ Usage Examples
     api = likeminded.Api(key='yourapikey')
     
     # Search resources and projects
-    api.search(query='search term')
+    results = api.search(query='search term')
+    
+    # Iterate through search results
+    for reference in results:
+        print reference.name
 
+Copyright
+---------
+Copyright (c) 2010 Code for America Laboratories
+See [LICENSE](https://github.com/cfalabs/open311/blob/master/LICENSE.mkd) for details.
