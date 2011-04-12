@@ -11,7 +11,8 @@ import likeminded
 class TestLikeMindedSearchResults (unittest.TestCase):
     
     def setUp(self):
-        conn = likeminded.Connection('mylikemindedserver', http='No HTTP')
+        from likeminded.connection import Connection
+        conn = Connection('mylikemindedserver', http='No HTTP')
         
         @patch(conn)
         def get(self, path, data={}):
