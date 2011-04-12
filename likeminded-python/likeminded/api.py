@@ -4,6 +4,8 @@ A wrapper on the LikeMinded REST API.
 
 from utils.xml2dict import xml2dict
 
+from likeminded.connection import Connection
+
 from likeminded.models import SearchResults
 from likeminded.models import ProjectReference
 from likeminded.models import ResourceReference

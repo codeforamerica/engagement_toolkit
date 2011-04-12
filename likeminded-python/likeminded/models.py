@@ -2,6 +2,8 @@
 Object representations of the concepts in the likeminded API.
 """
 
+import collections
+
 ################################################################################
 # You probably shouldn't be creating the objects below directly ever.  Use the
 # methods in the Api class to generate instances of these classes instead.  See
@@ -45,17 +47,12 @@ class SearchResults (object):
         for reference in next_results:
             yield reference
 
-class Reference (object):
-    type = None
-    def __init__(self, name='', url='', id=''):
-        self.name = name
-        self.url = url
-        self.id = id
+BaseReference = collections.namedtuple('Reference', ['name', 'url', 'id'])
     
-class ProjectReference (Reference):
+class ProjectReference (BaseReference):
     type = 'project'
 
-class ResourceReference (Reference):
+class ResourceReference (BaseReference):
     type = 'resource'
 
 #

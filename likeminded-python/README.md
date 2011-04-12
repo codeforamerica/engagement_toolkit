@@ -13,7 +13,7 @@ Usage Examples
     
     # Iterate through search results
     for reference in results:
-        print reference.name
+        print reference
 
 Copyright
 ---------

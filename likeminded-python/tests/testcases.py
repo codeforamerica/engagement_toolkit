@@ -52,5 +52,38 @@ class TestLikeMindedSearchResults (unittest.TestCase):
             cnt += 1
         
         self.assertEquals(cnt, 11)
+    
+    def test_ProjectReferenceIsAsExpected(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        results = api.search(query='school')
+        project_ref = iter(results).next()
+        
+        expected_ref = {
+            'id' : '137',
+            'name' : 'Tackling the achievement gap with a math competition',
+            'url' : 'likeminded.exygy.com/projects/tackling-the-achievement-gap-with-a-math-competition'
+        }
+        
+        self.assertEquals(project_ref.__class__.__name__, 'ProjectReference')
+        self.assertEquals(project_ref._asdict(), expected_ref)
+    
+    def test_ResourceReferenceIsAsExpected(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        results = api.search(query='school')
+        results_iter = iter(results)
+        results_iter.next()
+        results_iter.next()
+        resource_ref = results_iter.next()
+        
+        expected_ref = {
+            'id' : '1740',
+            'name' : 'Links to Learning and Sustainability: Year Three Report of the Pennsylvania High School Coaching Initiative',
+            'url' : 'likeminded.exygy.com/resources/links-to-learning-and-sustainability-year-three-report-of-the-pennsylvania-high-school-coaching-init'
+        }
+        
+        self.assertEquals(resource_ref.__class__.__name__, 'ResourceReference')
+        self.assertEquals(resource_ref._asdict(), expected_ref)
 
 
