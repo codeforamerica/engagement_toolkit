@@ -11,20 +11,23 @@ import likeminded
 class TestLikeMindedSearchResults (unittest.TestCase):
     
     def setUp(self):
-        conn = likeminded.Connection()
+        conn = likeminded.Connection('mylikemindedserver', http='No HTTP')
         
         @patch(conn)
         def get(self, path, data={}):
             if data['query'] == 'school':
-                return const.SEARCH_RESULTS_1
+                content = const.SEARCH_RESULTS_1
             elif data['query'] == 'ishkabibble':
-                return const.SEARCH_RESULTS_2
+                content = const.SEARCH_RESULTS_2
             elif data['query'] == 'high school' and data['page'] == 1:
-                return const.SEARCH_RESULTS_HIGH_SCHOOL_PG_1
+                content = const.SEARCH_RESULTS_HIGH_SCHOOL_PG_1
             elif data['query'] == 'high school' and data['page'] == 2:
-                return const.SEARCH_RESULTS_HIGH_SCHOOL_PG_2
+                content = const.SEARCH_RESULTS_HIGH_SCHOOL_PG_2
             elif data['query'] == 'high school' and data['page'] == 3:
-                return const.SEARCH_RESULTS_HIGH_SCHOOL_PG_3
+                content = const.SEARCH_RESULTS_HIGH_SCHOOL_PG_3
+            
+            response = None
+            return response, content
         
         self.conn = conn
         

@@ -2,15 +2,49 @@
 A wrapper on the LikeMinded REST API.
 """
 
-import httplib
+import httplib2
+import urllib
 from utils.xml2dict import xml2dict
 
 class Connection (object):
     """
     Handle calls to the LikeMinded server.
     """
+    def __init__(self, server, http=None):
+        self.__http = http or httplib2.Http()
+        self.__root = server
+    
+    def __request(self, path, method, data=None, headers=None):
+        url = '%s/%s' % (self.__root, path)
+        
+        # URL encode any available data
+        if data:
+            query = urllib.urlencode(data)
+        
+        # Add urlencoded data to the path as a query if method is GET or DELETE
+        if method.lower() in ('get', 'delete'):
+            path = path if not data else '%s?%s' % (path, query)
+            body = None
+        
+        # If method is POST or PUT, put the query data into the body
+        else:
+            body = None if not data else query
+        
+        url='%s/%s' % (self.__root, path)
+        return self.__http.request(url, method, body, headers)
+    
     def get(self, path, data={}):
-        pass
+        return self.__request(path, 'GET', data)
+    
+    def post(self, path, data={}):
+        return self.__request(path, 'POST', data)
+        
+    def put(self, path, data={}):
+        return self.__request(path, 'PUT', data)
+    
+    def delete(self, path, data={}):
+        return self.__request(path, 'DELETE', data)
+        
 
 ################################################################################
 # You probably shouldn't be creating the objects below directly ever.  Use the
@@ -72,12 +106,11 @@ class ResourceReference (Reference):
 ################################################################################
 
 class Api (object):
-    """
-    The actual API wrapper class.  In most cases, all use of this module will
-    begin through this class.
+    """The LikeMinded REST API wrapper.
     """
     def __init__(self, key=None, connection=None):
-        self.__connection = connection
+        self.__key = key
+        self.__connection = connection or Connection('http://v1.api.likeminded.exygy.com')
     
     def search(self, query=None):
         """
@@ -92,8 +125,10 @@ class Api (object):
         abstracted out of the public search function so that the user has no
         need to be aware of it.
         """
-        search_terms = { 'query' : query, 'page' : page }
-        search_xml = self.__connection.get('/search/', search_terms)
+        search_terms = { 'query' : query, 
+                         'page' : page, 
+                         'apikey' : self.__key }
+        response, search_xml = self.__connection.get('/search/', search_terms)
         
         search_dict = xml2dict(search_xml)
         results_dict = search_dict.search_results.results
@@ -107,8 +142,8 @@ class Api (object):
         """
         The SearchResults factory function
         """
-        projects = self.__make_references(results_dict.get('project', [], ProjectReference))
-        resources = self.__make_references(results_dict.get('resource', [], ResourceReference))
+        projects = self.__make_references(results_dict.get('project', []), ProjectReference)
+        resources = self.__make_references(results_dict.get('resource', []), ResourceReference)
         
         results = SearchResults(
             available=int(results_dict.available),
