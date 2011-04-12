@@ -15,22 +15,49 @@ class Api (object):
     """
     def __init__(self, key=None, connection=None):
         self.__key = key
-        self.__connection = connection or Connection('http://v1.api.likeminded.exygy.com')
+        self.__connection = connection or \
+                            Connection('http://v1.api.likeminded.exygy.com')
     
-    def search(self, query=None):
+    def search(self, query='', category=[], subcategory=[], 
+               type='All', status='All', sort='All'):
         """
         Search resources or projects in Likeminded.
-        Return a ``likeminded.SearchResults`` object.
+        
+        Keyword arguments:
+        category -- A list of 
+        
+        Return a ``SearchResults`` object.  This object behaves kind of like a
+        list, except that it doesn't support indexing.  You can check the number
+        of objects it contains with ``len(results)``, and iterate through it 
+        with ``for reference in results: ...``.
+        
+        The objects contained in the ``SearchResults`` object are references
+        to projects and resources.  They have four attributes: ``name``, 
+        ``type``, ``url``, and ``id``.
         """
-        return self.__search_helper(query, 1)
+        return self.__search_helper(query, category, subcategory, 
+                                    type, status, sort, 1)
     
-    def __search_helper(self, query, page):
+    def __search_helper(self, query, category, subcategory, 
+                        type, status, sort, page):
         """
         A helper search function that is aware of pagination.  Pagination is
         abstracted out of the public search function so that the user has no
         need to be aware of it.
         """
-        search_terms = { 'query' : query, 
+        
+        # Process the arguments.
+        if isinstance(category, (list, tuple)):
+            category = ','.join(category)
+        if isinstance(subcategory, (list, tuple)):
+            subcategory = ','.join(category) 
+        
+        search_terms = { 'query' : query,
+                         'category' : category, 
+                         'subcategory' : subcategory, 
+                         'type' : type, 
+                         'status' : status, 
+                         'sort' : sort,
                          'page' : page, 
                          'apikey' : self.__key }
         response, search_xml = self.__connection.get('/search/', search_terms)
@@ -40,15 +67,19 @@ class Api (object):
         
         results = self.__make_search_results(
             results_dict, 
-            lambda: self.__search_helper(query, page+1))
+            lambda: self.__search_helper(query, category, subcategory, 
+                                         type, status, sort, page+1))
         return results
     
-    def __make_search_results(self, results_dict, next_page, ResultsClass=SearchResults):
+    def __make_search_results(self, results_dict, next_page, 
+                              ResultsClass=SearchResults):
         """
         The SearchResults factory function
         """
-        projects = self.__make_references(results_dict.get('project', []), ProjectReference)
-        resources = self.__make_references(results_dict.get('resource', []), ResourceReference)
+        projects = self.__make_references(results_dict.get('project', []), 
+                                          ProjectReference)
+        resources = self.__make_references(results_dict.get('resource', []), 
+                                           ResourceReference)
         
         results = SearchResults(
             available=int(results_dict.available),

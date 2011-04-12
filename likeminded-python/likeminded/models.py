@@ -47,13 +47,21 @@ class SearchResults (object):
         for reference in next_results:
             yield reference
 
-BaseReference = collections.namedtuple('Reference', ['name', 'url', 'id'])
+_Reference = collections.namedtuple('Reference', ['name', 'url', 'id'])
+class BaseReference (_Reference):
+    def __repr__(self):
+        if not hasattr(self, 'type'):
+            raise NotImplementedError(
+                'Class %s must define a type attribute.' %
+                self.__class__.__name__)
+        
+        return '%s%s' % (self.type, super(BaseReference, self).__repr__())
     
 class ProjectReference (BaseReference):
-    type = 'project'
+    type = 'Project'
 
 class ResourceReference (BaseReference):
-    type = 'resource'
+    type = 'Resource'
 
 #
 ################################################################################
