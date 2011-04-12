@@ -4,7 +4,7 @@ Tests for the likeminded wrapper module.
 
 import unittest
 import tests.strings_fortesting as const
-from tests.util import patch
+from utils.testing import patch
 
 import likeminded
 
