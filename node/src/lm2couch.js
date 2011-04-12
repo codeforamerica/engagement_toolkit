@@ -8,15 +8,58 @@
   //options for querying likeminded
   _options = {
     lmBaseUrl: 'http://api.likeminded.org',
-    lmApiKey: 'a084895b83fc9e1d9a1daa0d58e91a7e',
-    couchBaseUrl: 'http://localhost:5984/likeminded'
+    lmApiKey: 'key',
+    calaisBaseUrl: 'http://api.opencalais.com/tag/rs/enrich',
+    calaisApiKey: 'key',
+    couchBaseUrl: 'http://184.72.175.193:5984/likeminded'
   },
   //incrementer for the project page
   _projPage = 1,
   //total project pages to search in likeminded
   _totalProjPages,
   //total project count in likeminded
-  _totalProjects;
+  _totalProjects,
+  //current project count, for debugging
+  _curProjectCnt = 0;
+
+  //start functions from opencalais for simplifying the json results
+  function resolveReferences(flatdb) {
+    for (var element in flatdb) {
+      for (var attribute in flatdb[element]) {
+        var val = flatdb[element][attribute];
+        if (typeof val == 'string') {
+          if (flatdb[val] != null) {
+            flatdb[element][attribute] = flatdb[val];
+          }
+        }
+      }
+    }
+  }
+  
+  function createHierarchy(flatdb) {
+    var hdb = new Object();
+    for (var element in flatdb) {
+      var elementType = flatdb[element]._type;
+      var elementGroup = flatdb[element]._typeGroup;
+      if (elementGroup != null) {
+        if (hdb[elementGroup] == null) {
+          hdb[elementGroup] = new Object();
+        }
+        if (elementType != null) {
+          if (hdb[elementGroup][elementType] == null) {
+            hdb[elementGroup][elementType] = new Object();
+          }
+          hdb[elementGroup][elementType][element] = flatdb[element];
+        } else {
+          hdb[elementGroup][element] = flatdb[element];
+        }
+      } else {
+        hdb[element] = flatdb[element];
+      }
+    }
+    return hdb;
+  }
+  //end functions from opencalais for simplifying the json results
 
   //xml2js project list parser
   var projListParser = new _lib.xml2js.Parser();
@@ -28,7 +71,9 @@
     
     //loop over each project ide and then go get the project details
     for (i=0; i<showing; i++){
-      getProjectDetails(json.results.project[i].id);
+      if (json.results.project[i] && json.results.project[i].id) {
+        addProjectDetails(json.results.project[i].id);
+      }
     }
     
     //calculate how many pages we need to search through if we haven't already done so
@@ -56,7 +101,11 @@
       likeminded: json
     };
     
-    addToCouch(doc);
+    _curProjectCnt++;
+    
+    console.log(_curProjectCnt + ' of ' + _totalProjects);
+    
+    addOpenCalaisDetails(doc);
   });
   
   //go get the list of projects for the specified page, parse the xml, and handle with the 'end' event above  
@@ -70,8 +119,8 @@
     });
   };
 
-  //go get the project details for the specified id, parse the xml, and handle with the 'end' event above      
-  var getProjectDetails = function (id) {
+  //go add the project details for the specified id, parse the xml, and handle with the 'end' event above      
+  var addProjectDetails = function (id) {
     var url = _options.lmBaseUrl+'/projects/'+id+'?apikey='+_options.lmApiKey;
     
     _lib.request({uri:url}, function (error, response, xml) {
@@ -79,6 +128,44 @@
         projParser.parseString(xml);
       }
     });  
+  };
+  
+  //Go add the OpenCalais details based on the text from likeminded
+  var addOpenCalaisDetails = function (project) {
+    var text = project.likeminded.name + ' ' +
+      project.likeminded.problem + ' ' + 
+      project.likeminded.process + ' ' + 
+      project.likeminded.result;
+    
+    _lib.request({
+        method: 'POST', 
+        uri: _options.calaisBaseUrl,
+        headers: {
+          'X-Calais-Licenseid': _options.calaisApiKey,
+          'content-type': 'text/raw',
+          'Outputformat': 'Application/JSON'
+        },
+        body: text
+    }, function (error, response, jsonStr) {
+      var jsonObj, simpleJson;
+      if (!error && response.statusCode === 200) {
+        jsonObj = JSON.parse(jsonStr);
+        
+        resolveReferences(jsonObj);
+        simpleJson = createHierarchy(jsonObj);
+        
+        project.openCalais = simpleJson;
+        addToCouch(project);
+      } else {
+        console.log(jsonStr);
+        console.log('Error parsing OpenCalais response for Project ' + project._id);
+        
+        //retry logic because OpenCalais only allows 4 queries per second
+        setTimeout(function() {
+          addOpenCalaisDetails(project);
+        }, 1000);
+      }
+    });        
   };
   
   //add a json object to couch
@@ -92,7 +179,7 @@
         body:JSON.stringify(doc)
     }, function (error, response, xml) {
       if (error) {
-        console.log(error);
+        console.log('Error adding Project ' + doc._id + ' to couch.');
       }
     });  
   };
