@@ -17,23 +17,26 @@ class XML2Dict(object):
     def _parse_node(self, node):
         node_tree = object_dict()
         # Save attrs and text, hope there will not be a child with same name
-        if node.text:
-            node_tree.value = node.text
-        for (k,v) in node.attrib.items():
-            k,v = self._namespace_split(k, object_dict({'value':v}))
-            node_tree[k] = v
-        #Save childrens
-        for child in node.getchildren():
-            tag, tree = self._namespace_split(child.tag, self._parse_node(child))
-            if  tag not in node_tree: # the first time, so store it in dict
-                node_tree[tag] = tree
-                continue
-            old = node_tree[tag]
-            if not isinstance(old, list):
-                node_tree.pop(tag)
-                node_tree[tag] = [old] # multi times, so change old dict to a list       
-            node_tree[tag].append(tree) # add the new one      
-
+        if node.text and node.text.strip():
+            node_tree = node.text
+        else:
+            for (k,v) in node.attrib.items():
+                k,v = self._namespace_split(k, v)
+                node_tree[k] = v
+            #Save childrens
+            for child in node.getchildren():
+                tag, tree = self._namespace_split(child.tag, self._parse_node(child))
+                if  tag not in node_tree: # the first time, so store it in dict
+                    node_tree[tag] = tree
+                    continue
+                old = node_tree[tag]
+                if not isinstance(old, list):
+                    node_tree.pop(tag)
+                    node_tree[tag] = [old] # multi times, so change old dict to a list       
+                node_tree[tag].append(tree) # add the new one      
+        
+        if not node_tree:
+            node_tree = None
         return  node_tree
 
 
