@@ -8,9 +8,9 @@
   //options for querying likeminded
   _options = {
     lmBaseUrl: 'http://api.likeminded.org',
-    lmApiKey: 'key',
+    lmApiKey: 'a084895b83fc9e1d9a1daa0d58e91a7e',
     calaisBaseUrl: 'http://api.opencalais.com/tag/rs/enrich',
-    calaisApiKey: 'key',
+    calaisApiKey: '94xh8ewqkg5xxtp3mhf7w32h',
     couchBaseUrl: 'http://184.72.175.193:5984/likeminded'
   },
   //incrementer for the project page
@@ -37,17 +37,17 @@
   }
   
   function createHierarchy(flatdb) {
-    var hdb = new Object();
+    var hdb = {};
     for (var element in flatdb) {
       var elementType = flatdb[element]._type;
       var elementGroup = flatdb[element]._typeGroup;
       if (elementGroup != null) {
         if (hdb[elementGroup] == null) {
-          hdb[elementGroup] = new Object();
+          hdb[elementGroup] = {};
         }
         if (elementType != null) {
           if (hdb[elementGroup][elementType] == null) {
-            hdb[elementGroup][elementType] = new Object();
+            hdb[elementGroup][elementType] = {};
           }
           hdb[elementGroup][elementType][element] = flatdb[element];
         } else {
