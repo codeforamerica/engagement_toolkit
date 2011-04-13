@@ -9,6 +9,7 @@ from likeminded.connection import Connection
 from likeminded.models import SearchResults
 from likeminded.models import ProjectReference
 from likeminded.models import ResourceReference
+from likeminded.models import ProjectDetails
 
 class Api (object):
     """The LikeMinded REST API wrapper.
@@ -37,6 +38,70 @@ class Api (object):
         """
         return self.__search_helper(query, category, subcategory, 
                                     type, status, sort, 1)
+    
+    def read_project(self, id):
+        """
+        Read a project from LikeMinded.
+        
+        Arguments:
+        id -- The project id as a string or an integer
+        
+        Return a ProjectDetails object.
+        """
+        path = '/projects/%s' % id
+        query = { 'apikey' : self.__key }
+        response, project_xml = self.__connection.get(path, query)
+        
+        project_dict = xml2dict(project_xml).project
+        project_dict = self.__fill_in_params(project_dict, ProjectDetails)
+        details = ProjectDetails(**project_dict)
+        return details
+    
+    def read_resource(self, id):
+        """
+        Read a resource from LikeMinded.
+        """
+        raise NotImplementedError()
+    
+    def create_project(self, 
+                       name='', 
+                       start_date='', 
+                       end_date='', 
+                       problem='',
+                       processes='', 
+                       result='', 
+                       external_feed_account_type='',
+                       external_feed_account='',
+                       locations=[],
+                       resources=[],
+                       categories=[]):
+        """
+        Write a new project to LikeMinded.
+        """
+        raise NotImplementedError()
+    
+    def create_resource(self,
+                        name='',
+                        description='',
+                        url='',
+                        locations=[],
+                        categories=[]):
+        """
+        Write a new resource to LikeMinded.
+        """
+        raise NotImplementedError()
+    
+    def categories(self):
+        """
+        Get all categories and subcategories used in LikeMinded.
+        """
+        raise NotImplementedError()
+    
+    def organizations(self):
+        """
+        Get all the organizations used in LikeMinded.
+        """
+        raise NotImplementedError()
     
     def __search_helper(self, query, category, subcategory, 
                         type, status, sort, page):
@@ -104,4 +169,19 @@ class Api (object):
             references.append(reference)
         
         return references
+    
+    def __fill_in_params(self, params_dict, ForClass):
+        """
+        Fill in any missing parameters from the fields of the given class.
+        """
+        if not hasattr(ForClass, '_fields'):
+            raise ValueError(
+                "Can't access the fields of class %r; " % ForClass.__name__ + \
+                "please use a 'namedtuple'.")
+        
+        for key in ForClass._fields:
+            if key not in params_dict:
+                params_dict[key] = None
+        
+        return params_dict
 

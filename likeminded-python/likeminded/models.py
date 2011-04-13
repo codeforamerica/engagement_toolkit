@@ -47,6 +47,8 @@ class SearchResults (object):
         for reference in next_results:
             yield reference
 
+
+
 _Reference = collections.namedtuple('Reference', ['name', 'url', 'id'])
 class BaseReference (_Reference):
     def __repr__(self):
@@ -62,6 +64,13 @@ class ProjectReference (BaseReference):
 
 class ResourceReference (BaseReference):
     type = 'Resource'
+
+
+
+ProjectDetails = collections.namedtuple('ProjectDetails', 
+     ['id','name','status','start_date','end_date','problem','process','result',
+     'external_feed_account_type','external_feed_account','locations','link',
+     'resources','categories','created','updated'])
 
 #
 ################################################################################
