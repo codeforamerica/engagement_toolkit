@@ -13,6 +13,7 @@ from likeminded.models import ProjectDetails
 from likeminded.models import ResourceDetails
 from likeminded.models import Category
 from likeminded.models import SubCategory
+from likeminded.models import Organization
 
 class Api (object):
     """The LikeMinded REST API wrapper."""
@@ -114,7 +115,18 @@ class Api (object):
         """
         Get all the organizations used in LikeMinded.
         """
-        raise NotImplementedError()
+        path = '/organizations'
+        query = { 'apikey' : self.__key }
+        response, organizations_xml = self.__connection.get(path, query)
+        
+        organizations = []
+        organizations_dict = xml2dict(organizations_xml).organizations
+        
+        for organization_dict in organizations_dict.organization:
+            organization = Organization(**organization_dict)
+            organizations.append(organization)
+        
+        return organizations
     
     def __search_helper(self, query, category, subcategory, 
                         type, status, sort, page):

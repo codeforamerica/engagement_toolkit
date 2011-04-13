@@ -213,3 +213,32 @@ class TestLikeMindedCategories (unittest.TestCase):
                          if category.__class__.__name__ == 'SubCategory']
         self.assertEquals(len(subcategories), 43)
 
+
+class TestLikeMindedOrganizations (unittest.TestCase):
+    
+    def setUp(self):
+        from likeminded.connection import Connection
+        conn = Connection('mylikemindedserver', http='No HTTP')
+        
+        @patch(conn)
+        def get(self, path, data={}):
+            if path == '/organizations':
+                content = const.ORGANIZATIONS
+            
+            response = None
+            return response, content
+        
+        self.conn = conn
+        
+    def test_TheRightNumberOfOrganizationsAreReturned(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        orgs = api.organizations()
+        self.assertEquals(len(orgs), 786)
+        
+    def test_AllThingsReturnedAreOrganizations(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        orgs = api.organizations()
+        for org in orgs:
+            self.assertEqual(org.__class__.__name__, 'Organization')

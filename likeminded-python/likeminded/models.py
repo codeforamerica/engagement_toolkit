@@ -82,6 +82,8 @@ Category = collections.namedtuple('Category', ['id','name'])
 
 SubCategory = collections.namedtuple('SubCategory', ['id','name','category_id'])
 
+Organization = collections.namedtuple('Organization', ['id','name'])
+
 #
 ################################################################################
 
