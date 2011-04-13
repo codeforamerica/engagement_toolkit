@@ -6,7 +6,7 @@ Convert an XML string or file with XML data to a dict object.
 http://code.google.com/p/xml2dict/
 """
 
-from .xml2dict import XML2Dict
+from .xml2dict import XML2Dict, Dict2XML
 
 def xml2dict(data):
     converter = XML2Dict()
@@ -15,3 +15,7 @@ def xml2dict(data):
         data = data.read()
     
     return converter.fromstring(data)
+
+def dict2xml(data):
+    converter = Dict2XML()
+    return converter.tostring(data)

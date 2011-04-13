@@ -62,6 +62,44 @@ class XML2Dict(object):
         root_tag, root_tree = self._namespace_split(t.tag, self._parse_node(t))
         return object_dict({root_tag: root_tree})
 
+class Dict2XML (object):
+    def tostring(self, d):
+        """convert dictionary to xml string"""
+        if not isinstance(d, dict):
+            raise TypeError('tostring must receive a dictionary: %r' % d)
+        if len(d) != 1:
+            raise ValueError('Dictionary must have exactly one root element')
+        if isinstance(d.itervalues().next(), list):
+            raise ValueError('Dictionary must not be a map to list: %r' % d)
+        
+        x = '<?xml version="1.0" encoding="UTF-8"?>\n'
+        return x + self.__tostring_helper(d)
+    
+    def __tostring_helper(self, d):
+        if isinstance(d, int):
+            return str(d)
+        
+        elif isinstance(d, basestring):
+            return '<![CDATA[%s]]>' % d
+        
+        elif isinstance(d, dict):
+            x = ''
+            for tag,content in d.iteritems():
+                if content is None:
+                    x += '<%s />' % tag
+                elif isinstance(content, list):
+                    for c in content:
+                        if c is None:
+                            x += '<%s />' % tag
+                        else:
+                            x += '<%s>%s</%s>' % (tag,self.__tostring_helper(c),tag)
+                else:
+                    x += '<%s>%s</%s>' % (tag,self.__tostring_helper(content),tag)
+            return x
+        
+        else:
+            raise ValueError('Cannot convert %r to an XML string' % d)
+
 
 
 if __name__ == '__main__':
