@@ -17,7 +17,7 @@ setup(
         "Intended Audience :: Science/Research",
         
         "Topic :: Software Development :: Libraries :: Python Modules",
-        
+        "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
     ]
 )
