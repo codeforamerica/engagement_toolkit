@@ -26,12 +26,22 @@ class TestLikeMindedSearchResults (unittest.TestCase):
                 content = const.SEARCH_RESULTS_HIGH_SCHOOL_PG_2
             elif data['query'] == 'high school' and data['page'] == 3:
                 content = const.SEARCH_RESULTS_HIGH_SCHOOL_PG_3
+            elif data['category'] == '1':
+                content = const.SEARCH_RESULTS_CATEGORY_ARTS
             
             response = None
             return response, content
         
         self.conn = conn
+    
+    def test_ShouldAcceptMultipleTypesForcategory(self):
+        api = likeminded.Api(key='', connection=self.conn)
         
+        categories = [1, '1', [1], ['1']]
+        
+        for category in categories:
+            self.assertEqual(len(api.search(category=category)), 117)
+    
     def test_SearchResultsLengthShouldBeAsExected(self):
         api = likeminded.Api(key='', connection=self.conn)
         
@@ -110,7 +120,24 @@ class TestLikeMindedProject (unittest.TestCase):
             response = None
             return response, content
         
+        @patch(conn)
+        def post(self, path, data={}):
+            content = data['project']
+            
+            response = None
+            return response, content
+        
         self.conn = conn
+        
+    def test_ExpectedProjectIsCreated(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        project = api.create_project(name='Hello, world!', process='We just did it')
+        
+        self.assertEqual(project.__class__.__name__, 'ProjectDetails')
+        self.assertEqual(project.name, 'Hello, world!')
+        self.assertEqual(project.process, 'We just did it')
+        self.assertEqual(project.end_date, None)
         
     def test_ProjectReferenceIsAsExpected(self):
         api = likeminded.Api(key='', connection=self.conn)
@@ -153,7 +180,24 @@ class TestLikeMindedResource (unittest.TestCase):
             response = None
             return response, content
         
+        @patch(conn)
+        def post(self, path, data={}):
+            content = data['resource']
+            
+            response = None
+            return response, content
+        
         self.conn = conn
+        
+    def test_ExpectedResourceIsCreated(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        resource = api.create_resource(name='Hello, world!', description='Stuff we have')
+        
+        self.assertEqual(resource.__class__.__name__, 'ResourceDetails')
+        self.assertEqual(resource.name, 'Hello, world!')
+        self.assertEqual(resource.description, 'Stuff we have')
+        self.assertEqual(resource.url, None)
         
     def test_ProjectReferenceIsAsExpected(self):
         api = likeminded.Api(key='', connection=self.conn)
@@ -195,23 +239,19 @@ class TestLikeMindedCategories (unittest.TestCase):
         api = likeminded.Api(key='', connection=self.conn)
         
         categories = api.categories()
-        self.assertEquals(len(categories), 51)
+        self.assertEquals(len(categories.all), 51)
         
     def test_TheRightNumberOfCategoriesAreReturned(self):
         api = likeminded.Api(key='', connection=self.conn)
         
-        categories = [category 
-                      for category in api.categories() 
-                      if category.__class__.__name__ == 'Category']
+        categories = api.categories()
         self.assertEquals(len(categories), 8)
         
     def test_TheRightNumberOfSubCategoriesAreReturned(self):
         api = likeminded.Api(key='', connection=self.conn)
         
-        subcategories = [category 
-                         for category in api.categories() 
-                         if category.__class__.__name__ == 'SubCategory']
-        self.assertEquals(len(subcategories), 43)
+        subcategories = api.categories()
+        self.assertEquals(len(subcategories.subcategories), 43)
 
 
 class TestLikeMindedOrganizations (unittest.TestCase):

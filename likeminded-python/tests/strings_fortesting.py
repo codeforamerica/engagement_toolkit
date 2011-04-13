@@ -113,6 +113,131 @@ SEARCH_RESULTS_HIGH_SCHOOL_PG_3 = """<?xml version="1.0" encoding="UTF-8" ?><sea
 					</results> 
 </search_results>"""
 
+SEARCH_RESULTS_CATEGORY_ARTS = """<?xml version="1.0" encoding="UTF-8" ?><search_results query="" categories="1" subcategories="" type="All" status="All"> 
+	<results showing="20" available="117"> 
+					<project> 
+				<id>138</id> 
+				<name><![CDATA[Unified Theater empowers children with disabilities]]></name> 
+				<location><![CDATA[Hartford, Connecticut]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/unified-theater-empowers-children-with-disabilities]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>143</id> 
+				<name><![CDATA[Bringing the Arts Community Together to Save School Music Programs]]></name> 
+				<location><![CDATA[San Francisco, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/bringing-the-arts-community-together-to-save-school-music-programs]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>153</id> 
+				<name><![CDATA[How Skateboarders Saved a Park]]></name> 
+				<location><![CDATA[Tacoma, Washington]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/how-skateboarders-saved-a-park]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>155</id> 
+				<name><![CDATA[Instilling hope in North Philadelphia through the arts]]></name> 
+				<location><![CDATA[Philadelphia, Pennsylvania]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/instilling-hope-in-north-philadelphia-through-the-arts]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>162</id> 
+				<name><![CDATA[Festival brings people back to the streets]]></name> 
+				<location><![CDATA[West Palm Beach, Florida]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/festival-brings-people-back-to-the-streets]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>198</id> 
+				<name><![CDATA[Promote the art of first-person, autobiographical storytelling.]]></name> 
+				<location><![CDATA[]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/promote-the-art-of-first-person-autobiographical-storytelling]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>220</id> 
+				<name><![CDATA[Project Cabrini Green]]></name> 
+				<location><![CDATA[]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/project-cabrini-green]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>221</id> 
+				<name><![CDATA[ARTery Project]]></name> 
+				<location><![CDATA[San Francisco, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/artery-project]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>229</id> 
+				<name><![CDATA[The Poet in Residence at the Central Park Zoo]]></name> 
+				<location><![CDATA[New York, New York]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/the-poet-in-residence-at-the-central-park-zoo]]></likeminded_url> 
+			</project> 
+					<project> 
+				<id>232</id> 
+				<name><![CDATA[The Armadillo Mobile Community Garden]]></name> 
+				<location><![CDATA[Los Angeles, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/project/the-armadillo-mobile-community-garden]]></likeminded_url> 
+			</project> 
+							<resource>	
+				<id>2092</id> 
+				<name><![CDATA[Hip-hop bloc: Using Hip-hop to increase youth civic engagement]]></name> 
+				<location><![CDATA[]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/hip-hop-bloc-using-hip-hop-to-increase-youth-civic-engagement]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>2184</id> 
+				<name><![CDATA[Rewriting Rap to Empower Teens]]></name> 
+				<location><![CDATA[Atlanta, Georgia]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/rewriting-rap-to-empower-teens]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>2755</id> 
+				<name><![CDATA[Watts House Project: art meets architecture near the Towers]]></name> 
+				<location><![CDATA[Los Angeles, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/watts-house-project-art-meets-architecture-near-the-towers]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>2758</id> 
+				<name><![CDATA[Ready to Roll: Music on MLK Day]]></name> 
+				<location><![CDATA[Oakland, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/ready-to-roll-music-on-mlk-day]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>2765</id> 
+				<name><![CDATA[826 Valencia : The Writing Center]]></name> 
+				<location><![CDATA[San Francisco, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/826-valencia-the-writing-center]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>3199</id> 
+				<name><![CDATA[Saving San Francisco's School Music Programs]]></name> 
+				<location><![CDATA[San Francisco, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/saving-san-francisco-s-school-music-programs]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>3239</id> 
+				<name><![CDATA[How To: Turn a Payphone Into a Library]]></name> 
+				<location><![CDATA[Los Angeles, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/how-to-turn-a-payphone-into-a-library]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>3265</id> 
+				<name><![CDATA[From Parking to Parklets:  North Beach Cafés “Invade” the Parking Lane, Widen Sidewalks with Food and Drink]]></name> 
+				<location><![CDATA[San Francisco, California]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/from-parking-to-parklets-north-beach-caf-s-invade-the-parking-lane-widen-sidewalks-with-food-and-dri]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>3276</id> 
+				<name><![CDATA[Maryland Fine Arts Instructional Tool Kit]]></name> 
+				<location><![CDATA[]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/maryland-fine-arts-instructional-tool-kit]]></likeminded_url> 
+			</resource> 
+					<resource>	
+				<id>3277</id> 
+				<name><![CDATA[Maryland Fine Arts State Curriculum]]></name> 
+				<location><![CDATA[]]></location> 
+				<likeminded_url><![CDATA[likeminded.exygy.com/resource/maryland-fine-arts-state-curriculum]]></likeminded_url> 
+			</resource> 
+			</results> 
+</search_results>"""
+
 PROJECT_193 = """<?xml version="1.0" encoding="UTF-8" ?> 
 <project><name><![CDATA[Saving for Education]]></name><start_date /><end_date /><status>2</status><problem><![CDATA[A woman not having enough money to pay for her teenage daughter's extracurricular activities at school]]></problem><process><![CDATA[A single mother, Dametra worked full-time while living in a homeless shelter, building up enough money to rent a bad apartment in a worse neighborhood. Her daughter, Yvonne, risked losing a private scholarship due to poor grades. Hope was in short supply.<br><br><br /> 
 Then Dametra joined EARN, where she created a spending plan and set savings goals for her future. Eventually, Dametra saved enough money to hire a much-needed tutor for Yvonne, securing the grade-based scholarship that was keeping the teenager enrolled at a private high school.<br><br><br /> 

@@ -1,7 +1,36 @@
-"""
-A wrapper on the LikeMinded REST API.
+"""Python wrapper for the LikeMinded REST API.
+
+>>> api = Api(key='abc123mykey')
+>>> categories = api.categories()
+>>> for category in categories:
+...   print category.id, category.name
+... 
+1 Arts
+2 Health
+3 Education
+4 Crime & Safety
+5 Environment
+6 Economy
+7 Government
+8 Community
+>>>
+>>> references = api.search(category=1)
+>>> len(references)
+117
+>>> for reference in references:
+...   print reference.type, reference.id, reference.name
+... 
+Project 138 Unified Theater empowers children with disabilities
+Project 143 Bringing the Arts Community Together to Save School Music Programs
+Project 153 How Skateboarders Saved a Park
+Project 155 Instilling hope in North Philadelphia through the arts
+.
+.
+.
+>>>
 """
 
+from utils.xml2dict import dict2xml
 from utils.xml2dict import xml2dict
 
 from likeminded.connection import Connection
@@ -11,12 +40,21 @@ from likeminded.models import ProjectReference
 from likeminded.models import ResourceReference
 from likeminded.models import ProjectDetails
 from likeminded.models import ResourceDetails
+from likeminded.models import CategoryList
 from likeminded.models import Category
 from likeminded.models import SubCategory
 from likeminded.models import Organization
 
 class Api (object):
-    """The LikeMinded REST API wrapper."""
+    """The LikeMinded REST API wrapper.
+    
+    >>> import likeminded
+    >>> api = likeminded.Api(key='abc123mykey')
+    
+    >>> categories = api.categories()
+    >>>
+    >>> references = api.search(
+    """
     
     def __init__(self, key=None, connection=None):
         self.__key = key
@@ -50,7 +88,11 @@ class Api (object):
         
         Return a ProjectDetails object.
         """
-        return self.__read_details_helper('project', id, ProjectDetails)
+        path = '/projects/%s' % id
+        query = { 'apikey' : self.__key }
+        response, detail_xml = self.__connection.get(path, query)
+        
+        return self.__read_details_helper(detail_xml, 'project', ProjectDetails)
     
     def read_resource(self, id):
         """Read a resource from LikeMinded.
@@ -60,60 +102,82 @@ class Api (object):
         
         Return a ResourceDetails object.
         """
-        return self.__read_details_helper('resource', id, ResourceDetails)
+        path = '/resources/%s' % id
+        query = { 'apikey' : self.__key }
+        response, detail_xml = self.__connection.get(path, query)
+        
+        return self.__read_details_helper(detail_xml, 'resource', ResourceDetails)
     
-    def create_project(self, 
-                       name='', 
-                       start_date='', 
-                       end_date='', 
-                       problem='',
-                       processes='', 
-                       result='', 
-                       external_feed_account_type='',
-                       external_feed_account='',
-                       locations=[],
-                       resources=[],
-                       categories=[]):
+    def create_project(self, **kwds):
+        """Write a new project to LikeMinded.
+        
+        Return a ProjectDetails object representing the newly created data.
         """
-        Write a new project to LikeMinded.
-        """
-        raise NotImplementedError()
+        project_xml = dict2xml({'project':kwds})
+        
+        path = '/projects'
+        query = { 'apikey' : self.__key,
+                  'project' : project_xml }
+        response, project_xml = self.__connection.post(path, query)
+        
+        return self.__read_details_helper(project_xml, 'project', ProjectDetails)
     
-    def create_resource(self,
-                        name='',
-                        description='',
-                        url='',
-                        locations=[],
-                        categories=[]):
+    def create_resource(self, **kwds):
+        """Write a new resource to LikeMinded.
+        
+        Return a ResourceDetails object representing the newly created data.
         """
-        Write a new resource to LikeMinded.
-        """
-        raise NotImplementedError()
+        resource_xml = dict2xml({'resource':kwds})
+        
+        path = '/resources'
+        query = { 'apikey' : self.__key,
+                  'resource' : resource_xml }
+        response, resource_xml = self.__connection.post(path, query)
+        
+        return self.__read_details_helper(resource_xml, 'resource', ResourceDetails)
     
     def categories(self):
-        """
-        Get all categories and subcategories used in LikeMinded.
+        """Get all categories and subcategories used in LikeMinded.
+        
+        Return a CategoryList object.  This is like a tuple of Category objects.
+        It has two additional properties: ``subcategories``, which returns a
+        list of all Subcategory objects, and ``all``, which gives all 
+        Category and Subcategory objects.
         """
         path = '/categories'
         query = { 'apikey' : self.__key }
         response, categories_xml = self.__connection.get(path, query)
         
-        categories = []
+        category_list = []
         categories_dict = xml2dict(categories_xml).categories
         
-        for category_dict in categories_dict.category:
-            category = Category(**category_dict)
-            categories.append(category)
-        
+        subcategories_by_category_id = {}
         for subcategory_dict in categories_dict.sub_categories:
             subcategory = SubCategory(**subcategory_dict)
-            categories.append(subcategory)
+            
+            cid = subcategory.category_id
+            if cid not in subcategories_by_category_id:
+                subcategories_by_category_id[cid] = [subcategory]
+            else:
+                subcategories_by_category_id[cid].append(subcategory)
+        
+        categories_by_id = {}
+        for category_dict in categories_dict.category:
+            category_dict['subcategories'] = \
+                subcategories_by_category_id[category_dict.id]
+            category = Category(**category_dict)
+            
+            categories_by_id[category.id] = category
+            category_list.append(category)
+        
+        categories = CategoryList(category_list)
         
         return categories
     
     def organizations(self):
-        """
-        Get all the organizations used in LikeMinded.
+        """Get all the organizations used in LikeMinded.
+        
+        Return a list of Organization objects.
         """
         path = '/organizations'
         query = { 'apikey' : self.__key }
@@ -138,9 +202,14 @@ class Api (object):
         
         # Process the arguments.
         if isinstance(category, (list, tuple)):
-            category = ','.join(category)
+            category = ','.join(map(str, category))
+        else:
+            category = str(category)
+        
         if isinstance(subcategory, (list, tuple)):
-            subcategory = ','.join(category) 
+            subcategory = ','.join(map(str, subcategory)) 
+        else:
+            subcategory = str(subcategory)
         
         search_terms = { 'query' : query,
                          'category' : category, 
@@ -195,11 +264,11 @@ class Api (object):
         
         return references
     
-    def __read_details_helper(self, type_string, id, DetailClass):
-        path = '/%ss/%s' % (type_string, id)
-        query = { 'apikey' : self.__key }
-        response, detail_xml = self.__connection.get(path, query)
-        
+    def __read_details_helper(self, detail_xml, type_string, DetailClass):
+        """
+        Use this method to read the details responses from get and post 
+        requests for LikeMinded projects and resources.
+        """
         detail_dict = xml2dict(detail_xml)[type_string]
         detail_dict = self.__fill_in_params(detail_dict, DetailClass)
         details = DetailClass(**detail_dict)

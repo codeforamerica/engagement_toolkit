@@ -3,6 +3,7 @@ Object representations of the concepts in the likeminded API.
 """
 
 import collections
+import itertools
 
 ################################################################################
 # You probably shouldn't be creating the objects below directly ever.  Use the
@@ -78,7 +79,15 @@ ResourceDetails = collections.namedtuple('ResourceDetails',
 
 
 
-Category = collections.namedtuple('Category', ['id','name'])
+class CategoryList (tuple):
+    @property
+    def all(self):
+        return self + self.subcategories
+    @property
+    def subcategories(self):
+        return tuple(itertools.chain(*[category.subcategories for category in self]))
+
+Category = collections.namedtuple('Category', ['id','name','subcategories'])
 
 SubCategory = collections.namedtuple('SubCategory', ['id','name','category_id'])
 
