@@ -18,19 +18,12 @@ db = server['likeminded']
 
 likeminded_data = db.query('function(doc) { emit(doc._id, doc); }')
 
-#for row in likeminded_data:
-    #print row.key
-    #print row.value['likeminded']['name'] #name problem process results
-    
-docs = [' '.join([row.value['likeminded']['name'],
-                  row.value['likeminded']['problem'] or '',
-                  row.value['likeminded']['process'] or '',
-                  row.value['likeminded']['result'] or '']) for row in likeminded_data]
+docs = [' '.join([row.value['name'],
+                  row.value['problem'] or '',
+                  row.value['process'] or '',
+                  row.value['result'] or '']) for row in likeminded_data]
 
 all_posts = [post.lower().split() for post in docs]
-#print all_posts
-
-
 
 # Provides tf/idf/tf_idf abstractions for scoring
 
@@ -44,8 +37,8 @@ for idx in range(len(all_posts)):
     post = all_posts[idx]
     fdist = nltk.FreqDist(post)
 
-    doc_title = list(likeminded_data)[idx].value['likeminded']['name']
-    link = list(likeminded_data)[idx].value['likeminded']['link']
+    doc_title = list(likeminded_data)[idx].value['name']
+    link = list(likeminded_data)[idx].value['link']
     td_matrix[(doc_title, link)] = {}
 
     for term in fdist.iterkeys():

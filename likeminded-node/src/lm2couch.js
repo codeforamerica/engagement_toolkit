@@ -8,10 +8,10 @@
   //options for querying likeminded
   _options = {
     lmBaseUrl: 'http://api.likeminded.org',
-    lmApiKey: 'a084895b83fc9e1d9a1daa0d58e91a7e',
+    lmApiKey: 'YOUR-API-KEY',
     calaisBaseUrl: 'http://api.opencalais.com/tag/rs/enrich',
-    calaisApiKey: '94xh8ewqkg5xxtp3mhf7w32h',
-    couchBaseUrl: 'http://184.72.175.193:5984/likeminded'
+    calaisApiKey: 'YOUR-API-KEY',
+    couchBaseUrl: 'http://localhost:5984/likeminded'
   },
   //incrementer for the project page
   _projPage = 1,
@@ -23,6 +23,7 @@
   _curProjectCnt = 0;
 
   //start functions from opencalais for simplifying the json results
+  //http://www.opencalais.com/documentation/calais-web-service-api/interpreting-api-response/opencalais-json-output-format
   function resolveReferences(flatdb) {
     for (var element in flatdb) {
       for (var attribute in flatdb[element]) {
@@ -94,13 +95,7 @@
   //xml2js project parser
   var projParser = new _lib.xml2js.Parser();
   //bind event handler when the xml parsing ends
-  projParser.addListener('end', function(json) {
-    //this is what we're going to put into couch
-    var doc = {
-      _id: json.id,
-      likeminded: json
-    };
-    
+  projParser.addListener('end', function(doc) {
     _curProjectCnt++;
     
     console.log(_curProjectCnt + ' of ' + _totalProjects);
@@ -131,11 +126,11 @@
   };
   
   //Go add the OpenCalais details based on the text from likeminded
-  var addOpenCalaisDetails = function (project) {
-    var text = project.likeminded.name + ' ' +
-      project.likeminded.problem + ' ' + 
-      project.likeminded.process + ' ' + 
-      project.likeminded.result;
+  var addOpenCalaisDetails = function (doc) {
+    var text = doc.name + ' ' +
+      doc.problem + ' ' + 
+      doc.process + ' ' + 
+      doc.result;
     
     _lib.request({
         method: 'POST', 
@@ -154,15 +149,15 @@
         resolveReferences(jsonObj);
         simpleJson = createHierarchy(jsonObj);
         
-        project.openCalais = simpleJson;
-        addToCouch(project);
+        doc.opencalais = simpleJson;
+        addToCouch(doc);
       } else {
         console.log(jsonStr);
-        console.log('Error parsing OpenCalais response for Project ' + project._id);
+        console.log('Error parsing OpenCalais response for Project ' + doc.id);
         
         //retry logic because OpenCalais only allows 4 queries per second
         setTimeout(function() {
-          addOpenCalaisDetails(project);
+          addOpenCalaisDetails(doc);
         }, 1000);
       }
     });        
