@@ -14,6 +14,8 @@ This is the main site for the Engagement Toolkit.  Currently, configurations is 
 
 This is an API wrapper in Python for LikeMinded.
 
+PHP Wrapper coming soon.
+
 
 ## README syntax ##
 
