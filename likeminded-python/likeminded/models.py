@@ -76,6 +76,12 @@ ResourceDetails = collections.namedtuple('ResourceDetails',
     ['id','name','description','url','created','updated','author','link',
      'locations','projects','categories'])
 
+
+
+Category = collections.namedtuple('Category', ['id','name'])
+
+SubCategory = collections.namedtuple('SubCategory', ['id','name','category_id'])
+
 #
 ################################################################################
 

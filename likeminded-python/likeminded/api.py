@@ -11,6 +11,8 @@ from likeminded.models import ProjectReference
 from likeminded.models import ResourceReference
 from likeminded.models import ProjectDetails
 from likeminded.models import ResourceDetails
+from likeminded.models import Category
+from likeminded.models import SubCategory
 
 class Api (object):
     """The LikeMinded REST API wrapper."""
@@ -91,7 +93,22 @@ class Api (object):
         """
         Get all categories and subcategories used in LikeMinded.
         """
-        raise NotImplementedError()
+        path = '/categories'
+        query = { 'apikey' : self.__key }
+        response, categories_xml = self.__connection.get(path, query)
+        
+        categories = []
+        categories_dict = xml2dict(categories_xml).categories
+        
+        for category_dict in categories_dict.category:
+            category = Category(**category_dict)
+            categories.append(category)
+        
+        for subcategory_dict in categories_dict.sub_categories:
+            subcategory = SubCategory(**subcategory_dict)
+            categories.append(subcategory)
+        
+        return categories
     
     def organizations(self):
         """

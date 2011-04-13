@@ -173,3 +173,43 @@ class TestLikeMindedResource (unittest.TestCase):
         for (key, value) in expected_res.items():
             self.assertEquals(resource._asdict()[key], value)
 
+
+
+class TestLikeMindedCategories (unittest.TestCase):
+    
+    def setUp(self):
+        from likeminded.connection import Connection
+        conn = Connection('mylikemindedserver', http='No HTTP')
+        
+        @patch(conn)
+        def get(self, path, data={}):
+            if path == '/categories':
+                content = const.CATEGORIES
+            
+            response = None
+            return response, content
+        
+        self.conn = conn
+        
+    def test_TheRightNumberOfCategoriesAndSubcategoriesAreReturned(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        categories = api.categories()
+        self.assertEquals(len(categories), 51)
+        
+    def test_TheRightNumberOfCategoriesAreReturned(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        categories = [category 
+                      for category in api.categories() 
+                      if category.__class__.__name__ == 'Category']
+        self.assertEquals(len(categories), 8)
+        
+    def test_TheRightNumberOfSubCategoriesAreReturned(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        subcategories = [category 
+                         for category in api.categories() 
+                         if category.__class__.__name__ == 'SubCategory']
+        self.assertEquals(len(subcategories), 43)
+
