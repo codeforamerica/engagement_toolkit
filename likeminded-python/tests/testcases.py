@@ -95,7 +95,6 @@ class TestLikeMindedProject (unittest.TestCase):
         conn = Connection('mylikemindedserver', http='No HTTP')
         
         import re
-        
         exp = re.compile(r'^.*/projects/(?P<project_id>\d+)$')
         
         @patch(conn)
@@ -131,5 +130,46 @@ class TestLikeMindedProject (unittest.TestCase):
         }
         
         for (key, value) in expected_proj.items():
-            self.assertEquals(project._asdict().get(key), value)
+            self.assertEquals(project._asdict()[key], value)
+
+
+class TestLikeMindedResource (unittest.TestCase):
+    
+    def setUp(self):
+        from likeminded.connection import Connection
+        conn = Connection('mylikemindedserver', http='No HTTP')
+        
+        import re
+        exp = re.compile(r'^.*/resources/(?P<resource_id>\d+)$')
+        
+        @patch(conn)
+        def get(self, path, data={}):
+            match = exp.match(path)
+            project_id = match.group('resource_id')
+            
+            if project_id == '200':
+                content = const.RESOURCE_200
+            
+            response = None
+            return response, content
+        
+        self.conn = conn
+        
+    def test_ProjectReferenceIsAsExpected(self):
+        api = likeminded.Api(key='', connection=self.conn)
+        
+        resource = api.read_resource('200')
+        
+        expected_res = {
+            'id' : '200',
+            'name' : 'Gaining Ground: Supporting English Learners Through After-School Literacy Programming',
+            'created' : '2011-01-21 19:30:30',
+            'updated' : '2011-01-21 19:30:30',
+            'url' : 'http://www.issuelab.org/data_partners/likeminded/gaining_ground_supporting_english_learners_through_after_school_literacy_programming',
+            'link' : 'http://likeminded.exygy.com/resource/gaining-ground-supporting-english-learners-through-after-school-literacy-programming',
+            'locations' : None,
+        }
+        
+        for (key, value) in expected_res.items():
+            self.assertEquals(resource._asdict()[key], value)
 

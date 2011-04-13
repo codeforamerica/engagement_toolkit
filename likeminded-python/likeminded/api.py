@@ -10,10 +10,11 @@ from likeminded.models import SearchResults
 from likeminded.models import ProjectReference
 from likeminded.models import ResourceReference
 from likeminded.models import ProjectDetails
+from likeminded.models import ResourceDetails
 
 class Api (object):
-    """The LikeMinded REST API wrapper.
-    """
+    """The LikeMinded REST API wrapper."""
+    
     def __init__(self, key=None, connection=None):
         self.__key = key
         self.__connection = connection or \
@@ -21,8 +22,7 @@ class Api (object):
     
     def search(self, query='', category=[], subcategory=[], 
                type='All', status='All', sort='All'):
-        """
-        Search resources or projects in Likeminded.
+        """Search resources or projects in Likeminded.
         
         Keyword arguments:
         category -- A list of 
@@ -40,28 +40,24 @@ class Api (object):
                                     type, status, sort, 1)
     
     def read_project(self, id):
-        """
-        Read a project from LikeMinded.
+        """Read a project from LikeMinded.
         
         Arguments:
         id -- The project id as a string or an integer
         
         Return a ProjectDetails object.
         """
-        path = '/projects/%s' % id
-        query = { 'apikey' : self.__key }
-        response, project_xml = self.__connection.get(path, query)
-        
-        project_dict = xml2dict(project_xml).project
-        project_dict = self.__fill_in_params(project_dict, ProjectDetails)
-        details = ProjectDetails(**project_dict)
-        return details
+        return self.__read_details_helper('project', id, ProjectDetails)
     
     def read_resource(self, id):
+        """Read a resource from LikeMinded.
+        
+        Arguments:
+        id -- The resource id as a string or an integer
+        
+        Return a ResourceDetails object.
         """
-        Read a resource from LikeMinded.
-        """
-        raise NotImplementedError()
+        return self.__read_details_helper('resource', id, ResourceDetails)
     
     def create_project(self, 
                        name='', 
@@ -169,6 +165,16 @@ class Api (object):
             references.append(reference)
         
         return references
+    
+    def __read_details_helper(self, type_string, id, DetailClass):
+        path = '/%ss/%s' % (type_string, id)
+        query = { 'apikey' : self.__key }
+        response, detail_xml = self.__connection.get(path, query)
+        
+        detail_dict = xml2dict(detail_xml)[type_string]
+        detail_dict = self.__fill_in_params(detail_dict, DetailClass)
+        details = DetailClass(**detail_dict)
+        return details
     
     def __fill_in_params(self, params_dict, ForClass):
         """

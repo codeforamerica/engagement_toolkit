@@ -71,6 +71,10 @@ ProjectDetails = collections.namedtuple('ProjectDetails',
      ['id','name','status','start_date','end_date','problem','process','result',
      'external_feed_account_type','external_feed_account','locations','link',
      'resources','categories','created','updated'])
+    
+ResourceDetails = collections.namedtuple('ResourceDetails',
+    ['id','name','description','url','created','updated','author','link',
+     'locations','projects','categories'])
 
 #
 ################################################################################
