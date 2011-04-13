@@ -30,9 +30,6 @@ Project 155 Instilling hope in North Philadelphia through the arts
 >>>
 """
 
-from utils.xml2dict import dict2xml
-from utils.xml2dict import xml2dict
-
 from likeminded.connection import Connection
 
 from likeminded.models import SearchResults
@@ -44,6 +41,9 @@ from likeminded.models import CategoryList
 from likeminded.models import Category
 from likeminded.models import SubCategory
 from likeminded.models import Organization
+
+from likeminded.utils.xml2dict import dict2xml
+from likeminded.utils.xml2dict import xml2dict
 
 class Api (object):
     """The LikeMinded REST API wrapper.

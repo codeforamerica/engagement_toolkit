@@ -3,9 +3,9 @@ Tests for the utils package.
 """
 
 import unittest
-from utils.testing import patch
+from likeminded.utils.testing import patch
 
-import utils.xml2dict as x2d
+import likeminded.utils.xml2dict as x2d
 
 class Test_X2D (unittest.TestCase):
     pass
