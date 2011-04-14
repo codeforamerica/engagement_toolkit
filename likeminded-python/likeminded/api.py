@@ -56,7 +56,7 @@ class Api (object):
     >>> references = api.search(
     """
     
-    def __init__(self, key=None, connection=None):
+    def __init__(self, key, connection=None):
         self.__key = key
         self.__connection = connection or \
                             Connection('http://v1.api.likeminded.exygy.com')
