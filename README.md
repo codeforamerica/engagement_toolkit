@@ -20,3 +20,17 @@ PHP Wrapper coming soon, hopefully.
 ## README syntax ##
 
 [Use Markdown Syntax](http://daringfireball.net/projects/markdown/syntax)
+
+
+
+## Related Projects at Code for America ##
+
+### Catalyze ###
+Catalyze is a way to share projects and problems and get them solved.
+Catalyze is a spin off of the Engagement Toolkit, and has a more
+specific focus on building connections with people who have problems.
+We are seeking to understand how real people actually solve problems
+and are doing an experimental project where we match people together
+to help them actually solve problems.
+
+https://github.com/codeforamerica/Catalyze
