@@ -14,8 +14,12 @@ class TestLikeMindedSearchResults (unittest.TestCase):
         from likeminded.connection import Connection
         conn = Connection('mylikemindedserver', http='No HTTP')
         
+        mytest = self
+        
         @patch(conn)
         def get(self, path, data={}):
+            mytest.assert_('apikey' in data, "Request to %r must have an API key." % path)
+            
             if data['query'] == 'school':
                 content = const.SEARCH_RESULTS_1
             elif data['query'] == 'ishkabibble':
@@ -107,8 +111,12 @@ class TestLikeMindedProject (unittest.TestCase):
         import re
         exp = re.compile(r'^.*/projects/(?P<project_id>\d+)$')
         
+        mytest = self
+        
         @patch(conn)
         def get(self, path, data={}):
+            mytest.assert_('apikey' in data, "Request to %r must have an API key." % path)
+            
             match = exp.match(path)
             project_id = match.group('project_id')
             
@@ -121,8 +129,11 @@ class TestLikeMindedProject (unittest.TestCase):
             return response, content
         
         @patch(conn)
-        def post(self, path, data={}):
-            content = data['project']
+        def post(self, path, data={}, body=None):
+            mytest.assert_('apikey' in data, "Request to %r must have an API key." % path)
+            mytest.assert_(body is not None)
+            
+            content = body
             
             response = None
             return response, content
@@ -169,8 +180,11 @@ class TestLikeMindedResource (unittest.TestCase):
         import re
         exp = re.compile(r'^.*/resources/(?P<resource_id>\d+)$')
         
+        mytest = self
         @patch(conn)
         def get(self, path, data={}):
+            mytest.assert_('apikey' in data, "Request to %r must have an API key." % path)
+            
             match = exp.match(path)
             project_id = match.group('resource_id')
             
@@ -181,8 +195,11 @@ class TestLikeMindedResource (unittest.TestCase):
             return response, content
         
         @patch(conn)
-        def post(self, path, data={}):
-            content = data['resource']
+        def post(self, path, data={}, body=None):
+            mytest.assert_('apikey' in data, "Request to %r must have an API key." % path)
+            mytest.assert_(body is not None)
+            
+            content = body
             
             response = None
             return response, content
@@ -225,8 +242,11 @@ class TestLikeMindedCategories (unittest.TestCase):
         from likeminded.connection import Connection
         conn = Connection('mylikemindedserver', http='No HTTP')
         
+        mytest = self
         @patch(conn)
         def get(self, path, data={}):
+            mytest.assert_('apikey' in data, "Request to %r must have an API key." % path)
+            
             if path == '/categories':
                 content = const.CATEGORIES
             
@@ -260,8 +280,11 @@ class TestLikeMindedOrganizations (unittest.TestCase):
         from likeminded.connection import Connection
         conn = Connection('mylikemindedserver', http='No HTTP')
         
+        mytest = self
         @patch(conn)
         def get(self, path, data={}):
+            mytest.assert_('apikey' in data, "Request to %r must have an API key." % path)
+            
             if path == '/organizations':
                 content = const.ORGANIZATIONS
             

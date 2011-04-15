@@ -46,15 +46,7 @@ from likeminded.utils.xml2dict import dict2xml
 from likeminded.utils.xml2dict import xml2dict
 
 class Api (object):
-    """The LikeMinded REST API wrapper.
-    
-    >>> import likeminded
-    >>> api = likeminded.Api(key='abc123mykey')
-    
-    >>> categories = api.categories()
-    >>>
-    >>> references = api.search(
-    """
+    """The LikeMinded REST API wrapper."""
     
     def __init__(self, key, connection=None):
         self.__key = key
@@ -66,7 +58,11 @@ class Api (object):
         """Search resources or projects in Likeminded.
         
         Keyword arguments:
-        category -- A list of 
+        category -- Either a group id or a list of group ids
+        subcategory -- Either a group id or a list of group ids
+        type -- 'Project', 'Resource', or 'All' (default)
+        status -- 0 (starting up), 1 (ongoing), 2 (completed), 'All' (default)
+        sort -- 'Relevance', 'Recent', or 'All' (default)
         
         Return a ``SearchResults`` object.  This object behaves kind of like a
         list, except that it doesn't support indexing.  You can check the number
@@ -111,28 +107,58 @@ class Api (object):
     def create_project(self, **kwds):
         """Write a new project to LikeMinded.
         
+        Keyword arguments:
+        name -- 
+        status -- 
+        start_date -- 
+        end_date -- 
+        problem -- 
+        process -- 
+        result -- 
+        external_feed_account_type -- 
+        external_feed_account -- 
+        locationslink -- 
+        resources -- 
+        categories -- 
+        
         Return a ProjectDetails object representing the newly created data.
         """
         project_xml = dict2xml({'project':kwds})
         
         path = '/projects'
-        query = { 'apikey' : self.__key,
-                  'project' : project_xml }
-        response, project_xml = self.__connection.post(path, query)
+        query = { 'apikey' : self.__key }
+        body = project_xml
+        
+        response, project_xml = self.__connection.post(path, query, project_xml)
+        
+        print project_xml
         
         return self.__read_details_helper(project_xml, 'project', ProjectDetails)
     
     def create_resource(self, **kwds):
         """Write a new resource to LikeMinded.
         
+        Keyword arguments:
+        name -- 
+        description -- 
+        url -- 
+        created -- 
+        updated -- 
+        author -- 
+        link -- 
+        locations -- 
+        projects -- 
+        categories -- 
+        
         Return a ResourceDetails object representing the newly created data.
         """
         resource_xml = dict2xml({'resource':kwds})
         
         path = '/resources'
-        query = { 'apikey' : self.__key,
-                  'resource' : resource_xml }
-        response, resource_xml = self.__connection.post(path, query)
+        query = { 'apikey' : self.__key }
+        body = resource_xml
+        
+        response, resource_xml = self.__connection.post(path, query, resource_xml)
         
         return self.__read_details_helper(resource_xml, 'resource', ResourceDetails)
     
