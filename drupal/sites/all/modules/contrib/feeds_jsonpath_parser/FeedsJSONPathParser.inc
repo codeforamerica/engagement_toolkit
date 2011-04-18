@@ -26,14 +26,12 @@ class FeedsJSONPathParser extends FeedsParser {
     $this->debug = array_keys(array_filter($source_config['debug']['options']));
 
     $raw = trim($fetcher_result->getRaw());
-
     $result = new FeedsParserResult();
     // Set link so we can set the result link attribute.
     $fetcher_config = $source->getConfigFor($source->importer->fetcher);
     $result->link = $fetcher_config['source'];
 
     $array = json_decode($raw, TRUE);
-dpm($array);
 
     // Support JSON lines format.
     if (!is_array($array)) {
