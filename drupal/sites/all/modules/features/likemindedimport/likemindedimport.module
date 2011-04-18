@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the LikemindedImport feature.
+ */
+
+include_once('likemindedimport.features.inc');
