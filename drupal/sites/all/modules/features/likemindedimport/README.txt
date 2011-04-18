@@ -4,6 +4,8 @@ To import our LikeMinded CouchDB, on another site, do the following.
 
 1. Install this feature.
 2. Create a new "LikemindedSource" content type page.
+node/add/likemindedsource
+
 3. Add this URL in the URL field (which points to our pheattle couchDB)
 
 http://pheattle.iriscouch.com/likeminded_projects/_design/projects/_view/all
