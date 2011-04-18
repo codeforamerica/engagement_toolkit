@@ -22,10 +22,7 @@ function et_projects_user_default_permissions() {
   // Exported permission: delete any project content
   $permissions['delete any project content'] = array(
     'name' => 'delete any project content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
+    'roles' => array(),
   );
 
   // Exported permission: delete own project content
@@ -40,10 +37,7 @@ function et_projects_user_default_permissions() {
   // Exported permission: edit any project content
   $permissions['edit any project content'] = array(
     'name' => 'edit any project content',
-    'roles' => array(
-      0 => 'administrator',
-    ),
-    'module' => 'node',
+    'roles' => array(),
   );
 
   // Exported permission: edit own project content
