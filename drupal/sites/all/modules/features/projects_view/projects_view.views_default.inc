@@ -27,6 +27,7 @@ function projects_view_views_default_views() {
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['exposed_form']['type'] = 'basic';
+  $handler->display->display_options['exposed_form']['options']['submit_button'] = 'Engage';
   $handler->display->display_options['pager']['type'] = 'full';
   $handler->display->display_options['pager']['options']['items_per_page'] = '20';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -35,6 +36,7 @@ function projects_view_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = 0;
+  $handler->display->display_options['exposed_block'] = TRUE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -79,28 +81,6 @@ function projects_view_views_default_views() {
   $handler->display->display_options['fields']['field_problem']['hide_empty'] = 0;
   $handler->display->display_options['fields']['field_problem']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_problem']['field_api_classes'] = 0;
-  /* Field: Fields: Result */
-  $handler->display->display_options['fields']['field_result']['id'] = 'field_result';
-  $handler->display->display_options['fields']['field_result']['table'] = 'field_data_field_result';
-  $handler->display->display_options['fields']['field_result']['field'] = 'field_result';
-  $handler->display->display_options['fields']['field_result']['alter']['alter_text'] = 0;
-  $handler->display->display_options['fields']['field_result']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_result']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_result']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_result']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_result']['alter']['trim'] = 1;
-  $handler->display->display_options['fields']['field_result']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_result']['alter']['max_length'] = '140';
-  $handler->display->display_options['fields']['field_result']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_result']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_result']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_result']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_result']['element_label_type'] = 'h4';
-  $handler->display->display_options['fields']['field_result']['element_label_colon'] = 0;
-  $handler->display->display_options['fields']['field_result']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_result']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_result']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_result']['field_api_classes'] = 0;
   /* Sort criterion: Content: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -122,15 +102,32 @@ function projects_view_views_default_views() {
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Search: Search Terms */
+  $handler->display->display_options['filters']['keys']['id'] = 'keys';
+  $handler->display->display_options['filters']['keys']['table'] = 'search_index';
+  $handler->display->display_options['filters']['keys']['field'] = 'keys';
+  $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['label'] = 'What do you care about?';
+  $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
+  $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
+  $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'project' => 'project',
+  );
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
-  $handler->display->display_options['path'] = 'likeminded-projects';
+  $handler->display->display_options['path'] = 'projects';
   $translatables['likeminded_projects'] = array(
     t('Master'),
     t('Projects'),
     t('more'),
-    t('Apply'),
+    t('Engage'),
     t('Reset'),
     t('Sort by'),
     t('Asc'),
@@ -139,8 +136,8 @@ function projects_view_views_default_views() {
     t('- All -'),
     t('Offset'),
     t('Problem'),
-    t('Result'),
     t('All'),
+    t('What do you care about?'),
     t('Page'),
   );
   $export['likeminded_projects'] = $view;
