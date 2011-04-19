@@ -1,5 +1,5 @@
 core = "7.x"
-dependencies[] = "admin_menu"
+# dependencies[] = "admin_menu"
 dependencies[] = "coder"
 dependencies[] = "coder_review"
 dependencies[] = "devel"
