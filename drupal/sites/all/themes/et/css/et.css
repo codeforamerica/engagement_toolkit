@@ -8,11 +8,16 @@ body.front span.submitted {
   display: none;
 }
 
-body.front #block-system-user-menu {
+#block-system-user-menu {
   width: 25%;
   display: inline;
 }
 
 #block-system-user-menu ul li{
   list-style: none;
+}
+
+body.logged-in #block-system-user-menu ul.menu li.first {
+  /* Hide "Sign in" */
+  display: none;
 }
