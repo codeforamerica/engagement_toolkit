@@ -7,3 +7,12 @@ body.front h1.title,
 body.front span.submitted {
   display: none;
 }
+
+body.front #block-system-user-menu {
+  width: 25%;
+  display: inline;
+}
+
+#block-system-user-menu ul li{
+  list-style: none;
+}
