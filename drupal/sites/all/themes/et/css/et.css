@@ -2,3 +2,8 @@
 .view .views-row {
   margin-bottom: 1em;
 }
+
+body.front h1.title,
+body.front span.submitted {
+  display: none;
+}
