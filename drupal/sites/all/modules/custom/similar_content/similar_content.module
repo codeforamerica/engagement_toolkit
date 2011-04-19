@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Main module file for similar_content module.
+ */
+
+/**
+ * Implements hook_node_update().
+ */
+function similar_content_node_update($node) {
+  // dpm($node);
+}
+
+/**
+ *
+ */
+function similar_content_get_similarity() {
+
+}
