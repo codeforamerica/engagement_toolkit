@@ -1,0 +1,10 @@
+name = Profile pages
+description = Adds separate pages for viewing and editing profiles.
+core = 7.x
+dependencies[] = profile2
+; Information added by drupal.org packaging script on 2011-03-21
+version = "7.x-1.0-beta2"
+core = "7.x"
+project = "profile2"
+datestamp = "1300731069"
+
