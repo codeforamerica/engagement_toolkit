@@ -41,33 +41,33 @@ admin/structure/feeds/edit/likeminded/mapping
 Add a new source (JSONPath Expression) and map it to your field.
 
 
-### An Example of a Couch resource
+
+### Data
+#### An Good Example of a Couch resource
 
 From:
-http://pheattle.iriscouch.com/_utils/document.html?likeminded_projects/e73dafceef7641d4f860bb9f5d3fa544
+http://ec2-184-72-175-193.compute-1.amazonaws.com:5984/_utils/document.html?likeminded_projects/e73dafceef7641d4f860bb9f5d4044fa
 
-_id	e73dafceef7641d4f860bb9f5d3fa544
-_rev	1-b5f278ccf7c1e7ed8d979cb46d330cad
-created	2011-02-03 16:21:03
-end_date	{ }
-external_feed_account	{ }
-id	75
-link	http://likeminded.org/project/organize-a-food-drive-for-awareness
-locations	
 
-location
 
-name	Organize a Food Drive for Awareness
-opencalais	
+### Mappings
 
-doc
-topics
-entities
+#### Done
+name (Title)
+problem (Text: field_problem)
+process (Text: field_process)
+result (Text: field_result)
 
-problem	Local food banks and soup kitchens need help raising donations and awareness for their causes.
-process	HOA members in the Edgewood neighborhood organized a canned food drive in a nearby park. Weeks before setting up the food drive itself, the ...
-resources	{ }
-result	{ }
-start_date	{ }
-status	1
-updated
+#### In progress
+
+categories   category  [0]  (Taxonomy: Categories)
+location  city (Taxonomy: City)
+
+#### To do
+start_date
+end_date
+resources   [0]  {id, name, description, url, created, updated, link}  (? Are there no pictures?)
+status  {1, 2, ?}  (What do these values correspond to?)  (map to a select text field w/ values)
+location {slug, zipcode, city, county, state_name, state_prefix, area_code, time_zone, lat, lon, is_free_text }
+link
+external_feed_account (?)
