@@ -6,6 +6,10 @@ core = 7.x
 engine = phptemplate
 
 stylesheets[all][] = css/et.css
+stylesheets[all][] = css/reset-bolierplate.css
+stylesheets[all][] = css/et-wireframe.css
+
+scripts[] = js/script.js
 
 regions[sidebar_first] = Sidebar first
 regions[sidebar_second] = Sidebar second
@@ -86,10 +90,4 @@ settings[grid_adjusted_regions_fluid][content][] = sidebar_first
 settings[grid_adjusted_regions_fluid][content][] = sidebar_second
 ; Nested group fluid width adjustments: regions inside a parent group to subtract to get remaining width
 settings[grid_adjusted_groups_fluid][content_group][] = sidebar_second
-
-; Information added by drupal.org packaging script on 2011-03-14
-version = "7.x-1.x-dev"
-core = "7.x"
-project = "fusion"
-datestamp = "1300061216"
 

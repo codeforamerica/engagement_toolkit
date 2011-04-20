@@ -16,7 +16,10 @@ function et_preprocess_html(&$vars) {
  * Page preprocessing
  */
 function et_preprocess_page(&$vars) {
-
+  $vars['logo_image'] = theme('image', array(
+    'path' => drupal_get_path('theme', 'et') . '/images/header_logo.gif', 
+    )
+  );
 }
 
 
