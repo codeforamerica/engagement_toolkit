@@ -60,6 +60,36 @@ function likemindedimport_feeds_importer_default() {
             'target' => 'title',
             'unique' => FALSE,
           ),
+          4 => array(
+            'source' => 'jsonpath_parser:4',
+            'target' => 'field_categories',
+            'unique' => FALSE,
+          ),
+          5 => array(
+            'source' => 'jsonpath_parser:5',
+            'target' => 'field_city',
+            'unique' => FALSE,
+          ),
+          6 => array(
+            'source' => 'jsonpath_parser:6',
+            'target' => 'field_county',
+            'unique' => FALSE,
+          ),
+          7 => array(
+            'source' => 'jsonpath_parser:7',
+            'target' => 'field_state',
+            'unique' => FALSE,
+          ),
+          8 => array(
+            'source' => 'jsonpath_parser:8',
+            'target' => 'field_area_code',
+            'unique' => FALSE,
+          ),
+          9 => array(
+            'source' => 'jsonpath_parser:9',
+            'target' => 'field_link:url',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '0',
         'input_format' => 'full_html',
