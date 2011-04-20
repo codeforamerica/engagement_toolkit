@@ -14,7 +14,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['access administration menu'] = array(
     'name' => 'access administration menu',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'admin_menu',
   );
@@ -59,8 +60,9 @@ function et_site_configuration_user_default_permissions() {
   $permissions['access comments'] = array(
     'name' => 'access comments',
     'roles' => array(
-      0 => 'authenticated user',
-      1 => 'developer',
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+      2 => 'developer',
     ),
     'module' => 'comment',
   );
@@ -88,7 +90,10 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: access dashboard
   $permissions['access dashboard'] = array(
     'name' => 'access dashboard',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'developer',
+    ),
+    'module' => 'dashboard',
   );
 
   // Exported permission: access devel information
@@ -122,8 +127,9 @@ function et_site_configuration_user_default_permissions() {
   $permissions['access user profiles'] = array(
     'name' => 'access user profiles',
     'roles' => array(
-      0 => 'authenticated user',
-      1 => 'developer',
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+      2 => 'developer',
     ),
     'module' => 'user',
   );
@@ -150,7 +156,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['administer blocks'] = array(
     'name' => 'administer blocks',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'block',
   );
@@ -570,7 +577,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['flush caches'] = array(
     'name' => 'flush caches',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'admin_menu',
   );
@@ -634,8 +642,9 @@ function et_site_configuration_user_default_permissions() {
   $permissions['post comments'] = array(
     'name' => 'post comments',
     'roles' => array(
-      0 => 'authenticated user',
-      1 => 'developer',
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+      2 => 'developer',
     ),
     'module' => 'comment',
   );
@@ -663,8 +672,9 @@ function et_site_configuration_user_default_permissions() {
   $permissions['search content'] = array(
     'name' => 'search content',
     'roles' => array(
-      0 => 'authenticated user',
-      1 => 'developer',
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+      2 => 'developer',
     ),
     'module' => 'search',
   );
@@ -682,7 +692,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['skip comment approval'] = array(
     'name' => 'skip comment approval',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'comment',
   );
@@ -709,8 +720,9 @@ function et_site_configuration_user_default_permissions() {
   $permissions['use advanced search'] = array(
     'name' => 'use advanced search',
     'roles' => array(
-      0 => 'authenticated user',
-      1 => 'developer',
+      0 => 'anonymous user',
+      1 => 'authenticated user',
+      2 => 'developer',
     ),
     'module' => 'search',
   );
