@@ -1,0 +1,23 @@
+.field-items,
+.view .views-row {
+  margin-bottom: 1em;
+}
+
+body.front h1.title,
+body.front span.submitted {
+  display: none;
+}
+
+#block-system-user-menu {
+  width: 25%;
+  display: inline;
+}
+
+#block-system-user-menu ul li{
+  list-style: none;
+}
+
+body.logged-in #block-system-user-menu ul.menu li.first {
+  /* Hide "Sign in" */
+  display: none;
+}
