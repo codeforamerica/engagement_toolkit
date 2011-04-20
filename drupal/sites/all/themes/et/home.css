@@ -200,6 +200,7 @@ h1 {
 
 h2 {
   font-size:24px;
+  font-weight:normal;
 }
 
 #main {
@@ -226,7 +227,7 @@ h2 {
 #footer {
   width:100%;
   background:url(images/footer_bg.gif) repeat-x bottom;
-  height:335px;
+  height:85px;
   position:absolute;
   bottom:0;
   left:0;
@@ -252,7 +253,6 @@ h2 {
   color:#FFF;
   text-align:center;
   display:block;
-  font-weight:bold;
   font-size:24px;
 }
 
