@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Main module file for similar_content module.
+ */
+
+/**
+ * Implements hook_node_update().
+ */
+function similar_content_node_update($node) {
+  $similar_content = similar_content_get_similarity($node->nid);
+  similar_content_update_similarity($similar_content);
+}
+
+/**
+ * Wrapper for python call.
+ */
+function similar_content_get_similarity($nid, $limit = 10) {
+  $similar_content = array();
+  $db_connection = Database::getConnectionInfo();
+  
+  // Make python call here.
+  $call = '--host=' . $db_connection['default']['host'] . ' --user=' . $db_connection['default']['username'] . '';
+  
+  // Format should be
+  $similar_content = array(
+    'id' => array(
+      'nid' => $nid,
+      'related_nid' => '185',
+      'similar_score' => '0.8',
+    ),
+  );
+  
+  return $similar_content;
+}
+
+/**
+ * Update similar content table.
+ */
+function similar_content_update_similarity($similar_content) {
+  // Remove all the values with the node ID.
+  foreach ($similar_content as $row) {
+    $num_deleted = db_delete('similar_content')
+      ->condition('nid', $row['nid'])
+      ->execute();
+  }
+  
+  // Add all the new values.
+  foreach ($similar_content as $row) {
+    $nid = db_insert('similar_content')
+      ->fields(array(
+        'nid' => $row['nid'],
+        'related_nid' => $row['related_nid'],
+        'similar_score' => $row['similar_score'],
+      ))
+      ->execute();
+  }
+}

@@ -1,0 +1,6 @@
+name = "Similar Content"
+description = "Rates similar content based on natural language"
+package = "Content"
+core = 7.x
+files[] = similar_content.module
+files[] = similar_content.install

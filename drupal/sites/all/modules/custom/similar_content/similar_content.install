@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Install file for similar_content module.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+function similar_content_schema() {
+  $schema['similar_content'] = array(
+    'description' => 'Table to store node IDs and similar content scores.', 
+    'fields' => array(
+      'nid' => array(
+        'description' => 'The primary identifier for a node.', 
+        'type' => 'int', 
+        'unsigned' => TRUE, 
+        'not null' => TRUE,
+      ), 
+      'related_nid' => array(
+        'description' => 'Related node id.', 
+        'type' => 'int', 
+        'unsigned' => TRUE, 
+        'not null' => TRUE,
+      ), 
+      'similar_score' => array(
+        'description' => 'The similar content score.', 
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ),
+    ), 
+    'indexes' => array(
+      'similar_content_nid' => array('nid'),
+      'similar_content_related_nid' => array('related_nid'), 
+    ),
+    'primary key' => array('nid', 'related_nid'),
+  );
+  
+  return $schema;
+}
