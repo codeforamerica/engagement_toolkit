@@ -12,10 +12,10 @@ function projects_view_views_default_views() {
 
   $view = new view;
   $view->name = 'likeminded_projects';
-  $view->description = 'Display projects imported from LikeMinded';
+  $view->description = 'Display projects imported from LikeMinded.';
   $view->tag = 'default';
   $view->base_table = 'node';
-  $view->human_name = 'Likeminded Projects';
+  $view->human_name = 'Projects';
   $view->core = 7;
   $view->api_version = '3.0-alpha1';
   $view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */
@@ -92,9 +92,10 @@ function projects_view_views_default_views() {
   $handler->display->display_options['arguments']['type']['field'] = 'type';
   $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
   $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '0';
-  $handler->display->display_options['arguments']['type']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '1';
+  $handler->display->display_options['arguments']['type']['summary']['format'] = 'unformatted_summary';
   $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['type']['summary_options']['inline'] = 0;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -123,6 +124,21 @@ function projects_view_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['path'] = 'projects';
+
+  /* Display: Block */
+  $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Type */
+  $handler->display->display_options['arguments']['type']['id'] = 'type';
+  $handler->display->display_options['arguments']['type']['table'] = 'node';
+  $handler->display->display_options['arguments']['type']['field'] = 'type';
+  $handler->display->display_options['arguments']['type']['default_action'] = 'summary';
+  $handler->display->display_options['arguments']['type']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['type']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['type']['summary']['number_of_records'] = '1';
+  $handler->display->display_options['arguments']['type']['summary']['format'] = 'unformatted_summary';
+  $handler->display->display_options['arguments']['type']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['type']['summary_options']['inline'] = 0;
   $translatables['likeminded_projects'] = array(
     t('Master'),
     t('Projects'),
@@ -139,6 +155,7 @@ function projects_view_views_default_views() {
     t('All'),
     t('What do you care about?'),
     t('Page'),
+    t('Block'),
   );
   $export['likeminded_projects'] = $view;
 
