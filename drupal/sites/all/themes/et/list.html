@@ -38,44 +38,65 @@
 
   <div id="container">
     <div id="header">
-      <h1>ET</h1>
-      <a href="#">Sign In</a>
-      <ul>
-        <li>Organizers</li>
-        <li>Volunteers</li>
-        <li>Projects</li>
-      </ul>
+      <img src="images/header_logo.gif" width="150" height="57" alt="ToGATHER" />
+      <a id="signin" href="#">Sign In</a>
     </div>
+    <div id="navigation">
+<ul id="nav">
+		<li>
+			<a href="#" title="Organizers">Organizers</a>
+
+		</li>
+		<li>
+			<a href="#" title="Volunteers">Volunteers</a>
+			<ul>
+				<li><a href="#">The product</a></li>
+				<li><a href="#">Meet the team</a></li>
+			</ul>
+
+		</li>
+		<li>
+			<a href="#" title="Projects">Projects</a>
+		</li>
+	</ul>
+</div>
     <div id="main" role="main">
       <div id="left_col">
         <div class='project'>
-          <img class='project_image' src=""></img>
+          <img class='project_image'  align="left" src="images/project-image-child.gif"></img>
           <span class="project_name">Project Name</span>
           <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class='project'>
-          <img class='project_image' src=""></img>
+          <img class='project_image'  align="left" src="images/project-image-garden.gif"></img>
           <span class="project_name">Project Name</span>
           <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class='project'>
-          <img class='project_image' src=""></img>
+          <img class='project_image' align="left" src="images/project-image-graffiti.gif"></img>
           <span class="project_name">Project Name</span>
           <p class="project_desc">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
       <div id="right_col">
         <div id="filter1" class="filter">
-          <label>Location</label>
+        <div class="filter_box">
+          <label>Location</label><br><br>
           <select><option>All</option></select>
+          </div>
         </div>
         <div id="filter2" class="filter">
-          <label>Filter Label</label><br>
+        <div class="filter_box">
+          <label>Filter Label</label><br><br>
           <input type="checkbox">Choice 1</input><br>
           <input type="checkbox">Choice 2</input>
+          </div>
         </div>
       </div>
    </div>
+   <div id="footer">
+      
+    </div>
  </div> <!--! end of #container -->
 
 
