@@ -230,11 +230,10 @@ a:hover { color: #036; }
 }
 
 #right_col {
-  width:200px;
+  width:300px;
   position:absolute;
   top:120px;
   right:28px;
-  margin-left:50px;
 }
 
 .filter {
@@ -260,7 +259,7 @@ a:hover { color: #036; }
 	}
 .filter_box {
 	background-color:#FFF;
-	padding:5px;
+	padding:10px 5px;
   -moz-border-radius:6px;
   -webkit-border-radius:6px;
   border-radius:6px;
