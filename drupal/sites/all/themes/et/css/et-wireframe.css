@@ -1,0 +1,218 @@
+
+
+/**
+ * Primary styles
+ *
+ * Author: Tyler Stalder & Pete Fecteau
+ */
+
+#header {
+	background:url(../images/header_bg.gif) repeat-x;
+	height:57px;
+	width:100%;
+	position:absolute;
+	top:10px;
+	left:0;
+}
+
+h1 {
+  font-size:30px;
+  font-color:#ddd;
+  width:20%;
+  display:block;
+  float:left;
+  margin:40px 0 0 40px;
+}
+
+#header a {
+  display:block;
+  float:right;
+  margin:30px 60px 0 0;
+}
+
+h2 {
+  font-size:24px;
+  font-weight:normal;
+}
+
+#main {
+  height:100%;
+  padding-top:175px;
+}
+
+#search {
+  width:600px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#project_query {
+  margin-left:30px;
+  width:400px;
+}
+
+#search input {
+  line-height:22px;
+  margin-top:15px;
+}
+
+#footer {
+  width:100%;
+  background:url(../images/footer_bg.gif) repeat-x bottom;
+  height:85px;
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+
+#featured {
+  width:650px;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:65px;
+}
+
+.category {
+  width: 170px;
+  height:170px;
+  margin-right:25px;
+  float:left;
+  cursor:pointer;
+}
+
+.category_count, .category_name {
+  width:100%;
+  color:#FFF;
+  text-align:center;
+  display:block;
+  font-size:24px;
+}
+
+.category_count {
+  margin-top:50px;
+}
+
+#category1 {
+	margin-left:25px;
+	background-color:#992739;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	}
+#category1:hover {
+	margin-left:25px;
+	margin-top:2px;
+	background-color:#992739;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
+	}
+
+#category2 {
+	background-color:#ca673c;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	}
+#category2:hover {
+	margin-top:2px;
+	background-color:#ca673c;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
+	}
+
+#category3 {
+	background-color:#533549;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	}
+#category3:hover {
+	margin-top:2px;
+	background-color:#533549;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
+	}
+
+/* ----- SEARCH ----- */
+
+#project_query {
+	margin-left:0;
+	margin-top:2px;
+	height:50px;
+	border:#533549 2px groove;
+	padding:3px 0 0 15px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	background-color:#CCC;
+	font-size:24px;
+	}
+#search input {
+	overflow:hidden;
+	}
+#search .search-button {
+	background:url(../images/submit-large.gif) 0 -2px no-repeat;
+	}
+#search .search-button:hover {
+	background:url(../images/submit-large.gif) 0 -77px no-repeat;
+	}
+	
+#signin {
+	color:#FFF;
+	padding:5px;
+	text-decoration:none;
+	background:#992739;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	}
+#signin:hover {
+	text-decoration:underline;
+	}
+
+
