@@ -27,7 +27,4 @@
           <span class="category_name">Projects</span>
         </div>
       </div>
-    <div id="footer">
-      
-    </div>
   </div> <!--! end of #container -->
