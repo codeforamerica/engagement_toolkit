@@ -33,6 +33,7 @@ h1 {
 h2 {
   font-size:24px;
   font-weight:normal;
+  margin-botton:15px;
 }
 
 #main {
@@ -49,11 +50,6 @@ h2 {
 #project_query {
   margin-left:30px;
   width:400px;
-}
-
-#search input {
-  line-height:22px;
-  margin-top:15px;
 }
 
 #footer {

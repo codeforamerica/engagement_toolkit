@@ -10,7 +10,7 @@
        
         <div id="search">
         	<input type="text" id="project_query" height="75"></input>
-			<input class="search-button" name="Button1" type="image" value="button"  src="images/submit-large-overlay.gif" alt="submit" width="150" height="75" />
+			<input class="search-button" name="Button1" type="image" value="eat me"  src="<?php print $submit_btn; ?>" /> <!--PETE'S - LOADING IN CODE FROM TEMPLATE.PHP-->
 </div></div>
     </div>
     <div id="featured">
