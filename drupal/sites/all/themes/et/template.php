@@ -20,11 +20,6 @@ function et_preprocess_page(&$vars) {
     'path' => drupal_get_path('theme', 'et') . '/images/header_logo.gif', 
     )
   );
-  //PETE'S - START CUSTON PRELOADED SUBMIT BUTTON
-  $vars['submit_btn'] = theme('image', array(
-    'path' => drupal_get_path('theme', 'et') . '/images/submit-large-overlay.gif', 
-    )
-  );
 }
 
 
