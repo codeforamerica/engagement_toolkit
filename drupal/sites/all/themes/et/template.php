@@ -20,6 +20,7 @@ function et_preprocess_page(&$vars) {
     'path' => drupal_get_path('theme', 'et') . '/images/header_logo.gif', 
     )
   );
+  $vars['submit_btn'] = url(drupal_get_path('theme', 'et') . '/images/submit-large-overlay.gif');
 }
 
 
