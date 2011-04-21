@@ -165,6 +165,14 @@ a:hover { color: #036; }
  * Author: Tyler Stalder
  */
 
+h1 {
+  font-size:18px;
+  padding-top:8px;
+  padding-left:10px;
+  width:20px;
+  display:block;
+}
+
 #header {
 	background:url(images/header_bg.gif) repeat-x;
 	height:57px;
@@ -177,6 +185,11 @@ a:hover { color: #036; }
   display:block;
   float:right;
   margin:30px 30px 0 0;
+}
+
+#header a {
+  display:block;
+  float:right;
 }
 
 #header ul {
