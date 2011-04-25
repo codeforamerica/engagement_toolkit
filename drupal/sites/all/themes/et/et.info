@@ -1,26 +1,27 @@
-
+; Theme basics
 name = Engagement Toolkit
 description = A subtheme of Fusion.
 base theme = fusion_core
 core = 7.x
 engine = phptemplate
 
+; Styles
 stylesheets[all][] = css/et.css
 stylesheets[all][] = css/reset-bolierplate.css
 stylesheets[all][] = css/et-wireframe.css
 
+; Scripts
 scripts[] = js/script.js
 
-regions[sidebar_first] = Sidebar first
-regions[sidebar_second] = Sidebar second
-regions[header_top] = Header top
-regions[header] = Header
-regions[main_menu] = Main menu
-regions[preface_top] = Preface top
-regions[preface_bottom] = Preface bottom
-regions[content] = Content
-regions[postscript_top] = Postscript top
-regions[postscript_bottom] = Postscript bottom
+; Regions
+regions[header_gap] = "Header gap"
+regions[header_menu] = "Header menu"
+regions[header_signin] = "Header signin"
+regions[sidebar_first] = "Sidebar first"
+regions[sidebar_second] = "Sidebar second"
+regions[preface_top] = "Preface top"
+regions[preface_bottom] = "Preface bottom"
+regions[content] = "Content"
 regions[footer] = Footer
 regions[node_top] = Node top
 regions[node_bottom] = Node bottom
@@ -28,12 +29,16 @@ regions[help] = Help
 regions[page_top] = Page top
 regions[page_bottom] = Page bottom
 
+; Features settings
+
 features[] = logo
 features[] = name
 features[] = slogan
 features[] = node_user_picture
 features[] = comment_user_picture
 features[] = favicon
+
+; Fusion and Skinr specific items
 
 ; Default theme settings (override values inherited from fusion_core)
 ; REMOVE THESE ONCE PATCH TO FIX SETTINGS INHERITANCE (#563708) IS IN CORE

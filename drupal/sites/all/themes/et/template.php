@@ -16,10 +16,27 @@ function et_preprocess_html(&$vars) {
  * Page preprocessing
  */
 function et_preprocess_page(&$vars) {
+  // Create some resource variables
   $vars['logo_image'] = theme('image', array(
     'path' => drupal_get_path('theme', 'et') . '/images/header_logo.gif', 
     )
   );
+  $vars['logo_image_link'] = l($vars['logo_image'], '<front>', array('html' => TRUE));
+  
+  // Create login link
+  $account_text = t('Sign in');
+  global $user;
+  if ($user->uid > 0) {
+    // User is logged in
+    $account_text = t('My Account');
+  }
+  $vars['account_link'] = l($account_text, 'user', array(
+    'attributes' => array(
+      'id' => 'signin',
+    )
+  ));
+  
+  // Temp for wireframing or MVP
   $vars['submit_btn'] = url(drupal_get_path('theme', 'et') . '/images/submit-large-overlay.gif');
 }
 
