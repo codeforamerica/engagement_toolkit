@@ -6,13 +6,14 @@
  * Author: Tyler Stalder & Pete Fecteau
  */
 
-#header {
+.header-logo-wrapper a {
 	background:url(../images/header_bg.gif) repeat-x;
 	height:57px;
 	width:100%;
 	position:absolute;
 	top:10px;
 	left:0;
+	border:0;
 }
 
 h1 {
@@ -39,6 +40,7 @@ h2 {
 #main {
   height:100%;
   padding-top:175px;
+  margin-left:60px;
 }
 
 #search {
@@ -199,14 +201,14 @@ h2 {
 	}
 	
 #signin {
-	color:#FFF;
-	padding:5px;
-	text-decoration:none;
-	background:#992739;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	}
+    background: none repeat scroll 0 0 #992739;
+    border-radius: 5px 5px 0 0;
+    color: #FFFFFF;
+    padding: 5px;
+    position: absolute;
+    right: 60px;
+    text-decoration: none;
+    top: 37px;
 #signin:hover {
 	text-decoration:underline;
 	}
@@ -214,8 +216,11 @@ h2 {
 /*  ----  STYLESHEET CSS  ----  */
 /*  ----  rewrites system CSS settings  ----  */
 
+li a.active {
+    color: #533549;
+}
 ul.primary {
-  border-bottom: 1px solid #bbb;
+  border-bottom: 3px solid #CCC;
   border-collapse: collapse;
   height: auto;
   line-height: normal;
@@ -223,37 +228,42 @@ ul.primary {
   margin: 5px;
   padding: 0 0 0 1em; /* LTR */
   white-space: nowrap;
+  color:#533549;
 }
 ul.primary li {
   display: inline;
 }
 ul.primary li a {
-  background-color: #ddd;
-  border-color: #bbb;
+  background-color: #CCC;
+  border-color: #CCC;
   border-style: solid solid none solid;
-  border-width: 1px;
+  border-width: 2px;
+  border-bottom:0;
   height: auto;
   margin-right: 0.5em; /* LTR */
   padding: 0 1em;
   text-decoration: none;
+  -moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	border-radius:5px 5px 0 0;
 }
 ul.primary li.active a {
   background-color: #fff;
-  border: 1px solid #bbb;
-  border-bottom: 1px solid #fff;
+  border: 2px solid #CCC;
+  border-bottom-color: #FFF;
 }
 ul.primary li a:hover {
-  background-color: #eee;
-  border-color: #ccc;
-  border-bottom-color: #eee;
+  background-color: #ececec;
+  border-color: #CCC;
+  border-bottom-color: #FFF;
 }
 ul.secondary {
-  border-bottom: 1px solid #bbb;
+  border-bottom:0;
   padding: 0.5em 1em;
   margin: 5px;
 }
 ul.secondary li {
-  border-right: 1px solid #ccc; /* LTR */
+  border-right: 2px solid #CCC; /* LTR */
   display: inline;
   padding: 0 1em;
 }
@@ -262,5 +272,9 @@ ul.secondary a {
   text-decoration: none;
 }
 ul.secondary a.active {
-  border-bottom: 4px solid #999;
+ border-bottom:0;
 }
+
+h1.title {
+	
+	}

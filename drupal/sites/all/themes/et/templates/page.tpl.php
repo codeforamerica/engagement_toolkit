@@ -93,10 +93,6 @@
       <?php print render($page['preface']); ?>
     </div>
     
-    <div class="breadcrumb-wrapper">
-      <?php print $breadcrumb; ?>
-    </div>
-    
     <div class="messages-wrapper">
       <?php print $messages; ?>
     </div>

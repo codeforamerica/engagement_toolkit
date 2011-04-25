@@ -164,7 +164,7 @@ body, select, input, textarea {
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
 a, a:active, a:visited { color: #533549; }
-a:hover { color: #036; }
+a:hover { color: #533549; text-decoration:underline; }
 
 /**
  * Non-semantic helper classes: please define your styles before this section.
