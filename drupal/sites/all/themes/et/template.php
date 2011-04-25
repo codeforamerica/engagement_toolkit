@@ -80,3 +80,14 @@ function et_preprocess_comment(&$vars) {
 function et_preprocess_views_view(&$vars) {
 
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function et_form_alter(&$form, &$form_state, $form_id) {
+  // Add appropriate title for search form
+  if ($form_id == 'search_block_form') {
+    $form['search_block_form']['#title'] = t('What do you care about?');
+    unset($form['search_block_form']['#title_display']);
+  }
+}
