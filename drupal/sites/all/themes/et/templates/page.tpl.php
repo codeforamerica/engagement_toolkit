@@ -73,44 +73,44 @@
 ?>
 <div id="container">
   <div id="header">
-    <div class="header-logo-wrapper" ?>
+    <div class="header-logo-container" ?>
       <?php print $logo_image_link; ?>
     </div>
-    <div class="header-gap-wrapper">
+    <div class="header-gap-container">
       <?php print render($page['header_gap']); ?>
     </div>
-    <div class="header-signin-wrapper">
+    <div class="header-signin-container">
       <?php print render($page['header_signin']); ?>
       <?php print $account_link; ?>
     </div>
-    <div class="header-menu-wrapper">
+    <div class="header-menu-container">
       <?php print render($page['header_menu']); ?>
     </div>
   </div>
   
   <div id="main" role="main">
-    <div class="preface-wrapper">
+    <div class="preface-container">
       <?php print render($page['preface']); ?>
     </div>
     
-    <div class="messages-wrapper">
+    <div class="messages-container">
       <?php print $messages; ?>
     </div>
 
-    <div class="sidebar-first-wrapper">
+    <div class="sidebar-first-container">
       <?php print render($page['sidebar_first']); ?>
     </div>
     
     <div class="main-content-region">
-      <div class="tabs-wrapper">
+      <div class="tabs-container">
         <?php print render($tabs); ?>
       </div>
       
-      <div class="help-wrapper">
+      <div class="help-container">
         <?php print render($page['help']); ?>
       </div>
       
-      <div class="title-wrapper">
+      <div class="title-container">
         <?php print render($title_prefix); ?>
         <?php if ($title): ?>
           <h1 class="title"><?php print $title; ?></h1>
@@ -118,7 +118,7 @@
         <?php print render($title_suffix); ?>
       </div>
       
-      <div class="action-links-wrapper">
+      <div class="action-links-container">
         <?php if ($action_links): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
@@ -131,11 +131,11 @@
       <?php endif; ?>
     </div>
 
-    <div class="sidebar-second-wrapper">
+    <div class="sidebar-second-container">
       <?php print render($page['sidebar_second']); ?>
     </div>
     
-    <div class="postscript-wrapper">
+    <div class="postscript-container">
       <?php print render($page['postscript']); ?>
     </div>
   </div>
