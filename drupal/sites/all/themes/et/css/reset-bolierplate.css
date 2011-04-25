@@ -163,7 +163,7 @@ body, select, input, textarea {
 /* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
 
-a, a:active, a:visited { color: #607890; }
+a, a:active, a:visited { color: #533549; }
 a:hover { color: #036; }
 
 /**
