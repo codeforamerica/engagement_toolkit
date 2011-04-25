@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Main file for ET Blank module.
+ */
+
+/**
+ * Implementatation of hook_menu().
+ */
+function et_blank_menu() {
+  $items = array();
+  $items['blank'] = array(
+    'title' => variable_get('site_name', ''),
+    'page callback' => 'et_blank_page',
+    'access arguments' => array('access content'),
+  );
+  
+  return $items;
+}
+
+/**
+ * Callback for blank page.
+ */
+function et_blank_page() {
+  return '';
+}

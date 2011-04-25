@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ET Home feature.
+ */
+
+include_once('et_home.features.inc');

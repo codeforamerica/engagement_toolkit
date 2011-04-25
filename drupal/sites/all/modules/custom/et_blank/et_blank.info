@@ -1,0 +1,5 @@
+name = "ET Blank"
+description = "A blank page for ET project"
+package = "ET"
+core = 7.x
+files[] = et_blank.module

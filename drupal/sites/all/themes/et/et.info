@@ -25,6 +25,7 @@ regions[help] = Help
 regions[content] = "Content"
 regions[node_top] = Node top
 regions[node_bottom] = Node bottom
+regions[postscript] = "Postscript"
 regions[footer] = Footer
 regions[page_bottom] = Page bottom
 

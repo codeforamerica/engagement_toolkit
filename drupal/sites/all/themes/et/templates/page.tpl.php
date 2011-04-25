@@ -135,7 +135,7 @@
       <?php print render($page['sidebar_second']); ?>
     </div>
     
-    <div class="preface-wrapper">
+    <div class="postscript-wrapper">
       <?php print render($page['postscript']); ?>
     </div>
   </div>
