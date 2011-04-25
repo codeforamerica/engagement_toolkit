@@ -5,3 +5,83 @@
  * A custom module for ET that defines blocks, probably for static content.
  * This will make it easier to have things in code.
  */
+ 
+/**
+ * Implements hook_block_info().
+ */
+function et_blocks_block_info() {
+  $blocks['et_ph_organizers_count'] = array(
+    'info' => t('Placeholder: Organizers count'),
+  );
+  $blocks['et_ph_volunteers_count'] = array(
+    'info' => t('Placeholder: Volunteers count'),
+  );
+  $blocks['et_ph_projects_count'] = array(
+    'info' => t('Placeholder: Projects count'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function et_blocks_block_view($delta = '') {
+  switch ($delta) {
+    case 'et_ph_organizers_count':
+      $block['subject'] = '';
+      $block['content'] = et_blocks_placeholder('organizers_count');
+      break;
+      
+    case 'et_ph_volunteers_count':
+      $block['subject'] = '';
+      $block['content'] = et_blocks_placeholder('volunteers_count');
+      break;
+      
+    case 'et_ph_projects_count':
+      $block['subject'] = '';
+      $block['content'] = et_blocks_placeholder('projects_count');
+      break;
+      
+  }
+  return $block;
+}
+
+/**
+ * Block placeholder content
+ */
+function et_blocks_placeholder($type) {
+  $output = '';
+  
+  switch ($type) {
+    case 'organizers_count':
+      $output .= '
+        <div class="category" id="category1">
+          <span class="category_count">9</span>
+          <span class="category_name">Organizers</span>
+        </div>
+      ';
+      break;
+      
+    case 'volunteers_count':
+      $output .= '
+        <div class="category" id="category2">
+          <span class="category_count">63</span>
+          <span class="category_name">Volunteers</span>
+        </div>
+      ';
+      break;
+      
+    case 'projects_count':
+      $output .= '
+        <div class="category" id="category3">
+          <span class="category_count">17</span>
+          <span class="category_name">Projects</span>
+        </div>
+      ';
+      break;
+      
+  }
+  
+  return $output;
+}
