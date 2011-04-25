@@ -89,8 +89,8 @@
   </div>
   
   <div id="main" role="main">
-    <div class="preface-top-wrapper">
-      <?php print render($page['preface_top']); ?>
+    <div class="preface-wrapper">
+      <?php print render($page['preface']); ?>
     </div>
     
     <div class="breadcrumb-wrapper">
@@ -139,8 +139,8 @@
       <?php print render($page['sidebar_second']); ?>
     </div>
     
-    <div class="preface-bottom-wrapper">
-      <?php print render($page['preface_bottom']); ?>
+    <div class="preface-wrapper">
+      <?php print render($page['postscript']); ?>
     </div>
   </div>
   

@@ -14,19 +14,18 @@ stylesheets[all][] = css/et-wireframe.css
 scripts[] = js/script.js
 
 ; Regions
+regions[page_top] = Page top
 regions[header_gap] = "Header gap"
 regions[header_menu] = "Header menu"
 regions[header_signin] = "Header signin"
 regions[sidebar_first] = "Sidebar first"
 regions[sidebar_second] = "Sidebar second"
-regions[preface_top] = "Preface top"
-regions[preface_bottom] = "Preface bottom"
+regions[preface] = "Preface"
+regions[help] = Help
 regions[content] = "Content"
-regions[footer] = Footer
 regions[node_top] = Node top
 regions[node_bottom] = Node bottom
-regions[help] = Help
-regions[page_top] = Page top
+regions[footer] = Footer
 regions[page_bottom] = Page bottom
 
 ; Features settings
