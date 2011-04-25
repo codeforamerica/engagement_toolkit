@@ -1,0 +1,5 @@
+name = "ET Blocks"
+description = "Custom blocks for the ET project"
+package = "ET"
+core = 7.x
+files[] = similar_content.module

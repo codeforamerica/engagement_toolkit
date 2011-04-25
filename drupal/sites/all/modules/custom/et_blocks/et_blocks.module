@@ -1,0 +1,7 @@
+<?php
+
+/**
+ * @file
+ * A custom module for ET that defines blocks, probably for static content.
+ * This will make it easier to have things in code.
+ */
