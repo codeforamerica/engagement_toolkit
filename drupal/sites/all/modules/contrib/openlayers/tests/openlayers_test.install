@@ -1,5 +1,4 @@
 <?php
-// $Id: openlayers_test.install,v 1.1.2.2 2010/03/22 23:55:10 zzolo Exp $
 
 /**
  * @file
@@ -118,7 +117,7 @@ function _openlayers_test_content_definition() {
       'widget_type' => 'openlayers_wkt_widget',
       'change' => 'Change basic information',
       'weight' => '31',
-      'openlayers_cck_preset_map' => 'default',
+      'openlayers_cck_map' => 'default',
       'description' => 'This is some help text for this field.',
       'default_value' =>
       array(

@@ -1,8 +1,7 @@
-// $Id: openlayers_ui.presets.js,v 1.1.2.3.2.1 2010/11/29 17:19:25 tmcw Exp $
 
 /**
  * @file
- * This file holds the javascript functions for the preset UI
+ * This file holds the javascript functions for the map UI
  *
  * @ingroup openlayers
  */

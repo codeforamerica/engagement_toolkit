@@ -1,4 +1,3 @@
-/* $Id: openlayers_ui.css,v 1.1.2.5.2.1 2010/11/29 21:58:13 tmcw Exp $
 
 /**
  * @file
@@ -22,9 +21,6 @@
   display:none;
 }
 
-/**
- * Preset form
- */
 div.openlayers-column-right input.form-text,
 div.openlayers-column-left input.form-text { width:90%; }
 

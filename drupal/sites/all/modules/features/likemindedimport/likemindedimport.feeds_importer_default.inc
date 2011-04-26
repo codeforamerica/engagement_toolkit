@@ -90,6 +90,11 @@ function likemindedimport_feeds_importer_default() {
             'target' => 'field_link:url',
             'unique' => FALSE,
           ),
+          10 => array(
+            'source' => 'jsonpath_parser:10',
+            'target' => 'guid',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '1',
         'input_format' => 'plain_text',

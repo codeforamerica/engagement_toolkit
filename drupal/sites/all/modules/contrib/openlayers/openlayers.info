@@ -1,4 +1,3 @@
-; $Id: openlayers.info,v 1.7.2.2.2.2 2010/09/20 20:07:28 tmcw Exp $
 name = OpenLayers
 description = OpenLayers base API module
 core = 7.x
@@ -7,8 +6,8 @@ php = 5.2
 dependencies[] = ctools
 ; Core files
 files[] = openlayers.module
-; Presets
-files[] = includes/openlayers.presets.inc
+; Maps
+files[] = includes/openlayers.maps.inc
 ; Layer types
 files[] = includes/layer_types/cloudmade.inc
 files[] = includes/layer_types/google.inc
@@ -46,9 +45,9 @@ files[] = includes/behaviors/openlayers_behavior_zoompanel.inc
 files[] = includes/behaviors/openlayers_behavior_zoomtolayer.inc
 files[] = includes/behaviors/openlayers_behavior_zoomtomaxextent.inc
 
-; Information added by drupal.org packaging script on 2011-01-14
-version = "7.x-2.0-alpha1"
+; Information added by drupal.org packaging script on 2011-04-25
+version = "7.x-2.x-dev"
 core = "7.x"
 project = "openlayers"
-datestamp = "1295020307"
+datestamp = "1303690859"
 
