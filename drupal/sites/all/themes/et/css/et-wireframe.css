@@ -257,14 +257,14 @@ div.messages {
 /* ----- SEARCH ----- */
 
 
-.form-item-search-block-form {
+.views-exposed-form {
 	display:block;
 	}
-.form-item-search-block-form label {
+.views-exposed-form label {
 	font-size:24px;
 	font-weight:bold;
 	}
-#edit-search-block-form--2 {
+#views-exposed-form-likeminded-projects-page #edit-keys {
 	margin-left:0;
 	margin-top:2px;
 	height:50px;
@@ -276,7 +276,7 @@ div.messages {
 	background-color:#CCC;
 	font-size:24px;
 	}
-#edit-submit {
+#edit-submit-likeminded-projects {
 	overflow:hidden;
 	background:url(../images/submit-large.gif) 0 -2px no-repeat;
 	width:150px;
@@ -285,7 +285,7 @@ div.messages {
 	cursor:pointer;
 	font-size:0;
 	}
-#edit-submit:hover {
+#edit-submit-likeminded-projects:hover {
 	background:url(../images/submit-large.gif) 0 -77px no-repeat;
 	}
 	
