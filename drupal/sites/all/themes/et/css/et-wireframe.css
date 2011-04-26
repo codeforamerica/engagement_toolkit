@@ -5,6 +5,18 @@
  *
  * Author: Tyler Stalder & Pete Fecteau
  */
+ 
+/*---- ADMIN ----*/
+
+#admin-menu, #admin-menu ul {
+    line-height: 1.4em;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+}
+
+/*---- GENERAL ----*/
 
 .header-logo-container a {
 	background:url(../images/header_bg.gif) repeat-x;
@@ -53,9 +65,16 @@ h2 {
 }
 
 body {
-  background:url(../images/footer_bg.gif) repeat-x bottom;
   padding-bottom:100px;
 }
+
+#footer {
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:url(../images/footer_bg.gif) repeat-x bottom;
+	height:95px;
+	}
 
 #featured {
   width:650px;

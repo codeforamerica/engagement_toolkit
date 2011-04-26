@@ -7,7 +7,6 @@ engine = phptemplate
 
 ; Styles
 stylesheets[all][] = css/et.css
-stylesheets[all][] = css/reset-bolierplate.css
 stylesheets[all][] = css/et-wireframe.css
 
 ; Scripts
