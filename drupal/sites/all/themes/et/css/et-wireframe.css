@@ -6,7 +6,7 @@
  * Author: Tyler Stalder & Pete Fecteau
  */
 
-.header-logo-wrapper a {
+.header-logo-container a {
 	background:url(../images/header_bg.gif) repeat-x;
 	height:57px;
 	width:100%;
@@ -16,7 +16,6 @@
 	border:0;
 }
 em {
-	text-transform:
 	}
 
 h1 {
@@ -178,7 +177,10 @@ a:link, a:visited {
 a:hover, a:active {
 	color:#533549;
 	text-decoration:underline;
-}	
+}
+
+/*---- MESSAGES ----*/
+	
 div.status, table tr.ok {
     background-color: #F8FFF0;
 }
@@ -235,7 +237,15 @@ div.messages {
 
 /* ----- SEARCH ----- */
 
-#project_query {
+
+.form-item-search-block-form {
+	display:block;
+	}
+.form-item-search-block-form label {
+	font-size:24px;
+	font-weight:bold;
+	}
+#edit-search-block-form--2 {
 	margin-left:0;
 	margin-top:2px;
 	height:50px;
@@ -247,13 +257,16 @@ div.messages {
 	background-color:#CCC;
 	font-size:24px;
 	}
-#search input {
+#edit-submit {
 	overflow:hidden;
-	}
-#search .search-button {
 	background:url(../images/submit-large.gif) 0 -2px no-repeat;
+	width:150px;
+	height:75px;
+	border:0;
+	cursor:pointer;
+	font-size:0;
 	}
-#search .search-button:hover {
+#edit-submit:hover {
 	background:url(../images/submit-large.gif) 0 -77px no-repeat;
 	}
 	
