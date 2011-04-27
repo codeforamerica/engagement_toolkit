@@ -20,14 +20,13 @@ function et_projects_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Location',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_city',
       1 => 'field_state',
       2 => 'field_county',
       3 => 'field_area_code',
-      4 => 'field_lat',
-      5 => 'field_lon',
+      4 => 'field_location',
     ),
     'format_type' => 'fieldset',
     'format_settings' => array(
