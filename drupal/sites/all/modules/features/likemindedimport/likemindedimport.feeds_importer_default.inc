@@ -93,6 +93,16 @@ function likemindedimport_feeds_importer_default() {
           10 => array(
             'source' => 'jsonpath_parser:10',
             'target' => 'guid',
+            'unique' => 1,
+          ),
+          11 => array(
+            'source' => 'jsonpath_parser:11',
+            'target' => 'field_location:lat',
+            'unique' => FALSE,
+          ),
+          12 => array(
+            'source' => 'jsonpath_parser:12',
+            'target' => 'field_location:lon',
             'unique' => FALSE,
           ),
         ),
