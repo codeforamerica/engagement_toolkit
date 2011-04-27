@@ -401,20 +401,12 @@ div.messages {
 .views-exposed-form {
 	display:block;
 	}
-<<<<<<< HEAD
-.views-widget-filter-keys label {
-=======
 .views-exposed-form label {
->>>>>>> b186f6d6a157d12c819176ba42dc0f2cbb664f1a
 	font-size:24px;
 	font-weight:bold;
 	color:#
 	}
-<<<<<<< HEAD
-input#edit-keys {
-=======
 #views-exposed-form-likeminded-projects-page #edit-keys {
->>>>>>> b186f6d6a157d12c819176ba42dc0f2cbb664f1a
 	margin-left:0;
 	margin-top:2px;
 	height:50px;
@@ -439,7 +431,7 @@ input#edit-keys {
 	background:url(../images/submit-large.gif) 0 -77px no-repeat;
 	}
 	
-#signin {
+a#signin {
     background: none repeat scroll 0 0 #992739;
     border-radius: 5px 5px 0 0;
     color: #FFFFFF;
@@ -449,7 +441,7 @@ input#edit-keys {
     text-decoration: none;
     top: 37px;
 }
-#signin:hover {
+a#signin:hover {
 	text-decoration:underline;
 	}
 
