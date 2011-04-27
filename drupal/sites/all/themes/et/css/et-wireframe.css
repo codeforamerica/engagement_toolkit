@@ -153,9 +153,16 @@ tr.admin-menu-tweak-permissions-processed td.module {
 }
 
 /*---- GENERAL ----*/
-.page, .region {
+.main-content-region, .postscript-container {
     margin: 0 30px 0 170px;
+	padding-top:30px;
 }
+#content {
+	width:715px;
+	}
+#block-system-main {
+	width:600px;
+	}
 .header-logo-container a {
 	background:url(../images/header_bg.gif) repeat-x;
 	height:57px;
@@ -413,7 +420,7 @@ div.messages {
     padding: 0;
 }
 .views-submit-button {
-	margin:24px 0 0 0;
+	margin:-15px 0 0 0;
 	}
 .views-exposed-form {
 	display:block;
@@ -439,18 +446,22 @@ div.messages {
 	width:512px;
 	}
 #edit-submit-likeminded-projects {
+	color:#FFF;
 	overflow:hidden;
-	background:url(../images/submit-large.gif) 0 -2px no-repeat;
+	background:url(../images/button-large.gif) 0 -2px no-repeat;
 	width:150px;
 	height:75px;
 	border:0;
 	cursor:pointer;
-	font-size:0;
+	font-size:24px;
+	font-weight:normal;
+	line-height:150%;
+	padding-bottom:10px;
 	}
 #edit-submit-likeminded-projects:hover {
-	background:url(../images/submit-large.gif) 0 -77px no-repeat;
+	background:url(../images/button-large.gif) 0 -77px no-repeat;
+	padding-bottom:8px;
 	}
-	
 a#signin {
     background: none repeat scroll 0 0 #992739;
     border-radius: 5px 5px 0 0;
