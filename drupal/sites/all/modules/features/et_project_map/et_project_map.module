@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ET Project Map feature.
+ */
+
+include_once('et_project_map.features.inc');
