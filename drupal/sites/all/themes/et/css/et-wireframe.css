@@ -16,6 +16,7 @@
     text-align: left;
     top: 0;
     width: 100%;
+	box-shadow:0px 0px 0px #000000;
 }
 #admin-menu-wrapper {
     overflow: hidden;
@@ -152,7 +153,9 @@ tr.admin-menu-tweak-permissions-processed td.module {
 }
 
 /*---- GENERAL ----*/
-
+.page, .region {
+    margin: 0 30px 0 170px;
+}
 .header-logo-container a {
 	background:url(../images/header_bg.gif) repeat-x;
 	height:57px;
@@ -217,11 +220,11 @@ body {
   margin-right:auto;
   margin-top:65px;
 }
-
 .category {
   width: 170px;
   height:170px;
   margin-right:25px;
+  margin-left:-8px;
   float:left;
   cursor:pointer;
 }
@@ -239,7 +242,6 @@ body {
 }
 
 #category1 {
-	margin-left:25px;
 	background-color:#992739;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
@@ -253,7 +255,6 @@ body {
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
 	}
 #category1:hover {
-	margin-left:25px;
 	margin-top:2px;
 	background-color:#992739;
 	-moz-border-radius:10px;
@@ -397,14 +398,22 @@ div.messages {
 
 /* ----- SEARCH ----- */
 
-
+.views-exposed-form .views-exposed-widget {
+    float: left;
+    padding: 0;
+}
+.views-submit-button {
+	margin:24px 0 0 0;
+	}
 .views-exposed-form {
 	display:block;
+	margin:30px 0 0 0;
 	}
 .views-exposed-form label {
 	font-size:24px;
 	font-weight:bold;
-	color:#
+	color:#533549;
+	line-height:130%;
 	}
 #views-exposed-form-likeminded-projects-page #edit-keys {
 	margin-left:0;
@@ -417,6 +426,7 @@ div.messages {
 	border-radius:10px;
 	background-color:#CCC;
 	font-size:24px;
+	width:512px;
 	}
 #edit-submit-likeminded-projects {
 	overflow:hidden;
@@ -522,3 +532,48 @@ div.styleguide {
     border: 1px solid #CCCCCC;
 	padding:5px;
 }
+
+/*---- LOGIN ----*/
+
+.toboggan-unified #login-links, .toboggan-unified #login-message {
+    font-size: 1.5em;
+    line-height: 2.7;
+    text-align: left;
+}
+.toboggan-unified #login-message {
+	color:#533549;
+	font-weight:bold;
+}
+.toboggan-unified #login-links a {
+	border:0;
+	color:#FFF;
+	text-decoration:none;
+    background-color:#e89a41;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+	}
+.toboggan-unified #login-links a.lt-active, .toboggan-unified #login-links a.lt-active:hover, .toboggan-unified #login-links a:hover {
+	border:0;
+	color:#FFF;
+	text-decoration:none;
+    margin-top:2px;
+	background-color:#ca673c;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
+	} 
