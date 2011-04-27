@@ -1,5 +1,4 @@
 <?php
-// $Id: openlayers.test,v 1.2.2.10 2010/06/03 21:30:46 zzolo Exp $
 
 /**
  * @file
@@ -28,9 +27,9 @@ class OpenLayersUI extends DrupalWebTestCase {
   }
 
   /**
-   * Ensure that the preset shows up in the interface
+   * Ensure that the map shows up in the interface
    */
-  function testOpenLayersPresets() {
+  function testOpenLayersMaps() {
     $user = $this->drupalCreateUser(array('administer openlayers'));
     $this->drupalLogin($user);
 
@@ -38,24 +37,24 @@ class OpenLayersUI extends DrupalWebTestCase {
     $openlayers_settings = array('openlayers_source' => $new_openlayers_source);
     $this->drupalPost('admin/build/openlayers', $openlayers_settings, t('Save configuration'));
 
-    // Go to preset page
+    // Go to map page
     $this->drupalGet('admin/build/openlayers');
     $this->assertResponse(200, t('User can reach the settings page.'));
 
     $this->drupalGet('admin/build/openlayers');
     $this->assertRaw($new_openlayers_source, t('The OpenLayers source was changed'));
-    // Presets
+    // maps
   }
 }
 
 /**
- * Test OpenLayers presets.
+ * Test OpenLayers maps.
  */
-class OpenLayersPresets extends DrupalWebTestCase {
+class OpenLayersMaps extends DrupalWebTestCase {
   public static function getInfo() {
     return array(
-      'name' => 'OpenLayers Presets',
-      'description' => 'Tests the OpenLayers Presets system.',
+      'name' => 'OpenLayers maps',
+      'description' => 'Tests the OpenLayers maps system.',
       'group' => 'OpenLayers',
     );
   }
@@ -66,29 +65,29 @@ class OpenLayersPresets extends DrupalWebTestCase {
   }
 
   /**
-   * Ensure that the preset shows up in the interface
+   * Ensure that the map shows up in the interface
    */
-  function testOpenLayersPresets() {
+  function testOpenLayersMaps() {
     $user = $this->drupalCreateUser(array('administer openlayers'));
     $this->drupalLogin($user);
 
-    // Go to preset page
-    $this->drupalGet('admin/build/openlayers/presets');
-    $this->assertResponse(200, t('User can reach preset list.'));
+    // Go to map page
+    $this->drupalGet('admin/build/openlayers/maps');
+    $this->assertResponse(200, t('User can reach map list.'));
 
     // Ensure that the default test is listed
     $this->assertText(t('Default Map'),
-      t('Assert that the default preset\'s title appears.'));
+      t('Assert that the default map\'s title appears.'));
 
-    // Presets
-    $this->drupalGet('admin/build/openlayers/default/export');
-    $this->assertResponse(200, t('User can reach default preset export page.'));
+    // Maps
+    $this->drupalGet('admin/build/openlayers/maps/default/export');
+    $this->assertResponse(200, t('User can reach default map export page.'));
 
-    $this->drupalGet('admin/build/openlayers/default/clone');
-    $this->assertResponse(200, t('User can reach default preset clone page.'));
+    $this->drupalGet('admin/build/openlayers/maps/clone/default');
+    $this->assertResponse(200, t('User can reach default map clone page.'));
 
-    $this->drupalGet('admin/build/openlayers/presets/add');
-    $this->assertResponse(200, t('User can reach preset add page.'));
+    $this->drupalGet('admin/build/openlayers/maps/add');
+    $this->assertResponse(200, t('User can reach map add page.'));
   }
 }
 

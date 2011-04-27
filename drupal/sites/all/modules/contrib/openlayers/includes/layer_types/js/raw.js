@@ -1,4 +1,3 @@
-// $Id: raw.js,v 1.1.2.4 2010/09/15 21:28:21 tmcw Exp $
 
 /**
  * OpenLayers Raw Layer Handler

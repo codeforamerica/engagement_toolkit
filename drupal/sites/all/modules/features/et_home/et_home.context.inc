@@ -26,9 +26,9 @@ function et_home_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'search-form' => array(
-          'module' => 'search',
-          'delta' => 'form',
+        'views--exp-likeminded_projects-page' => array(
+          'module' => 'views',
+          'delta' => '-exp-likeminded_projects-page',
           'region' => 'content',
           'weight' => '-10',
         ),

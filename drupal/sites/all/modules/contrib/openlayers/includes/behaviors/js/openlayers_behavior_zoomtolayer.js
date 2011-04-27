@@ -1,4 +1,3 @@
-// $Id: openlayers_behavior_zoomtolayer.js,v 1.1.2.7.2.2 2010/11/29 16:39:19 tmcw Exp $
 
 /**
  * OpenLayers Zoom to Layer Behavior

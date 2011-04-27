@@ -1,0 +1,7 @@
+core = "7.x"
+dependencies[] = "flag"
+description = "Flags are how we like & join projects."
+features[flag][] = "join"
+features[flag][] = "like"
+name = "ET Flags"
+package = "Features"

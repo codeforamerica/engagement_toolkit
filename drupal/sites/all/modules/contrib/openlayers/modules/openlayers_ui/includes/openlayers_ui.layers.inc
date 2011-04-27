@@ -1,5 +1,4 @@
 <?php
-// $Id: openlayers_ui.layers.inc,v 1.1.2.6.2.4 2010/11/30 15:36:24 tmcw Exp $
 
 /**
  * @file
@@ -39,7 +38,7 @@ function openlayers_ui_layers_form($form_state, $layer = NULL) {
  * Submit handler for layers.
  */
 function openlayers_ui_layers_form_submit(&$form, &$form_state) {
-  // Save preset
+  // Save layer
   $layer_class = $form_state['values']['data']['layer_type'];
   $layer = openlayers_layer_type_load($layer_class);
 
@@ -171,7 +170,7 @@ function openlayers_ui_get_layer_type_options($type) {
 }
 
 /**
- * Import a preset from cut & paste
+ * Import a layer from cut & paste
  */
 function openlayers_ui_layers_import_form($form_state) {
   $form['name'] = array(
@@ -196,7 +195,7 @@ function openlayers_ui_layers_import_form($form_state) {
 }
 
 /**
- * Validate handler to import a preset
+ * Validate handler to import a layer
  */
 function openlayers_ui_layers_import_validate($form, &$form_state) {
 
