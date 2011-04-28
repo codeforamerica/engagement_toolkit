@@ -6,5 +6,7 @@ files[] = views_number_results.module
 files[] = views_number_results.install
 
 ; Views handlers
+files[] = views_number_results.views.inc
 files[] = views_number_results_handler_field_counter_total.inc
+files[] = views_number_results_handler_area_counter_total.inc
 
