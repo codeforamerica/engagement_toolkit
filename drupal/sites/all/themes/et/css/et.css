@@ -40,6 +40,11 @@ body.logged-in #block-system-user-menu ul.menu li.first {
   float: left;
 }
 
+/* Homepage blocks */
+body.front .postscript-container {
+  padding: 0 0 0 5px;
+}
+
 /* Hide taxonomy exposed form on homepage */
 body.front .views-widget-filter-term_node_tid_depth {
   display: none;
@@ -53,32 +58,34 @@ body.front #block-views-likeminded_projects-block .pager {
 body.front .postscript-container .block .inner {
   width: 170px;
   height: 170px;
-  margin-right:25px;
-  margin-left:-8px;
-  float:left;
-  cursor:pointer;
+  margin-right: 25px;
+  margin-left: 0px;
+  float: left;
+  cursor: pointer;
 }
+
 body.front .postscript-container h2.title,
 body.front .postscript-container .view-header {
-  width:100%;
-  color:#FFF;
-  text-align:center;
-  display:block;
-  font-size:24px;
-	line-height:130%;
+  width: 100%;
+  color: #FFF;
+  text-align: center;
+  display: block;
+  font-size: 24px;
+	line-height: 130%;
 }
+
 body.front .postscript-container h2.title {
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 body.front .postscript-container .block .view-header {
-  margin-top: 0px;
+  margin-top: -75px;
 }
 
 body.front .postscript-container .block .inner {
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 	-moz-box-shadow: 3px 3px 4px #000;
 	-webkit-box-shadow: 3px 3px 4px #000;
 	box-shadow: 3px 3px 4px #000;
@@ -89,10 +96,10 @@ body.front .postscript-container .block .inner {
 }
 
 body.front .postscript-container .block .inner:hover {
-	margin-top:2px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
+	margin-top: 2px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 	-moz-box-shadow: 1px 1px 2px #000;
 	-webkit-box-shadow: 1px 1px 2px #000;
 	box-shadow: 1px 1px 2px #000;
@@ -104,13 +111,13 @@ body.front .postscript-container .block .inner:hover {
 
 /* Special colors for homepage blocks */
 body.front #block-views-participants-block .inner {
-	background-color:#992739;
+	background-color: #992739;
 }
 
 body.front #block-views-volunteers-block .inner {
-	background-color:#ca673c;
+	background-color: #ca673c;
 }
 
 body.front #block-views-likeminded_projects-block .inner {
-	background-color:#533549;
+	background-color: #533549;
 }
