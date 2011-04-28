@@ -45,11 +45,6 @@ body.front .postscript-container {
   padding: 0 0 0 5px;
 }
 
-/* Hide taxonomy exposed form on homepage */
-body.front .views-widget-filter-term_node_tid_depth {
-  display: none;
-}
-
 /* Hide pager on Project block */
 #block-views-likeminded_projects-block .pager {
   display: none;
