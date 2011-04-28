@@ -11,6 +11,7 @@ stylesheets[all][] = css/et-wireframe.css
 
 ; Scripts
 scripts[] = js/script.js
+scripts[] = js/et.js
 
 ; Regions
 regions[page_top] = Page top

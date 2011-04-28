@@ -51,7 +51,7 @@ body.front .views-widget-filter-term_node_tid_depth {
 }
 
 /* Hide pager on Project block */
-body.front #block-views-likeminded_projects-block .pager {
+#block-views-likeminded_projects-block .pager {
   display: none;
 }
 
@@ -120,4 +120,20 @@ body.front #block-views-volunteers-block .inner {
 
 body.front #block-views-likeminded_projects-block .inner {
 	background-color: #533549;
+}
+
+/* Views stying */
+.view-style-grid,
+.view-style-default {
+  margin: 30px 0 0 0;
+}
+.view-style-grid td {
+  vertical-align: top;
+  padding: 0 0 20px 0;
+}
+
+/* Custom Views Styling */
+.views-field-name {
+  font-size: 24px;
+  padding: 0 0 20px 0;
 }
