@@ -105,6 +105,21 @@ function likemindedimport_feeds_importer_default() {
             'target' => 'field_location:lon',
             'unique' => FALSE,
           ),
+          13 => array(
+            'source' => 'jsonpath_parser:13',
+            'target' => 'field_date:start',
+            'unique' => FALSE,
+          ),
+          14 => array(
+            'source' => 'jsonpath_parser:14',
+            'target' => 'field_date:end',
+            'unique' => FALSE,
+          ),
+          15 => array(
+            'source' => 'jsonpath_parser:15',
+            'target' => 'created',
+            'unique' => FALSE,
+          ),
         ),
         'update_existing' => '1',
         'input_format' => 'plain_text',

@@ -32,23 +32,23 @@ function et_home_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'et_blocks-et_ph_projects_count' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_projects_count',
+        'views-likeminded_projects-block' => array(
+          'module' => 'views',
+          'delta' => 'likeminded_projects-block',
           'region' => 'postscript',
-          'weight' => '-10',
+          'weight' => '-7',
         ),
-        'et_blocks-et_ph_volunteers_count' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_volunteers_count',
+        'views-volunteers-block' => array(
+          'module' => 'views',
+          'delta' => 'volunteers-block',
           'region' => 'postscript',
-          'weight' => '-10',
+          'weight' => '-6',
         ),
-        'et_blocks-et_ph_organizers_count' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_organizers_count',
+        'views-participants-block' => array(
+          'module' => 'views',
+          'delta' => 'participants-block',
           'region' => 'postscript',
-          'weight' => '-10',
+          'weight' => '-5',
         ),
       ),
     ),

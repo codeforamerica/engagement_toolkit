@@ -1,0 +1,8 @@
+core = "7.x"
+dependencies[] = "et_projects"
+dependencies[] = "views"
+description = "A view of volunteer participation."
+features[ctools][] = "views:views_default:3.0"
+features[views_view][] = "volunteers"
+name = "ET Volunteers"
+package = "Features"

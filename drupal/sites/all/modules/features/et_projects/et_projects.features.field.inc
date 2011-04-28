@@ -377,6 +377,88 @@ function et_projects_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-project-field_date'
+  $fields['node-project-field_date'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_date',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'date',
+      'settings' => array(
+        'granularity' => array(
+          'day' => 'day',
+          'month' => 'month',
+          'year' => 'year',
+        ),
+        'profile2_private' => FALSE,
+        'repeat' => 0,
+        'timezone_db' => '',
+        'todate' => '',
+        'tz_handling' => 'none',
+      ),
+      'translatable' => '1',
+      'type' => 'date',
+    ),
+    'field_instance' => array(
+      'bundle' => 'project',
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'date',
+          'settings' => array(
+            'format_type' => 'long',
+            'fromto' => 'both',
+            'multiple_from' => '',
+            'multiple_number' => '',
+            'multiple_to' => '',
+            'show_repeat_rule' => 'show',
+          ),
+          'type' => 'date_default',
+          'weight' => 15,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_date',
+      'label' => 'Date',
+      'required' => 0,
+      'settings' => array(
+        'default_format' => 'medium',
+        'default_value' => 'now',
+        'default_value2' => 'blank',
+        'default_value_code' => '',
+        'default_value_code2' => '',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'date',
+        'settings' => array(
+          'increment' => 1,
+          'input_format' => 'm/d/Y - H:i:s',
+          'input_format_custom' => '',
+          'label_position' => 'above',
+          'repeat_collapsed' => 0,
+          'text_parts' => array(),
+          'year_range' => '-3:+3',
+        ),
+        'type' => 'date_text',
+        'weight' => '8',
+      ),
+    ),
+  );
+
   // Exported field: 'node-project-field_image'
   $fields['node-project-field_image'] = array(
     'field_config' => array(
@@ -868,6 +950,7 @@ function et_projects_field_default_fields() {
   t('Categories');
   t('City');
   t('County');
+  t('Date');
   t('Description');
   t('Images');
   t('Link');
