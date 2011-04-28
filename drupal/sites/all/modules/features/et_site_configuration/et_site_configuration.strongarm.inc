@@ -14,7 +14,7 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'anonymous';
-  $strongarm->value = 'Anonymous';
+  $strongarm->value = 'Guest';
   $export['anonymous'] = $strongarm;
 
   $strongarm = new stdClass;

@@ -429,7 +429,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['create likemindedsource content'] = array(
     'name' => 'create likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -437,7 +438,11 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: create page content
   $permissions['create page content'] = array(
     'name' => 'create page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: create url aliases
@@ -462,7 +467,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['delete any likemindedsource content'] = array(
     'name' => 'delete any likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -470,7 +476,11 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: delete any page content
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: delete backup files
@@ -486,7 +496,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['delete own likemindedsource content'] = array(
     'name' => 'delete own likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -494,7 +505,11 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: delete own page content
   $permissions['delete own page content'] = array(
     'name' => 'delete own page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: delete revisions
@@ -528,7 +543,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['edit any likemindedsource content'] = array(
     'name' => 'edit any likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -536,7 +552,11 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: edit any page content
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: edit own comments
@@ -553,7 +573,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['edit own likemindedsource content'] = array(
     'name' => 'edit own likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -561,7 +582,11 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: edit own page content
   $permissions['edit own page content'] = array(
     'name' => 'edit own page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: execute php code

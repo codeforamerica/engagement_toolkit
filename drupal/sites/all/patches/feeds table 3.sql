@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `feeds_importer` (
   `id` varchar(128) NOT NULL DEFAULT '' COMMENT 'Id of the fields object.',
   `config` text COMMENT 'Configuration of the feeds object.',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='Configuration of feeds objects.';
+) ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='Configuration of feeds objects.';
 
 -- --------------------------------------------------------
 

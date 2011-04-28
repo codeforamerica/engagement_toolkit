@@ -1,3 +1,6 @@
+/**
+ * Layout & spacing & hacks
+ */
 .field-items,
 .view .views-row {
   margin-bottom: 1em;
@@ -22,10 +25,92 @@ body.logged-in #block-system-user-menu ul.menu li.first {
   display: none;
 }
 
+
 /**
  * Blocks
  */
+
+.postscript-container {
+  clear: both;
+  float: none;
+}
+
 .postscript-container .block {
   width: 250px;
   float: left;
+}
+
+/* Hide taxonomy exposed form on homepage */
+body.front .views-widget-filter-term_node_tid_depth {
+  display: none;
+}
+
+/* Hide pager on Project block */
+body.front #block-views-likeminded_projects-block .pager {
+  display: none;
+}
+
+body.front .postscript-container .block .inner {
+  width: 170px;
+  height: 170px;
+  margin-right:25px;
+  margin-left:-8px;
+  float:left;
+  cursor:pointer;
+}
+body.front .postscript-container h2.title,
+body.front .postscript-container .view-header {
+  width:100%;
+  color:#FFF;
+  text-align:center;
+  display:block;
+  font-size:24px;
+	line-height:130%;
+}
+body.front .postscript-container h2.title {
+  margin-top: 60px;
+}
+
+body.front .postscript-container .block .view-header {
+  margin-top: 0px;
+}
+
+body.front .postscript-container .block .inner {
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 3px 3px 4px #000;
+	-webkit-box-shadow: 3px 3px 4px #000;
+	box-shadow: 3px 3px 4px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+
+body.front .postscript-container .block .inner:hover {
+	margin-top:2px;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	-moz-box-shadow: 1px 1px 2px #000;
+	-webkit-box-shadow: 1px 1px 2px #000;
+	box-shadow: 1px 1px 2px #000;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
+}
+
+/* Special colors for homepage blocks */
+body.front #block-views-participants-block .inner {
+	background-color:#992739;
+}
+
+body.front #block-views-volunteers-block .inner {
+	background-color:#ca673c;
+}
+
+body.front #block-views-likeminded_projects-block .inner {
+	background-color:#533549;
 }
