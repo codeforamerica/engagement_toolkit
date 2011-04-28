@@ -23,6 +23,8 @@ function participants_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Organizers';
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['access']['perm'] = 'access user profiles';
   $handler->display->display_options['cache']['type'] = 'none';
@@ -36,11 +38,6 @@ function participants_views_default_views() {
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['row_options']['hide_empty'] = 0;
-  /* Header: Global: Text area */
-  $handler->display->display_options['header']['area']['id'] = 'area';
-  $handler->display->display_options['header']['area']['table'] = 'views';
-  $handler->display->display_options['header']['area']['field'] = 'area';
-  $handler->display->display_options['header']['area']['empty'] = FALSE;
   /* Header: Global: Total Number Results */
   $handler->display->display_options['header']['views_number_results']['id'] = 'views_number_results';
   $handler->display->display_options['header']['views_number_results']['table'] = 'views';
@@ -109,6 +106,7 @@ function participants_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';

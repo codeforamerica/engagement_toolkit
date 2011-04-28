@@ -23,6 +23,8 @@ function projects_view_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Projects';
+  $handler->display->display_options['use_more'] = TRUE;
+  $handler->display->display_options['use_more_always'] = TRUE;
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -103,6 +105,7 @@ function projects_view_views_default_views() {
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
+  $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
