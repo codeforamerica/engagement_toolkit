@@ -1,0 +1,49 @@
+{% extends basetemplate %}
+
+{% load i18n extra_tags %}
+
+{% block adminjs %}
+{{ block.super }}
+
+<style type="text/css">
+#update_check_status {
+    margin-top: 5px;
+    padding: 5px 0;
+    display: none;
+}
+</style>
+
+<script type="text/javascript">
+$(function() {
+
+    $('#check_for_updates').live('click', function() {
+        var update_check_url = $(this).attr('href')
+        var update_check_status = $('#update_check_status')
+        update_check_status.html('{% trans "Checking for updates" %}')
+        update_check_status.show('slow')
+
+        $.get(update_check_url, function(data) {
+            update_check_status.hide('slow', function() {
+                update_check_status.html(data)
+                update_check_status.show('slow');
+            })
+        })
+        return false;
+    })
+});
+</script>
+{% endblock %}
+
+{% block subtitle %}
+    {% trans "Update Checker" %}
+{% endblock %}
+{% block description %}
+    {% trans "Use the OSQA update server to check for updates" %}
+{% endblock %}
+
+{% block admincontent %}
+
+<a href="{% url updater_check %}" id="check_for_updates" class="button">{% trans "Check for Updates" %}</a>
+<div id="update_check_status"></div>
+
+{% endblock %}
