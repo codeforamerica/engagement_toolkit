@@ -1,71 +1,128 @@
 (function(){
-  var fs = require('fs'),
-      inputFile = process.argv[2],
-      headers,
-      lines,
-      i;
+  var fs = require('fs');
 
-  var parseLine = function(line) {
+  var parseLine = function(line, headers) {
     //NOTE: this leave extra double-quotes on the first and last value
     var values = line.split('","'),
-        val, 
-        c, 
+        url, date, 
+        parsedLines = [],
         data = {
           properties: {},
           questions: [],
           answers: []
         };
     
-    for (c=0; c<headers.length; c++) {
+    headers.forEach(function(header, c) {
       val = strip(values[c]);
       
       if (val) {
-        if (headers[c].lastIndexOf('A') === headers[c].length-1) {
-          data.answers[headers[c].split('.')[1].replace('A', '')] = val;
-        } else if (headers[c].lastIndexOf('Q') === headers[c].length-1) {
-          data.questions[headers[c].split('.')[1].replace('Q', '')] = val;
+        if (header.lastIndexOf('A') === header.length-1) {
+          //If this is an answer, parse out the answer number from the key and 
+          //save the value
+          data.answers[parseInt(header.split('.')[1].replace('A', ''), 10)] = val;
+        } else if (header.lastIndexOf('Q') === header.length-1) {
+          //If this is an question, parse out the question number from the key 
+          //and save the value
+          data.questions[parseInt(header.split('.')[1].replace('Q', ''), 10)] = val;
         } else {
-          data.properties[headers[c]] = val;        
+          //These are other properties of the question
+          data.properties[header] = val;        
+        }
+      }
+    });
+    
+    url = data.properties['Input.url'];
+    date = data.properties['CreationTime'];
+    data.questions.forEach(function(question, qNum) {
+      parsedLines.push({
+        "url": url,
+        "createDate": date,
+        "questionNumber": qNum,
+        "question": question,
+        "answer": data.answers[qNum]
+      });
+    });
+    
+    return parsedLines;
+  };
+  
+  var toCsv = function(data) {
+    var csv = '"url","createDate","questionNumber","question","answer"\n';
+    data.forEach(function(rec, i) {
+      csv += '"' + rec.url + '","' + rec.createDate + '","' + 
+          rec.questionNumber + '","' + rec.question + '","' + rec.answer + '"\n'; 
+    });
+    
+    return csv;
+  };
+  
+  var dedupe = function(parsedData) {
+    var i, prevRec, curRec, dedupedData = [];
+    
+    parsedData.sort(function(a, b) {
+      if (a.question === b.question) {
+        if (a.answer === b.answer) {
+          return 0;
+        } else {
+          return a.answer < b.answer ? -1 : 1;
+        }
+      } else {
+        return a.question < b.question ? -1 : 1;
+      }
+    });
+    
+    //De-dupe
+    if (parsedData.length > 0) {
+      dedupedData.push(parsedData[0]);
+    
+      for (i=1; i<parsedData.length; i++) {
+        prevRec = parsedData[i-1];
+        curRec = parsedData[i];
+        
+        //Is this a dupe
+        if (curRec.question !== prevRec.question ||
+            curRec.answer !== prevRec.answer) {
+          dedupedData.push(parsedData[i]);
         }
       }
     }
     
-    return data;
-  };
-  
-  var logCsv = function(data) {
-    var qNum, line,
-        url = data.properties['Input.url'],
-        date = data.properties['CreationTime'];
-    
-    for(qNum in data.questions) {
-      line = '"' + url + '","' + date + '","' + 
-          qNum + '","' + data.questions[qNum]  + '","' + data.answers[qNum] + '"'; 
-
-      console.log(line);
-    }
+    return dedupedData;
   };
   
   var strip = function(str) {
     return str ? str.replace(/"\r*/, '').trim() : null;
   };
   
-  //fileStr = fs.readFileSync('Batch_505552_batch_results (1).csv').toString();
-  
-  fileStr = fs.readFileSync(inputFile).toString();
-  fileStr = fileStr.replace(/([^"])(\r\n)+/g, '$1 ');
-  //console.log(fileStr);
-  
-  lines = fileStr.split('\n');
-  //NOTE: this leave extra double-quotes on the first and last value
-  headers = lines[0].split('","');
-  headers[0] = strip(headers[0]);
-  headers[headers.length-1] = strip(headers[headers.length-1]);
-  
-  
-  console.log('"url","createDate","questionNumber","question","answer"');
-  for (i=1; i<lines.length; i++) {
-    logCsv(parseLine(lines[i]));
-  }
-  
+  //Init
+  (function() {
+    var inputFile = process.argv[2],
+        fileStr,
+        headers,
+        lines,
+        parsedData = [],
+        i;
+
+    if (inputFile) {
+      fileStr = fs.readFileSync(inputFile).toString();
+      //Clean up all of the cells that contain line breaks
+      fileStr = fileStr.replace(/([^"])(\r\n)+/g, '$1 ');
+
+      lines = fileStr.split('\n');
+      //NOTE: this leave extra double-quotes on the first and last value
+      headers = lines[0].split('","');
+      headers[0] = strip(headers[0]);
+      headers[headers.length-1] = strip(headers[headers.length-1]);
+
+      for (i=1; i<lines.length; i++) {
+        parsedData = parsedData.concat(parseLine(lines[i], headers));
+      }
+            
+      //console.log(dedupedData);
+      console.log(toCsv(dedupe(parsedData)));
+
+    } else {
+      console.log('Usage: node parse_mt_csv.js turk_file_to_parse.csv');
+    }
+  })();
 })();
