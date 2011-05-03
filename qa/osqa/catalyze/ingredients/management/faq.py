@@ -18,7 +18,7 @@ class FaqDataFromCsv(object):
         #prepare question data
         qdata = dict(
             title = title,
-            text = text,
+            body = text,
             tags = tags,
         )
 
@@ -34,7 +34,7 @@ class FaqDataFromCsv(object):
         
         #prepare question data
         adata = dict(
-            text = text,
+            body = text,
             question = question
         )
         
@@ -82,19 +82,20 @@ class FaqDataFromCsv(object):
             while True:
                 try:
                     if item.question:
-                        item.user = user
-                        item.question.title = question
+                        item.author = user
+                        item.question.title = question[:256]
+                        item.question.body = question
                         item.question.save()
                     else:
                         item.question = self._ask(
                             user,
-                            question,
-                            ''
+                            question[:256],
+                            question
                         )
                     
                     if item.answer:
-                        item.user = user
-                        item.answer.text = answer + '\n\n[%s](%s)' % (url,url)
+                        item.author = user
+                        item.answer.body = answer + '\n\n[%s](%s)' % (url,url)
                         item.answer.save()
                     else:
                         item.answer = self._answer(
