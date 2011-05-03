@@ -1,3 +1,9 @@
 drupal/sites/*/settings.php
 .DS_Store
 .ds_store
+qa/osqa/catalyze/settings_local.py
+qa/osqa/catalyze/settings_local*.py
+qa/faq_scraper/mt_results
+qa/faq_scraper/output
+qa/faq_scraper/questions
+qa/faq_scraper/urls

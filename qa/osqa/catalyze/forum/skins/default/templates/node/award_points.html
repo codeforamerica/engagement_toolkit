@@ -1,0 +1,39 @@
+{% load i18n %}
+
+<p>
+{% blocktrans %}
+If you like this answer you can award {{ awarded_user }} with reputation points.
+{% endblocktrans %}
+</p>
+
+<p>
+{% blocktrans %}
+Use the slider below or the input field to choose the amount of points you would like to give.
+{% endblocktrans %}
+</p>
+
+<table>
+    <tr>
+        <td width="50%">{% trans "Points:" %}</td>
+        <td width="50%"><input type="text" name="points" id="points_input" value="1" style="border: 1px solid #ccc; padding: 1px 2px;" /></td>
+    </tr>
+</table>
+
+<div class="award_points_slider"></div>
+
+<script>
+$('.award_points_slider').slider({
+    min: 1, max: {{ user.reputation }},
+    slide: function(evt, ui) {
+        $('#points_input').val(ui.value)
+    }
+});
+
+$('#points_input').bind('change keydown', function() {
+    if ($(this).val() > {{ user.reputation }}) {
+        $(this).attr('value', {{ user.reputation }})
+    }
+    $('.award_points_slider').slider('option', 'value', $(this).val())
+})
+
+</script>
