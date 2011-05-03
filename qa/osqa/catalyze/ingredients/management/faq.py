@@ -18,7 +18,7 @@ class FaqDataFromCsv(object):
         #prepare question data
         qdata = dict(
             title = title,
-            body = text,
+            text = text,
             tags = tags,
         )
 
@@ -34,7 +34,7 @@ class FaqDataFromCsv(object):
         
         #prepare question data
         adata = dict(
-            body = text,
+            text = text,
             question = question
         )
         
