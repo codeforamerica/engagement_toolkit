@@ -14,7 +14,7 @@
         };
     
     headers.forEach(function(header, c) {
-      val = strip(values[c]);
+      val = strip(values[c]).replace(/\s+/g, ' ');
                 
       if (val) {
         match = /(\d+)/.exec(header);
@@ -100,7 +100,7 @@
   };
   
   var strip = function(str) {
-    return str ? str.replace(/"\r*/, '').trim() : null;
+    return str ? str.replace(/"\r*/, '').trim() : '';
   };
   
   var parseFile = function(inputFile, outputDir) {
@@ -124,13 +124,11 @@
       for (i=1; i<lines.length; i++) {
         parsedData = parsedData.concat(parseLine(lines[i], headers));
       }
-            
-      console.log(path.join(outputDir, path.basename(inputFile)));
-      fs.writeFile(path.join(outputDir, path.basename(inputFile)), toCsv(dedupe(parsedData)));
-
     } else {
       console.log('Usage: node parse_mt_csv.js turk_file_to_parse.csv');
     }
+    
+    return parsedData;
   };
   
   //Init
@@ -141,11 +139,22 @@
     path.exists(input, function (exists) {
       if (exists) {
         fs.readdir(input, function(errors, files) {
-          files.forEach(function(file) {            
+          var parsedAllFilesData = [];
+          
+          files.forEach(function(file) {
+            var parsedFileData;
+                        
             if (file.indexOf('.csv') !== -1) {
-              parseFile(path.join(input, file), outputDir);
+              parsedFileData = dedupe(parseFile(path.join(input, file), outputDir));
+              parsedAllFilesData = parsedAllFilesData.concat(parsedFileData);
+              
+              console.log(path.join(outputDir, path.basename(file)));
+              fs.writeFile(path.join(outputDir, path.basename(file)), toCsv(parsedFileData));
             }
           });
+          
+          console.log(path.join(outputDir, 'merged.csv'));
+          fs.writeFile(path.join(outputDir, 'merged.csv'), toCsv(dedupe(parsedAllFilesData)));          
         });
       } else {
         parseFile(input, outputDir);
