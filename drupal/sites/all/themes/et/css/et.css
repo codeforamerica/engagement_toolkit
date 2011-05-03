@@ -1,3 +1,12 @@
+.header-sub-site-name{
+  float: left;
+  font-size: 2em;
+  font-weight: bold;
+  margin-left: 220px;
+  margin-top: -40px;
+}
+
+
 .field-items,
 .view .views-row {
   margin-bottom: 1em;

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the et_qa feature.
+ */
+
+include_once('et_qa.features.inc');
