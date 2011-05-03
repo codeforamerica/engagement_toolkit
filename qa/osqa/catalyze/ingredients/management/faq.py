@@ -65,7 +65,6 @@ class FaqDataFromCsv(object):
             faq, _ = ingredients.models.Faq.objects.get_or_create(
                 url = url
             )
-#            faq.save()
             
             # Check whether there is already an item on the faq with the given
             # question number.  If so, skip this one.
@@ -90,7 +89,7 @@ class FaqDataFromCsv(object):
                     item.answer = self._answer(
                         user,
                         item.question,
-                        answer
+                        answer + '\n\n[%s](%s)' % (url,url)
                     )
                     item.save()
                     break
