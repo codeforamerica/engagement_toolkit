@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ET Recipes feature.
+ */
+
+include_once('et_recipes.features.inc');
