@@ -1,3 +1,4 @@
+import django.db.utils
 import csv
 import datetime
 import ingredients.models
@@ -78,18 +79,24 @@ class FaqDataFromCsv(object):
             
             # Ask the question and provide the answer, by the appropriate user.
             user = forum.models.User.objects.get(username=username)
-            item.question = self._ask(
-                user,
-                question,
-                ''
-            )
-            item.answer = self._answer(
-                user,
-                item.question,
-                answer
-            )
-            item.save()
             
+            while True:
+                try:
+                    item.question = self._ask(
+                        user,
+                        question,
+                        ''
+                    )
+                    item.answer = self._answer(
+                        user,
+                        item.question,
+                        answer
+                    )
+                    item.save()
+                    break
+                except django.db.utils.DatabaseError:
+                    continue
+                        
             faqs.add(faq)
             
         return faqs
