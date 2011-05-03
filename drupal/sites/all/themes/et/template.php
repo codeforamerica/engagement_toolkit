@@ -38,6 +38,33 @@ function et_preprocess_page(&$vars) {
   
   // Temp for wireframing or MVP
   $vars['submit_btn'] = url(drupal_get_path('theme', 'et') . '/images/submit-large-overlay.gif');
+  
+  // Hardcoded site names
+  switch ($_SERVER['HTTP_HOST']) {
+    case 'philly.et.codeforamerica.org':
+      $vars['sub_site_name'] = t('Philadelphia');
+      break;
+      
+    case 'seattle.et.codeforamerica.org':
+      $vars['sub_site_name'] = t('Seattle');
+      break;
+      
+    case 'sf.et.codeforamerica.org':
+      $vars['sub_site_name'] = t('San Francisco');
+      break;
+      
+    case 'staging.et.codeforamerica.org':
+      $vars['sub_site_name'] = t('Staging');
+      break;
+      
+    case 'et.codeforamerica.org':
+      $vars['sub_site_name'] = t('Main ET');
+      break;
+      
+    default:
+      $vars['sub_site_name'] = t('Development');
+      break;
+  }
 }
 
 

@@ -73,16 +73,23 @@
 ?>
 <div id="container">
   <div id="header">
-    <div class="header-logo-container" ?>
+    <div class="header-logo-container">
       <?php print $logo_image_link; ?>
     </div>
+    
+    <div class="header-sub-site-name">
+      <?php print $sub_site_name; ?>
+    </div>
+  
     <div class="header-gap-container">
       <?php print render($page['header_gap']); ?>
     </div>
+    
     <div class="header-signin-container">
       <?php print render($page['header_signin']); ?>
       <?php print $account_link; ?>
     </div>
+    
     <div class="header-menu-container">
       <?php print render($page['header_menu']); ?>
     </div>
