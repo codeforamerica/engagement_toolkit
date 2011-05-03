@@ -1,43 +1,12 @@
-from django.core.management.base import NoArgsCommand
-from forum.models import *
-from forum.actions import *
-import datetime
+from django.core.management.base import BaseCommand
+from ingredients.management.faq import FaqDataFromCsv
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     
-    def handle_noargs(self, **options):
-        question = self._ask()
-        self._answer(question)
+    def handle(self, *args, **options):
+        username = args[0]
+        csv_stream = open(args[1])
         
-    
-    def _ask(self):
-        #retrieve the "asker" from the database
-        user = User.objects.all()[0]
-
-        #prepare question data
-        qdata = dict(
-            title = "This is a sample imported question",
-            text = "I have stuff to do, just don't know how.",
-            tags = "philadelphia",
-        )
-
-        #save the question, everything will be handled internally,
-        #like creating the tags if they don't exist, etc 
-        ask = AskAction(user=user).save(data=qdata)
-        return ask.node
-        
-    
-    def _answer(self, question):
-        #retrieve the "answerer" from the database
-        user = User.objects.all()[0]
-        
-        #prepare question data
-        adata = dict(
-            text = "blah",
-            question = question
-        )
-        
-        #save the question, everything will be handled internally,
-        #like creating the tags if they don't exist, etc 
-        AnswerAction(user=user).save(data=adata)
+        faq_data = FaqDataFromCsv(csv_stream)
+        faqs = faq_data.save(username)
 
