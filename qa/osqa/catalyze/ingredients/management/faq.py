@@ -73,8 +73,8 @@ class FaqDataFromCsv(object):
                 number = int(question_number)
             )
             
-            if not created:
-                continue
+#            if not created:
+#                continue
             
             # Ask the question and provide the answer, by the appropriate user.
             user = forum.models.User.objects.get(username=username)
