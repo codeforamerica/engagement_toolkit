@@ -81,16 +81,27 @@ class FaqDataFromCsv(object):
             
             while True:
                 try:
-                    item.question = self._ask(
-                        user,
-                        question,
-                        ''
-                    )
-                    item.answer = self._answer(
-                        user,
-                        item.question,
-                        answer + '\n\n[%s](%s)' % (url,url)
-                    )
+                    if item.question:
+                        item.user = user
+                        item.question.title = question
+                        item.question.save()
+                    else:
+                        item.question = self._ask(
+                            user,
+                            question,
+                            ''
+                        )
+                    
+                    if item.answer:
+                        item.user = user
+                        item.answer.text = answer + '\n\n[%s](%s)' % (url,url)
+                        item.answer.save()
+                    else:
+                        item.answer = self._answer(
+                            user,
+                            item.question,
+                            answer + '\n\n[%s](%s)' % (url,url)
+                        )
                     item.save()
                     break
                 except django.db.utils.DatabaseError:
