@@ -60,6 +60,7 @@ class FaqDataFromCsv(object):
             question_number = row[2]
             question = row[3]
             answer = row[4]
+            tags = row[5].replace(';',' ')
             
             # Create the faq, if it does not already exist
             faq, _ = ingredients.models.Faq.objects.get_or_create(
@@ -85,12 +86,14 @@ class FaqDataFromCsv(object):
                         item.author = user
                         item.question.title = question[:256]
                         item.question.body = question
+                        item.question.tags = tags
                         item.question.save()
                     else:
                         item.question = self._ask(
                             user,
                             question[:256],
-                            question
+                            question,
+                            tags
                         )
                     
                     if item.answer:

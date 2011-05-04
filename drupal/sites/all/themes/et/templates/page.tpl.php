@@ -116,7 +116,7 @@
       <div class="help-container">
         <?php print render($page['help']); ?>
       </div>
-      
+
       <div class="title-container">
         <?php print render($title_prefix); ?>
         <?php if ($title): ?>
@@ -145,6 +145,10 @@
     <div class="postscript-container">
       <?php print render($page['postscript']); ?>
     </div>
+  </div>
+  
+  <div class="facebook-like">
+    <?php print $fb_like; ?>
   </div>
   
   <div id="footer">
