@@ -86,7 +86,7 @@ class FaqDataFromCsv(object):
                         item.author = user
                         item.question.title = question[:256]
                         item.question.body = question
-                        item.quesiton.tags = tags
+                        item.question.tags = tags
                         item.question.save()
                     else:
                         item.question = self._ask(
