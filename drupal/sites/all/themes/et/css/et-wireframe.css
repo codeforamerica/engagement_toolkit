@@ -152,6 +152,14 @@ tr.admin-menu-tweak-permissions-processed td.module {
     background: #533549;
 }
 
+/**
+ * Header
+ */
+#header {
+  border-bottom: 4px solid #992739;
+  height: 64px;
+}
+
 /*---- GENERAL ----*/
 .main-content-region, .postscript-container {
     margin: 0 30px 0 170px;
@@ -166,7 +174,6 @@ tr.admin-menu-tweak-permissions-processed td.module {
 .header-logo-container a {
 	background:url(../images/header_bg.gif) repeat-x;
 	height:57px;
-	width:100%;
 	position:absolute;
 	top:10px;
 	left:0;
@@ -203,8 +210,8 @@ h2 {
 }
 
 #main {
-  height:100%;
-  margin:110px 60px 0 55px;
+  height: 100%;
+  margin: 30px 60px 0 55px;
 }
 
 #search {
