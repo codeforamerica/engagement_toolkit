@@ -118,6 +118,7 @@ if DEBUG:
 try:
     import south
     INSTALLED_APPS.append('south')
+    SOUTH_TESTS_MIGRATE = False
 except:
     pass
 
