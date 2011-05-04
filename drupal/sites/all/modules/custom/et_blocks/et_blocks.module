@@ -19,6 +19,12 @@ function et_blocks_block_info() {
   $blocks['et_ph_projects_count'] = array(
     'info' => t('Placeholder: Projects count'),
   );
+  $blocks['et_ph_clone_project'] = array(
+    'info' => t('Placeholder: Clone Project'),
+  );
+  $blocks['et_ph_clone_recipe'] = array(
+    'info' => t('Placeholder: Clone Recipe into Project'),
+  );
   $blocks['et_custom_facebook_like'] = array(
     'info' => t('Custom: Facebook Like'),
   );
@@ -44,6 +50,16 @@ function et_blocks_block_view($delta = '') {
     case 'et_ph_projects_count':
       $block['subject'] = '';
       $block['content'] = et_blocks_placeholder('projects_count');
+      break;
+      
+    case 'et_ph_clone_project':
+      $block['subject'] = '';
+      $block['content'] = et_blocks_placeholder('clone_project');
+      break;
+      
+    case 'et_ph_clone_recipe':
+      $block['subject'] = '';
+      $block['content'] = et_blocks_placeholder('clone_recipe');
       break;
       
     case 'et_custom_facebook_like':
@@ -88,6 +104,22 @@ function et_blocks_placeholder($type) {
         <div class="category" id="category3">
           <span class="category_count">17</span>
           <span class="category_name">Projects</span>
+        </div>
+      ';
+      break;
+      
+    case 'clone_project':
+      $output .= '
+        <div class="ph-clone-project">
+          ' . t('I want to fork this project.') . '
+        </div>
+      ';
+      break;
+      
+    case 'clone_recipe':
+      $output .= '
+        <div class="ph-clone-recipe">
+          ' . t('I want to make this recipe into a project.') . '
         </div>
       ';
       break;
