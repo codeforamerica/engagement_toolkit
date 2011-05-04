@@ -85,13 +85,13 @@
       <?php print render($page['header_gap']); ?>
     </div>
     
+    <div class="header-menu-container">
+      <?php print render($page['header_menu']); ?>
+    </div>
+    
     <div class="header-signin-container">
       <?php print render($page['header_signin']); ?>
       <?php print $account_link; ?>
-    </div>
-    
-    <div class="header-menu-container">
-      <?php print render($page['header_menu']); ?>
     </div>
   </div>
   

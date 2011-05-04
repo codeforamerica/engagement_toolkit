@@ -1,0 +1,92 @@
+[
+  {
+    "op": "core/column-split",
+    "description": "Split column url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags by separator",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags",
+    "guessCellType": true,
+    "removeOriginalColumn": true,
+    "mode": "separator",
+    "separator": "\",\"",
+    "regex": false,
+    "maxColumns": 0
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 1 to url",
+    "oldColumnName": "url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 1",
+    "newColumnName": "url"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 2 to createDate",
+    "oldColumnName": "url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 2",
+    "newColumnName": "createDate"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 3 to questionNumber",
+    "oldColumnName": "url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 3",
+    "newColumnName": "questionNumber"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 4 to question",
+    "oldColumnName": "url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 4",
+    "newColumnName": "question"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 5 to answer",
+    "oldColumnName": "url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 5",
+    "newColumnName": "answer"
+  },
+  {
+    "op": "core/column-rename",
+    "description": "Rename column url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 6 to tags",
+    "oldColumnName": "url\",\"createDate\",\"questionNumber\",\"question\",\"answer\",\"tags 6",
+    "newColumnName": "tags"
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column url using expression grel:value.substring(1, value.length())",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "url",
+    "expression": "grel:value.substring(1, value.length())",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/text-transform",
+    "description": "Text transform on cells in column tags using expression grel:value.substring(0, -1)",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "tags",
+    "expression": "grel:value.substring(0, -1)",
+    "onError": "set-to-blank",
+    "repeat": false,
+    "repeatCount": 10
+  },
+  {
+    "op": "core/column-addition",
+    "description": "Create column qa at index 5 based on column answer using expression grel:cells[\"question\"].value + \" \" + value",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "newColumnName": "qa",
+    "columnInsertIndex": 5,
+    "baseColumnName": "answer",
+    "expression": "grel:cells[\"question\"].value + \" \" + value",
+    "onError": "set-to-blank"
+  }
+]
