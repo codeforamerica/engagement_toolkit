@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ET Projects Extra feature.
+ */
+
+include_once('et_projects_extra.features.inc');

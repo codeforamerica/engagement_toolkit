@@ -65,14 +65,6 @@ function et_preprocess_page(&$vars) {
       $vars['sub_site_name'] = t('Development');
       break;
   }
-  
-  // Facebook Like link (TODO: Use module)
-  // Make URL, Facebook is not ok with a "localhost" URL.
-  $url = ($_SERVER['SERVER_PORT'] == '443') ? 'https' : 'http';
-  $url .= '://';
-  $url .= ($_SERVER['HTTP_HOST'] == 'localhost') ? 'localhost.com' : $_SERVER['HTTP_HOST'];
-  $url .= $_SERVER['REQUEST_URI'];
-  $vars['fb_like'] = '<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="' . urlencode($url) . '" send="true" width="200" show_faces="false" font=""></fb:like>';
 }
 
 

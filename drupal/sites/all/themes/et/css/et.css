@@ -71,6 +71,25 @@ body.front span.submitted {
 }
 
 /**
+ * Regions
+ */
+.main-content-region,
+.postscript-container {
+  float: left;
+  width: 575px;
+}
+
+.sidebar-second-container {
+  float: right;
+  width: 255px;
+}
+
+.sidebar-second-container .block {
+  background-color: #DDDDDD;
+  padding: 10px;
+}
+
+/**
  * Views
  */
 .field-items,
@@ -79,7 +98,7 @@ body.front span.submitted {
 }
 
 /**
- * Blocks
+ * Genearl Blocks
  */
 .postscript-container .block {
   width: 250px;
