@@ -3,7 +3,7 @@
       path = require('path'),
       request = require('request'),
       options = {
-        semanticHackerUrl: 'http://api.semantichacker.com/wgif00l7/concept?format=json',
+        semanticHackerUrl: 'http://api.semantichacker.com/YOUR_API_KEY/concept?format=json',
         minTagWeight: 0.002
       };
 
