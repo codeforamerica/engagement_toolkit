@@ -1,7 +1,13 @@
 (function(){
   var fs = require('fs'),
-      path = require('path');
+      path = require('path'),
+      request = require('request'),
+      options = {
+        semanticHackerUrl: 'http://api.semantichacker.com/wgif00l7/concept?format=json',
+        minTagWeight: 0.002
+      };
 
+  //Parse a single line of a file
   var parseLine = function(line, headers) {
     //NOTE: this leave extra double-quotes on the first and last value
     var values = line.split('","'),
@@ -55,20 +61,23 @@
     return parsedLines;
   };
   
+  //Convert a record to CSV
   var toCsv = function(data) {
-    var csv = '"url","createDate","questionNumber","question","answer"\n';
+    var csv = '"url","createDate","questionNumber","question","answer","tags"\n';
     data.forEach(function(rec, i) {
       csv += '"' + rec.url + '","' + rec.createDate + '","' + 
-          rec.questionNumber + '","' + rec.question + '","' + rec.answer + '"\n'; 
+          rec.questionNumber + '","' + rec.question + '","' + rec.answer + '","' + rec.tags.join(';') + '"\n'; 
     });
     
     return csv;
   };
   
-  var dedupe = function(parsedData) {
+  //Remove dupes if the question and answer are identical
+  var dedupe = function(data) {
     var i, prevRec, curRec, dedupedData = [];
     
-    parsedData.sort(function(a, b) {
+    //Sort everything by questions/answer
+    data.sort(function(a, b) {
       if (a.question === b.question) {
         if (a.answer === b.answer) {
           return 0;
@@ -81,29 +90,94 @@
     });
     
     //De-dupe
-    if (parsedData.length > 0) {
-      dedupedData.push(parsedData[0]);
+    if (data.length > 0) {
+      dedupedData.push(data[0]);
     
-      for (i=1; i<parsedData.length; i++) {
-        prevRec = parsedData[i-1];
-        curRec = parsedData[i];
+      for (i=1; i<data.length; i++) {
+        prevRec = data[i-1];
+        curRec = data[i];
         
-        //Is this a dupe
+        //Only add the record if it's different than the
+        //previous record.
         if (curRec.question !== prevRec.question ||
             curRec.answer !== prevRec.answer) {
-          dedupedData.push(parsedData[i]);
+          dedupedData.push(data[i]);
         }
       }
     }
     
     return dedupedData;
   };
+
+  //Go get tags from SemanticHacker for our QA
+  var addTags = function(data, throttle, callback) {
+    var c, taggedData = [];
+    
+    if (data.length > 0) {
+      data.forEach(function(rec, c) {
+        //Fancy closure to keep access to the text inside the query call
+        (function(text) {
+          //SemanticHacker throttles you to 300 requests per minutes,
+          //so this code will slow that down
+          setTimeout(function(){
+            request({
+                method: 'POST', 
+                uri: options.semanticHackerUrl,
+                body: text
+            }, function (error, response, jsonStr) {
+              var jsonObj, 
+                  tags = [], 
+                  concepts, 
+                  i;
+
+              if (!error && response.statusCode === 200) {
+                jsonObj = JSON.parse(jsonStr);
+                
+                //Extract the tags from the response
+                if (jsonObj.conceptExtractor && jsonObj.conceptExtractor.conceptExtractorResponse) {
+                  concepts = jsonObj.conceptExtractor.conceptExtractorResponse.concepts;
+
+                  for(i=0; i<concepts.length; i++) {
+                    tags.push(concepts[i].label);
+                  }
+                } else {
+                  //We'll see an error here if we go faster than 300 req/min
+                  console.log(jsonObj);
+                }
+
+                //Always add tags, even if blank
+                data[c].tags = tags;
+
+                taggedData.push(data[c]);
+
+                console.log(taggedData.length + ' of ' + data.length);
+                
+                //Callback once the tagged data is the same size as the
+                //original data
+                if (data.length === taggedData.length) {
+                  console.log(data.length + ' records! Writing file.');
+                  callback(taggedData);
+                }
+              } else {
+                console.log('Error getting SemanticHacker response.');
+              }
+            });
+          }, (c * throttle));
+
+        })(rec.question + ' ' + rec.answer + ' ' + rec.url); //This is the text var up above
+      });
+    } else {
+      callback(taggedData);
+    }
+  };
   
+  //Helper function to remove double quotes
   var strip = function(str) {
     return str ? str.replace(/"\r*/, '').trim() : '';
   };
   
-  var parseFile = function(inputFile, outputDir) {
+  //Parse a single file into an array of structured data
+  var parseFile = function(inputFile) {
     var fileStr,
         headers,
         lines,
@@ -131,33 +205,61 @@
     return parsedData;
   };
   
+  //Function to synchronously process a list of files
+  var processFiles = function(filePaths, outputDir) {
+    var parsedData, 
+        fileName = filePaths.pop();
+
+    if (fileName && fileName.indexOf('.csv') !== -1) {      
+      //Parse the file
+      parsedData = dedupe(parseFile(fileName));
+
+      //Add tags to the file from SemanticHacker
+      addTags(parsedData, 250, function(taggedData) {
+        //Write the file
+        fs.writeFile(path.join(outputDir, path.basename(fileName)), toCsv(taggedData));
+        
+        //Go to the next file, if any
+        if (filePaths.length > 0) {
+          processFiles(filePaths, outputDir);
+        }
+      });
+    } else {
+      //Go to the next file, if any
+      if (filePaths.length > 0) {
+        processFiles(filePaths, outputDir);
+      }
+    }
+  };
+  
   //Init
   (function() {
     var input = process.argv[2],
-        outputDir = process.argv[3];
+        output = process.argv[3],
+        filePaths = [],
+        i;
     
     path.exists(input, function (exists) {
+      var parsedFileData;
+      
       if (exists) {
-        fs.readdir(input, function(errors, files) {
-          var parsedAllFilesData = [];
+        fs.readdir(input, function(error, files) {
+          var allTaggedData = [];
           
-          files.forEach(function(file) {
-            var parsedFileData;
-                        
-            if (file.indexOf('.csv') !== -1) {
-              parsedFileData = dedupe(parseFile(path.join(input, file), outputDir));
-              parsedAllFilesData = parsedAllFilesData.concat(parsedFileData);
-              
-              console.log(path.join(outputDir, path.basename(file)));
-              fs.writeFile(path.join(outputDir, path.basename(file)), toCsv(parsedFileData));
+          //Process a single file
+          if (error && error.code === 'ENOTDIR') {
+            filePaths.unshift(input);
+            processFiles(filePaths, output);
+          } else {
+            //Process a directory of files
+            for (i=0; i<files.length; i++) {
+              filePaths.unshift(path.join(input, files[i]));
             }
-          });
-          
-          console.log(path.join(outputDir, 'merged.csv'));
-          fs.writeFile(path.join(outputDir, 'merged.csv'), toCsv(dedupe(parsedAllFilesData)));          
+            processFiles(filePaths, output);
+          }
         });
       } else {
-        parseFile(input, outputDir);
+        console.log(input + ' does not exist.');
       }
     });    
   })();
