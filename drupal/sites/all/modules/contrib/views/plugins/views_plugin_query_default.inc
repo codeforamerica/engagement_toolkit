@@ -627,6 +627,28 @@ class views_plugin_query_default extends views_plugin_query {
     if (!empty($join->adjusted)) {
       return $join;
     }
+    
+    $t = end($this->table_queue);   // get the last added table
+    if (!empty($t['join'])) {
+      // Check if the last one is reversed.
+      if  ((!empty($t['join']->definition['left_field_reverse_relation'])) 
+      && (!($t['join']->definition['left_field_reverse_relation'] == NULL))) {
+
+        // Adjust_join for the previous base table
+        // rescue the left_field from the relation ship
+        $swapped_field = $t['join']->left_field_reverse_relation; 
+        // Now fetch the previous table
+        $t = prev($this->table_queue);
+
+        if (($t['join']->definition['left_table'] == 'node') 
+         && (!empty($left_field_reverse_relation))) {
+          $t['join']->definition['left_table'] = $t['relationship'];     // The alias is not stored in the definition
+          $t['join']->definition['field'] = $swapped_field;  // The left_field is the swapped field from the relationship  !!!!!!!!!!!!!!!!!!
+          $t['join']->construct();    // You need to build the join again from the new definition
+        } 
+      }
+      $t = end($this->table_queue);  //reset cursor
+    }   
 
     if (empty($relationship) || empty($this->relationships[$relationship])) {
       return $join;
