@@ -26,27 +26,15 @@ function et_home_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views--exp-likeminded_projects-page' => array(
+        'views-recipes-block_1' => array(
           'module' => 'views',
-          'delta' => '-exp-likeminded_projects-page',
-          'region' => 'content',
-          'weight' => '-10',
-        ),
-        'et_blocks-et_ph_projects_count' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_projects_count',
+          'delta' => 'recipes-block_1',
           'region' => 'postscript',
           'weight' => '-10',
         ),
-        'et_blocks-et_ph_volunteers_count' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_volunteers_count',
-          'region' => 'postscript',
-          'weight' => '-10',
-        ),
-        'et_blocks-et_ph_organizers_count' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_organizers_count',
+        'views-menus-block_1' => array(
+          'module' => 'views',
+          'delta' => 'menus-block_1',
           'region' => 'postscript',
           'weight' => '-10',
         ),

@@ -14,7 +14,7 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'anonymous';
-  $strongarm->value = 'Anonymous';
+  $strongarm->value = 'Guest';
   $export['anonymous'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -116,14 +116,14 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_403';
-  $strongarm->value = '';
+  $strongarm->value = 'toboggan/denied';
   $export['site_403'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_404';
-  $strongarm->value = '';
+  $strongarm->value = 'node/6190';
   $export['site_404'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -137,7 +137,7 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
-  $strongarm->value = 'Engagement Toolkit';
+  $strongarm->value = 'City Hero';
   $export['site_name'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -178,12 +178,12 @@ function et_site_configuration_strongarm() {
     'default_favicon' => 1,
     'favicon_path' => '',
     'favicon_upload' => '',
-    'theme_grid' => 'grid16-960',
+    'theme_grid' => 'grid12-960',
     'fluid_grid_width' => 'fluid-100',
-    'sidebar_layout' => 'sidebars-split',
+    'sidebar_layout' => 'sidebars-both-last',
     'sidebar_first_width' => '3',
     'sidebar_second_width' => '3',
-    'theme_font' => 'none',
+    'theme_font' => 'font-family-sans-serif-sm',
     'theme_font_size' => 'font-size-13',
     'breadcrumb_display' => 0,
     'search_snippet' => 1,
@@ -272,14 +272,14 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_pictures';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['user_pictures'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_register';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['user_register'] = $strongarm;
 
   return $export;
