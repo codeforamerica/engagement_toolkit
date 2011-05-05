@@ -16,7 +16,7 @@
     text-align: left;
     top: 0;
     width: 100%;
-	box-shadow:0px 0px 0px #000000;
+	 box-shadow:0px 0px 0px #000000;
 }
 #admin-menu-wrapper {
     overflow: hidden;
@@ -153,9 +153,10 @@ tr.admin-menu-tweak-permissions-processed td.module {
 }
 
 
-/*---- GENERAL ----*/
+/*---- GENERAL ----*//*
+
 .main-content-region, .postscript-container {
-    margin: 0 30px 0 170px;
+  margin: 0 30px 0 170px;
 	padding-top:30px;
 }
 #content {
@@ -224,162 +225,60 @@ body {
   margin-right:auto;
   margin-top:65px;
 }
-.category {
-  width: 170px;
-  height:170px;
-  margin-right:25px;
-  margin-left:-8px;
-  float:left;
-  cursor:pointer;
-}
+*/
 
-.category_count, .category_name {
-  width:100%;
-  color:#FFF;
-  text-align:center;
-  display:block;
-  font-size:24px;
-}
-
-.category_count {
-  margin-top:50px;
-}
-
-#category1 {
-	background-color:#992739;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 3px 3px 4px #000;
-	-webkit-box-shadow: 3px 3px 4px #000;
-	box-shadow: 3px 3px 4px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-	}
-#category1:hover {
-	margin-top:2px;
-	background-color:#992739;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 1px 1px 2px #000;
-	-webkit-box-shadow: 1px 1px 2px #000;
-	box-shadow: 1px 1px 2px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
-	}
-#category1 span {
-	line-height:130%;
-	}
-#category2 {
-	background-color:#ca673c;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 3px 3px 4px #000;
-	-webkit-box-shadow: 3px 3px 4px #000;
-	box-shadow: 3px 3px 4px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-	}
-#category2:hover {
-	margin-top:2px;
-	background-color:#ca673c;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 1px 1px 2px #000;
-	-webkit-box-shadow: 1px 1px 2px #000;
-	box-shadow: 1px 1px 2px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
-	}
-#category2 span {
-	line-height:130%;
-	}
-#category3 {
-	background-color:#533549;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 3px 3px 4px #000;
-	-webkit-box-shadow: 3px 3px 4px #000;
-	box-shadow: 3px 3px 4px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-	}
-#category3:hover {
-	margin-top:2px;
-	background-color:#533549;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 1px 1px 2px #000;
-	-webkit-box-shadow: 1px 1px 2px #000;
-	box-shadow: 1px 1px 2px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
-	}
-#category3 span {
-	line-height:130%;
-	}
 a:link, a:visited {
+/*
 	color:#992739;
 	text-decoration:none;
+*/
 }
 a:hover, a:active {
+/*
 	color:#533549;
 	text-decoration:underline;
+*/
 }
 
 /*---- MESSAGES ----*/
 	
 div.status, table tr.ok {
-    background-color: #F8FFF0;
+/*     background-color: #F8FFF0; */
 }
 div.status, .ok {
-    color: #96a044;
+/*     color: #96a044; */
 }
 div.status {
+/*
     border-color: #96a044;
 	background:url(../images/message-24-ok.png) no-repeat #ecede1 ;
+*/
 }
 
 div.warning, table tr.warning {
-    background-color:#ca673c;
+/*     background-color:#ca673c; */
 }
 div.warning, .warning {
-    color: #ca673c;
+/*     color: #ca673c; */
 }
 div.warning {
-	border-color: #ca673c;
-    background: url(../images/message-24-warning.png) no-repeat #f1e8e4;
+/* 	border-color: #ca673c; */
+/*     background: url(../images/message-24-warning.png) no-repeat #f1e8e4; */
 }
 
 div.error, table tr.error {
-    background-color: #efdcdf;
+/*     background-color: #efdcdf; */
 }
 div.error, .error {
-    color: #992739;
+/*     color: #992739; */
 }
 div.error {
-    background: url(../images/message-24-error.png) no-repeat #efdcdf;
-    border-color: #992739;
+/*     background: url(../images/message-24-error.png) no-repeat #efdcdf; */
+/*     border-color: #992739; */
 }
 
 div.messages {
+/*
     background-position: 8px 6px;
     background-repeat: no-repeat;
     border: 1px solid;
@@ -395,61 +294,38 @@ div.messages {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
 	/* For IE 5.5 - 7 */
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
+*/
 }
 .messages-wrapper {
-	margin:0 0 15px 0;
+/* 	margin:0 0 15px 0; */
 	}
 
 /* ----- SEARCH ----- */
 
 .views-exposed-form .views-exposed-widget {
+/*
     float: left;
     padding: 0;
+*/
 }
 .views-submit-button {
-	margin:-15px 0 0 0;
+/* 	margin:-15px 0 0 0; */
 	}
 .views-exposed-form {
-	display:block;
-	margin:30px 0 0 0;
+/* 	display:block; */
+/* 	margin:30px 0 0 0; */
 	}
 .views-exposed-form label {
+/*
 	font-size:24px;
 	font-weight:bold;
 	color:#533549;
 	line-height:130%;
+*/
 	}
-#views-exposed-form-likeminded-projects-page #edit-keys {
-	margin-left:0;
-	margin-top:2px;
-	height:50px;
-	border:#533549 2px groove;
-	padding:3px 0 0 15px;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	background-color:#e5e5e5;
-	font-size:24px;
-	width:512px;
-	}
-#edit-submit-likeminded-projects {
-	color:#FFF;
-	overflow:hidden;
-	background:url(../images/button-large.gif) 0 -2px no-repeat;
-	width:150px;
-	height:75px;
-	border:0;
-	cursor:pointer;
-	font-size:24px;
-	font-weight:normal;
-	line-height:150%;
-	padding-bottom:10px;
-	}
-#edit-submit-likeminded-projects:hover {
-	background:url(../images/button-large.gif) 0 -77px no-repeat;
-	padding-bottom:8px;
-	}
+
 a#signin {
+/*
     background: none repeat scroll 0 0 #992739;
     border-radius: 5px 5px 0 0;
     color: #FFFFFF;
@@ -458,147 +334,73 @@ a#signin {
     right: 60px;
     text-decoration: none;
     top: 37px;
+*/
 }
 a#signin:hover {
-	text-decoration:underline;
+/* 	text-decoration:underline; */
 	}
 
 /*  ----  STYLESHEET CSS  ----  */
 /*  ----  rewrites system CSS settings  ----  */
 
 li a.active {
-    color: #533549;
+/*     color: #533549; */
 }
+
 ul.primary {
-  border-bottom: 2px solid #CCC;
-  border-collapse: collapse;
-  height: auto;
-  line-height: normal;
-  list-style: none;
-  margin: 5px;
-  padding: 0 0 0 1em; /* LTR */
-  white-space: nowrap;
-  color:#533549;
+
 }
 ul.primary li {
-  display: inline;
+
 }
 ul.primary li a {
-  background-color: #CCC;
-  border-color: #CCC;
-  border-style: solid solid none solid;
-  border-width: 2px;
-  border-bottom:0;
-  height: auto;
-  margin-right: 0.5em; /* LTR */
-  padding: 0 1em;
-  text-decoration: none;
-  -moz-border-radius:5px 5px 0 0;
-	-webkit-border-radius:5px 5px 0 0;
-	border-radius:5px 5px 0 0;
+
 }
 ul.primary li.active a {
-  background-color: #fff;
-  border: 2px solid #CCC;
-  border-bottom-color: #FFF;
+
 }
 ul.primary li a:hover {
-  background-color: #ececec;
-  border-color: #CCC;
-  border-bottom-color: #FFF;
+
 }
 ul.secondary {
-  border-bottom:0;
-  padding: 0.5em 1em;
-  margin: 5px;
+
 }
 ul.secondary li {
-  border-right: 2px solid #CCC; /* LTR */
-  display: inline;
-  padding: 0 1em;
+
 }
 ul.secondary a {
-  padding: 0;
-  text-decoration: none;
 }
 ul.secondary a.active {
- border-bottom:0;
+
 }
 
 .styleguide-description {
-    color: #CCC;
-    font-size: 12px;
-    margin: 0 0 5px 0;
+
 }
 div.styleguide {
-    border-bottom: 0px solid #CCCCCC;
-    border-top: 0px solid #CCCCCC;
-    padding:0;
+
 }
 #styleguide-header {
-    background-color: #FAFAFA;
-    border: 1px solid #CCCCCC;
-	padding:5px;
+
 }
 
 /*---- LOGIN ----*/
 
 .toboggan-unified #login-links, .toboggan-unified #login-message {
-    font-size: 1.5em;
-    line-height: 2.7;
-    text-align: left;
+
 }
 .toboggan-unified #login-message {
-	color:#533549;
-	font-weight:bold;
+
 }
 .toboggan-unified #login-links a {
-	border:0;
-	color:#FFF;
-	text-decoration:none;
-    background-color:#e89a41;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 3px 3px 4px #000;
-	-webkit-box-shadow: 3px 3px 4px #000;
-	box-shadow: 3px 3px 4px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
-	}
+
+}
 .toboggan-unified #login-links a.lt-active, .toboggan-unified #login-links a.lt-active:hover, .toboggan-unified #login-links a:hover {
-	border:0;
-	color:#FFF;
-	text-decoration:none;
-	background-color:#ca673c;
-	-moz-border-radius:10px;
-	-webkit-border-radius:10px;
-	border-radius:10px;
-	-moz-box-shadow: 1px 1px 2px #000;
-	-webkit-box-shadow: 1px 1px 2px #000;
-	box-shadow: 1px 1px 2px #000;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#000000');
+
 	} 
 #edit-submit {
-	color:#FFF;
-	margin:0 0 0 -10px;
-	overflow:hidden;
-	background:url(../images/button-large.gif) 0 -2px no-repeat;
-	width:150px;
-	height:75px;
-	border:0;
-	cursor:pointer;
-	font-size:24px;
-	font-weight:normal;
-	line-height:150%;
-	padding-bottom:10px;
+
 	}
 #edit-submit:hover {
-	background:url(../images/button-large.gif) 0 -77px no-repeat;
-	padding-bottom:8px;
+
 	}

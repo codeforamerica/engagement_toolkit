@@ -9,57 +9,62 @@
  * Header
  */
 #header {
-  border-bottom: 4px solid #992739;
-  height: 64px;
+
 }
 .header-sub-site-name{
-  float: left;
-  font-size: 2em;
-  font-weight: bold;
-  margin-left: 220px;
-  margin-top: -40px;
+
 }
 .header-logo-container a {
 	background: url(../images/header_bg.gif) repeat-x;
-	height: 57px;
+/*	height: 57px;
 	position: absolute;
 	top: 10px;
 	left: 0;
-	border: 0;
+	border: 0; */
 }
 #header a {
+/*
   display: block;
   float: right;
   margin: 30px 0 0 0;
+*/
 }
 #header .block {
-  width: inherit;
+/*   width: inherit; */
 }
 #header .header-menu-container {
-  width: 500px;
-  float: right;
+/*
+width: 500px;
+float: right;
+*/
 }
 #header-menu-wrapper.full-width,
 #header-menu-wrapper .grid16-16  {
+/*
   min-width: 0;
   width: auto;
+*/
 }
 #header #header-menu ul.menu li {
+/*
   display: block;
   float: right;
+*/
 }
 #header #header-menu ul.menu li a {
+/*
   margin: 0;
   padding: 20px 2px 10px 15px;
+*/
 }
 #header .context-block-region {
-  display: none;
+/*   display: none; */
 }
 #header #block-menu-menu-et-menu {
-  width: 100%;
+/*   width: 100%; */
 }
 #header #block-menu-menu-et-menu .content {
-  margin-right: 150px;
+/*   margin-right: 150px; */
 }
 
 /**
@@ -67,7 +72,7 @@
  */
 body.front h1.title,
 body.front span.submitted {
-  display: none;
+/*   display: none; */
 }
 
 /**
@@ -75,24 +80,28 @@ body.front span.submitted {
  */
 .field-items,
 .view .views-row {
-  margin-bottom: 1em;
+/*   margin-bottom: 1em; */
 }
 
 /**
  * Blocks
  */
 .postscript-container .block {
+/*
   width: 250px;
   float: left;
+*/
 }
 
 #block-system-user-menu {
+/*
   width: 25%;
   display: inline;
+*/
 }
 
 #block-system-user-menu ul li{
-  list-style: none;
+/*   list-style: none; */
 }
 
 body.logged-in #block-system-user-menu ul.menu li.first {
