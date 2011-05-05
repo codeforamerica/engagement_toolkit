@@ -21,6 +21,13 @@ function et_preprocess_html(&$vars) {
   // Add a unique page id
   $vars['body_id'] = 'pid-' . strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
 
+  // If sidebars are empty, make main region full width.
+  if(empty($vars['page']['sidebar_first']) && empty($vars['page']['sidebar_last'])) {
+    $vars['page']['main_region_width'] = 'grid_12';
+  }
+  else {
+    $vars['page']['main_region_width'] = 'grid_8';
+  }
 
 }
 
@@ -112,6 +119,7 @@ function et_preprocess_region(&$vars) {
   $vars['region_style'] = $vars['fluid_width'] = '';
   $vars['region_name'] = str_replace('_', '-', $vars['region']);
   $vars['classes_array'][] = $vars['region_name'];
+
 }
 
 
