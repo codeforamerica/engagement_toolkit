@@ -16,6 +16,23 @@ body.front span.submitted {
   margin-bottom: 1em;
 }
 
+.view .jcarousel li{
+  width: 150px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.jcarousel-skin-default .jcarousel-container-horizontal {
+  width: 800px;
+  height: 150px;
+  padding: 0px 40px;
+  margin: auto;
+}
+
+.jcarousel-skin-default .jcarousel-clip-horizontal {
+  width: 750px;
+}
+
 /* Hide "Sign in" Menu item when logged in */
 body.logged-in #block-system-user-menu ul.menu li.first {
   display: none;
@@ -25,4 +42,12 @@ body.logged-in #block-system-user-menu ul.menu li.first {
 #block-views-tags-block .views-row {
   float: left;
   margin: 5px;
+}
+
+.header-sub-site-name {
+  font-size: 80%;
+  font-weight: bold;
+  background: #ddd;
+  margin: 10px;
+  padding: 10px;
 }

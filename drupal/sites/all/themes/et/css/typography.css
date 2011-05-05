@@ -6,7 +6,8 @@
 -------------------------------------------------------------- */
 body {
   font-family: Arial, Helvetica, "Nimbus Sans L", FreeSans, sans-serif; /* web safe fonts */
-  font-size: 81.25%;   /* also set in fusion_core.info: settings[theme_font_size] = font-size-13 */
+  font-size: 14px;
+  
   line-height: 150%;   /* 1.5x vertical rhythm */
 }
 

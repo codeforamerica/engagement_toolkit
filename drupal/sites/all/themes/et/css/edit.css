@@ -1,3 +1,31 @@
+/* Hide excessive markup tips */
+.filter-wrapper, .filter-wrapper .filter-guidelines, .filter-wrapper .filter-help {
+  display: none;
+}
+
+.node-form .description {
+  font-size: 130%;
+  font-weight: bold;
+  margin: 20px;
+  padding: 20px;
+  background-color: #ddd;
+}
+
+.node-form .form-item label {
+  font-size: 130%;
+  font-weight: bold;
+  margin: 20px 20px 10px 0;
+}
+
+.node-form .form-item textarea,
+.node-form .form-item input {
+  font-size: 130%;
+}
+
+.node-form  .form-actions {
+  font-size: 200%;
+  padding: 20px;  
+}
 /* Change unpublished and preview colors for dark background themes */
 .node-unpublished {
   background-color: #fff4f4;
