@@ -5,13 +5,13 @@
 /* Base Settings
 -------------------------------------------------------------- */
 body {
-  font-family: Arial, Helvetica, Verdana, "Bitstream Vera Sans", sans-serif;     /* web safe fonts */
+  font-family: Arial, Helvetica, "Nimbus Sans L", FreeSans, sans-serif; /* web safe fonts */
   font-size: 81.25%;   /* also set in fusion_core.info: settings[theme_font_size] = font-size-13 */
   line-height: 150%;   /* 1.5x vertical rhythm */
 }
 
 .form-text {
-  font-family: Arial, Helvetica, Verdana, "Bitstream Vera Sans", sans-serif;
+  font-family: Arial, Helvetica, "Nimbus Sans L", FreeSans, sans-serif; 
 }
 
 
@@ -79,6 +79,20 @@ div.comment ul.links a {
 
 /* Links
 /-------------------------------------------------------------- */
+
+a, a:link, a:visited {
+  font-family: Arial, Helvetica, "Nimbus Sans L", FreeSans, sans-serif; /* web safe fonts */
+	color:#992739;
+	text-decoration:none;
+
+}
+a:hover, a:active {
+
+	color:#533549;
+	text-decoration:underline;
+
+}
+
 /* breadcrumbs */
 .breadcrumbs {
   font-size: 90%;
@@ -154,45 +168,6 @@ ul.menu li,
 }
 
 
-/* Skinr
-/-------------------------------------------------------------- */
-/* callout block style */
-.fusion-callout .inner {
-  font-size: 150%;
-}
-
-/* multi-column menu style */
-.fusion-multicol-menu .inner ul li {
-  font-size: 115%;
-}
-
-.fusion-multicol-menu .inner ul li.expanded ul {
-  font-size: 75%;
-}
-
-.fusion-multicol-menu .inner ul li.expanded ul li ul {
-  font-size: 85%;
-}
-
-/* horizontal login style*/
-.fusion-horiz-login#block-user-login #user-login-form label {
-  font-size: 90%;
-}
-
-html.js .fusion-horiz-login#block-user-login #user-login-form label {
-  font-size: 85%;
-}
-
-.fusion-horiz-login#block-user-login .item-list li {
-  font-size: 95%;
-  line-height: 105%;
-}
-
-.fusion-horiz-login#block-user-login #edit-openid-identifier-wrapper .description {
-  font-size: 80%;
-}
-
-
 /* Grid Mask Overlay
 -------------------------------------------------------------- */
 #grid-mask-toggle {
@@ -200,109 +175,105 @@ html.js .fusion-horiz-login#block-user-login #user-login-form label {
 }
 
 
-/* Font Theme Settings
+
+/* Page titles
 /-------------------------------------------------------------- */
-/* font size */
-.font-size-10 {
-  font-size: 62.5%;
+/* Page and full node titles */
+h1.title {
 }
 
-.font-size-11 {
-  font-size: 68.75%;
+
+/* Default node styles
+/-------------------------------------------------------------- */
+
+
+/* Typography for node titles */
+h2.title {
 }
 
-.font-size-12 {
-  font-size: 75%;
+/* Colors and styles for linked node titles, ie. teaser listing at /node */
+h2.title a:link,
+h2.title a:visited {
 }
 
-.font-size-13 {
-  font-size: 81.25%;
+h2.title a:hover,
+h2.title a:focus,
+h2.title a:active {
 }
 
-.font-size-14 {
-  font-size: 87.5%;
+
+/* Author/date info */
+.meta {
 }
 
-.font-size-15 {
-  font-size: 93.75%;
+.submitted {
 }
 
-.font-size-16 {
-  font-size: 100%;
+
+/* Separators and padding for node teasers */
+.node-teaser {
 }
 
-.font-size-17 {
-  font-size: 106.25%;
+
+/* Links for nodes (taxonomy, commenting, read more, etc) */
+.node ul.links li {
+}
+.node ul.links a {
 }
 
-.font-size-18 {
-  font-size: 112.5%;
+/* Only more/read more links */
+div.node .read-more a,
+div.node .more-link a {
 }
 
-/* absolute font sizes as examples for theme setting labels - NOT USED IN THEME */
-#edit-theme-font-size-font-size-10-wrapper label {
-  font-size: 10px;
+
+/* Default block title styles
+/-------------------------------------------------------------- */
+h2.block-title {
 }
 
-#edit-theme-font-size-font-size-11-wrapper label {
-  font-size: 11px;
+
+/* Breadcrumbs
+-------------------------------------------------------------- */
+.breadcrumbs {
 }
 
-#edit-theme-font-size-font-size-12-wrapper label {
-  font-size: 12px;
+.breadcrumbs a:link,
+.breadcrumbs a:visited {
 }
 
-#edit-theme-font-size-font-size-13-wrapper label {
-  font-size: 13px;
+
+/* Drupal Messages
+/-------------------------------------------------------------- */
+/* General style for all errors/messages (border, padding, etc.) */
+div.content-messages div.messages,
+div.content-help div.help {
 }
 
-#edit-theme-font-size-font-size-14-wrapper label {
-  font-size: 14px;
+/* Status messages: green */
+div.content-messages-inner div.status {
 }
 
-#edit-theme-font-size-font-size-15-wrapper label {
-  font-size: 15px;
+/* Warning messages: yellow */
+div.content-messages-inner div.warning {
 }
 
-#edit-theme-font-size-font-size-16-wrapper label {
-  font-size: 16px;
+/* Error messages: red */
+div.content-messages-inner div.error {
 }
 
-#edit-theme-font-size-font-size-17-wrapper label {
-  font-size: 17px;
+/* Help messages: blue */
+div.content-help-inner div.help {
 }
 
-#edit-theme-font-size-font-size-18-wrapper label {
-  font-size: 18px;
+
+#site-name a:link,
+#site-name a:visited,
+#site-name a:hover,
+#site-name a:active {
+  text-decoration: none;
 }
 
-/* font family */
-.font-family-sans-serif-sm,
-.font-family-sans-serif-sm .form-text {
-  font-family: Arial, Helvetica, "Nimbus Sans L", FreeSans, sans-serif;
-}
-
-.font-family-sans-serif-lg,
-.font-family-sans-serif-lg .form-text {
-  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-}
-
-.font-family-serif-sm,
-.font-family-serif-sm .form-text {
-  font-family: Garamond, Perpetua, "Nimbus Roman No9 L", "Times New Roman", serif;
-}
-
-.font-family-serif-lg,
-.font-family-serif-lg .form-text {
-  font-family: Baskerville, Georgia, Palatino, "Palatino Linotype", "Book Antiqua", "URW Palladio L", serif;
-}
-
-.font-family-myriad,
-.font-family-myriad .form-text {
-  font-family: "Myriad Pro", Myriad, "Trebuchet MS", Arial, Helvetica, sans-serif;
-}
-
-.font-family-lucida,
-.font-family-lucida .form-text {
-  font-family: "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, Geneva, sans-serif;
+#site-name a {
+  outline: 0;
 }

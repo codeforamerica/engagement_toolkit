@@ -6,13 +6,21 @@ core = 7.x
 engine = phptemplate
 
 ; Styles
+; 960 grid system (60 12 20)
 stylesheets[all][] = css/960_60_12_20.css
-stylesheets[all][] = css/fusion-starter-style.css
-stylesheets[all][] = css/layout.css
-stylesheets[all][] = css/style.css
+; Classes that override drupal core and module css
+stylesheets[all][] = css/drupal_reset.css
+; Styles that effect the font styling of the site
 stylesheets[all][] = css/typography.css
+; Custom layout elements - margins and padding mainly
+stylesheets[all][] = css/layout.css
+; Custom site styles - backgrounds, etc. Can be merged with layout as it makes sense.
+stylesheets[all][] = css/style.css
+; Changes to admin interface.
 stylesheets[all][] = css/admin.css
+; Changes to the logged in content editor experience (forms etc)
 stylesheets[all][] = css/edit.css
+; Custom overrides to styles (special content layouts)
 stylesheets[all][] = css/overrides.css
 
 ; Scripts
