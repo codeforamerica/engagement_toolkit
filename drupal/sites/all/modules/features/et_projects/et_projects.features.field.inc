@@ -51,7 +51,7 @@ function et_projects_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '0',
+          'weight' => '2',
         ),
         'teaser' => array(
           'label' => 'hidden',
@@ -127,11 +127,10 @@ function et_projects_field_default_fields() {
       'description' => 'Enter the Area Code this applies to, if needed.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '11',
+          'type' => 'hidden',
+          'weight' => '13',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -201,11 +200,11 @@ function et_projects_field_default_fields() {
       'description' => 'Add some categories for this project to help others find it more easily. (Ex. urban farming, community event)',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'taxonomy',
           'settings' => array(),
           'type' => 'taxonomy_term_reference_link',
-          'weight' => '5',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -275,11 +274,10 @@ function et_projects_field_default_fields() {
       'description' => 'Select your city',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '6',
+          'type' => 'hidden',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -349,11 +347,10 @@ function et_projects_field_default_fields() {
       'description' => 'If you know it, which county are you in?',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '10',
+          'type' => 'hidden',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -425,7 +422,7 @@ function et_projects_field_default_fields() {
             'image_style' => '',
           ),
           'type' => 'image',
-          'weight' => '8',
+          'weight' => '0',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -507,7 +504,7 @@ function et_projects_field_default_fields() {
           'module' => 'node_reference',
           'settings' => array(),
           'type' => 'node_reference_default',
-          'weight' => 14,
+          'weight' => '4',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -573,11 +570,10 @@ function et_projects_field_default_fields() {
       'description' => 'If your project already has a URL or link for more information, go ahead and add that here.',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'link',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'default',
-          'weight' => '7',
+          'type' => 'hidden',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -640,13 +636,9 @@ function et_projects_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'module' => 'geofield',
-          'settings' => array(
-            'data' => 'full',
-            'format' => '',
-          ),
-          'type' => 'geofield_latlon',
-          'weight' => '12',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => '14',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -711,7 +703,7 @@ function et_projects_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 13,
+          'weight' => '1',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -781,11 +773,10 @@ function et_projects_field_default_fields() {
       'description' => 'What neighborhood are you working in?',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => 15,
+          'type' => 'hidden',
+          'weight' => '15',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -850,10 +841,9 @@ function et_projects_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '2',
+          'type' => 'hidden',
+          'weight' => '6',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -998,7 +988,7 @@ function et_projects_field_default_fields() {
             'node_reference_view_mode' => 'teaser',
           ),
           'type' => 'node_reference_node',
-          'weight' => '1',
+          'weight' => '5',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1067,7 +1057,7 @@ function et_projects_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '4',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1137,11 +1127,10 @@ function et_projects_field_default_fields() {
       'description' => 'Select your state',
       'display' => array(
         'default' => array(
-          'label' => 'above',
-          'module' => 'taxonomy',
+          'label' => 'hidden',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
-          'weight' => '9',
+          'type' => 'hidden',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
