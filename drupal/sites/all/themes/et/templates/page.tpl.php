@@ -150,13 +150,8 @@
     </div>
     <div class="clear"></div>
   </div>
-<<<<<<< HEAD
   <div class="clear"></div>
   <div id="footer" class="grid_12 alpha">
-=======
-  
-  <div id="footer">
->>>>>>> 6a9fb765ffaedfc524b46421a87c8e8ec2b1c619
     <?php print render($page['footer']); ?>
   </div>
   <div class="clear"></div>
