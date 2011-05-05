@@ -26,10 +26,10 @@ function et_home_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-recipes-block_1' => array(
+        'views-tags-block' => array(
           'module' => 'views',
-          'delta' => 'recipes-block_1',
-          'region' => 'postscript',
+          'delta' => 'tags-block',
+          'region' => 'sidebar_first',
           'weight' => '-10',
         ),
         'views-menus-block_1' => array(
@@ -37,6 +37,12 @@ function et_home_context_default_contexts() {
           'delta' => 'menus-block_1',
           'region' => 'postscript',
           'weight' => '-10',
+        ),
+        'views-recipes-block_1' => array(
+          'module' => 'views',
+          'delta' => 'recipes-block_1',
+          'region' => 'postscript',
+          'weight' => '-9',
         ),
       ),
     ),

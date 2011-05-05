@@ -30,6 +30,12 @@ function et_all_context_default_contexts() {
           'module' => 'menu',
           'delta' => 'menu-et-menu',
           'region' => 'header_menu',
+          'weight' => '-21',
+        ),
+        'search-form' => array(
+          'module' => 'search',
+          'delta' => 'form',
+          'region' => 'header_gap',
           'weight' => '-10',
         ),
       ),

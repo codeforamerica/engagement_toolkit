@@ -28,8 +28,8 @@ function et_projects_node_info() {
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
-      'help' => '',
+      'title_label' => t('Make a name for your project'),
+      'help' => t('Tell us all about your project.'),
     ),
   );
   return $items;
