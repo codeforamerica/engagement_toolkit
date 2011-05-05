@@ -12,7 +12,7 @@ function et_recipe_view_views_default_views() {
 
   $view = new view;
   $view->name = 'recipes';
-  $view->description = 'Display projects imported from LikeMinded.';
+  $view->description = 'Display recipes';
   $view->tag = 'default';
   $view->base_table = 'node';
   $view->human_name = 'Recipes';
@@ -183,7 +183,7 @@ function et_recipe_view_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'jcarousel';
-  $handler->display->display_options['style_options']['wrap'] = 'both';
+  $handler->display->display_options['style_options']['wrap'] = '0';
   $handler->display->display_options['style_options']['visible'] = '';
   $handler->display->display_options['style_options']['auto'] = '0';
   $handler->display->display_options['style_options']['autoPause'] = 1;
