@@ -94,3 +94,11 @@ body.logged-in #block-system-user-menu ul.menu li.first {
   font-size: 150%;
   font-weight: bold;
 }
+
+.user-picture {
+
+}
+
+.meta {
+  font-size: 120%;
+}

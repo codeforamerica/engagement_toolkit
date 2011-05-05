@@ -148,8 +148,30 @@ function et_preprocess_node(&$vars) {
   // Add node_top and node_bottom region content
   $vars['node_top'] = theme('blocks', 'node_top');
   $vars['node_bottom'] = theme('blocks', 'node_bottom');
+  
+  // Add preprocess functions for all node types.
+  $function = __FUNCTION__ . '_' . $vars['node']->type;
+  if (function_exists($function)) {
+    $function($vars);
+  }
 }
 
+/**
+ * Preprocessing function for node types.
+ */
+function et_preprocess_node_project(&$vars) {
+  /* dpm($vars); */
+  $vars['node_top'] = "THIS IS NODE TOP";
+  $vars['node_bottom'] = "THIS IS NODE Bottom";
+  $vars['node_sidebar'] = "THIS IS NODE SIDE";
+
+  if(!empty($vars['node_sidebar'])){
+    $vars['node_content_width'] = 'grid_8';
+  }
+  else {
+    $vars['node_content_width'] = 'grid_12';
+  }
+}
 
 /**
  * Comment preprocessing
