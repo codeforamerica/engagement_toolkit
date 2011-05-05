@@ -105,7 +105,7 @@
     </div>
     <div class="clear"></div>
     
-    <div class="main-content-region <?php echo $vars['page']['main_region_width']; ?> alpha">
+    <div class="main-content-region <?php print $main_region_width; ?> alpha">
       <div class="tabs-container">
         <?php print render($tabs); ?>
       </div>

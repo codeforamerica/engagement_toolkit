@@ -20,15 +20,6 @@ function et_preprocess_html(&$vars) {
 
   // Add a unique page id
   $vars['body_id'] = 'pid-' . strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));
-
-  // If sidebars are empty, make main region full width.
-  if(empty($vars['page']['sidebar_first']) && empty($vars['page']['sidebar_last'])) {
-    $vars['page']['main_region_width'] = 'grid_12';
-  }
-  else {
-    $vars['page']['main_region_width'] = 'grid_8';
-  }
-
 }
 
 /**
@@ -45,6 +36,15 @@ function  et_preprocess_maintenance_page(&$vars) {
  * Page preprocessing
  */
 function et_preprocess_page(&$vars) {
+
+  // If sidebars are empty, make main region full width.
+  if(count($vars['page']['sidebar_first']) == 0 && count($vars['page']['sidebar_second']) == 0) {
+    $vars['main_region_width'] = 'grid_12';
+  }
+  else {
+    $vars['main_region_width'] = 'grid_8';
+  }
+
   // Create some resource variables
   $vars['logo_image'] = theme('image', array(
     'path' => drupal_get_path('theme', 'et') . '/images/header_logo.gif', 
