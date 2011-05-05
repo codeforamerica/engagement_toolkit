@@ -1,5 +1,7 @@
 drupal/sites/datawiki.local
 drupal/sites/*/settings.php
+drupal/sites/*/files
+drupal/sites/*/files/
 .DS_Store
 .ds_store
 qa/osqa/catalyze/settings_local.py
