@@ -147,10 +147,6 @@
     </div>
   </div>
   
-  <div class="facebook-like">
-    <?php print $fb_like; ?>
-  </div>
-  
   <div id="footer">
     <?php print render($page['footer']); ?>
   </div>
