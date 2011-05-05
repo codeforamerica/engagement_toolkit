@@ -16,6 +16,23 @@ body.front span.submitted {
   margin-bottom: 2em;
 }
 
+/* Join button ("Let's Do this") */
+.flag-join .flag-wrapper {
+  padding: 20px;
+  margin: 20px;
+  background-color: #C23D29;
+  color: #fff;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.flag-join .flag-wrapper a {
+  color: #fff;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+
 .view .jcarousel li{
   width: 150px;
   margin: 10px;
