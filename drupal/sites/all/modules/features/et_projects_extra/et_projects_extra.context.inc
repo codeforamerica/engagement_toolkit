@@ -35,12 +35,6 @@ function et_projects_extra_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-10',
         ),
-        'et_blocks-et_ph_clone_project' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_clone_project',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
       ),
     ),
   );
