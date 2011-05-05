@@ -130,7 +130,7 @@ function et_projects_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '13',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -274,10 +274,11 @@ function et_projects_field_default_fields() {
       'description' => 'Select your city',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'inline',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '9',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '11',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -350,7 +351,7 @@ function et_projects_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '12',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -415,11 +416,11 @@ function et_projects_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'image',
           'settings' => array(
-            'image_link' => '',
-            'image_style' => '',
+            'image_link' => 'file',
+            'image_style' => 'medium',
           ),
           'type' => 'image',
           'weight' => '0',
@@ -573,7 +574,7 @@ function et_projects_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '10',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -638,7 +639,7 @@ function et_projects_field_default_fields() {
           'label' => 'hidden',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '14',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -703,7 +704,7 @@ function et_projects_field_default_fields() {
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => '1',
+          'weight' => '9',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -773,10 +774,11 @@ function et_projects_field_default_fields() {
       'description' => 'What neighborhood are you working in?',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'inline',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '15',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '10',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -843,7 +845,7 @@ function et_projects_field_default_fields() {
           'label' => 'above',
           'settings' => array(),
           'type' => 'hidden',
-          'weight' => '6',
+          'weight' => '7',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -907,7 +909,7 @@ function et_projects_field_default_fields() {
       'description' => 'How are you going about doing this project?',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -1054,10 +1056,9 @@ function et_projects_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
-          'weight' => '7',
+          'type' => 'hidden',
+          'weight' => '8',
         ),
         'teaser' => array(
           'label' => 'above',
@@ -1127,10 +1128,11 @@ function et_projects_field_default_fields() {
       'description' => 'Select your state',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'inline',
+          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'hidden',
-          'weight' => '11',
+          'type' => 'taxonomy_term_reference_link',
+          'weight' => '12',
         ),
         'teaser' => array(
           'label' => 'above',

@@ -150,5 +150,63 @@ function et_projects_field_group_info() {
   );
   $export['group_process|node|project|form'] = $field_group;
 
+  $field_group = new stdClass;
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_recipe|node|project|default';
+  $field_group->group_name = 'group_recipe';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'project';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Recipe',
+    'weight' => '5',
+    'children' => array(
+      0 => 'field_recipes',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'formatter' => 'collapsible',
+      'instance_settings' => array(
+        'effect' => 'none',
+        'speed' => 'fast',
+        'classes' => '',
+      ),
+    ),
+  );
+  $export['group_recipe|node|project|default'] = $field_group;
+
+  $field_group = new stdClass;
+  $field_group->api_version = 1;
+  $field_group->identifier = 'group_stats|node|project|default';
+  $field_group->group_name = 'group_stats';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'project';
+  $field_group->mode = 'default';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Details',
+    'weight' => '6',
+    'children' => array(
+      0 => 'field_categories',
+      1 => 'field_city',
+      2 => 'field_state',
+      3 => 'field_location_text',
+      4 => 'field_neighborhood',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Details',
+      'instance_settings' => array(
+        'classes' => '',
+        'description' => '',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $export['group_stats|node|project|default'] = $field_group;
+
   return $export;
 }

@@ -23,6 +23,8 @@ function et_recipe_view_views_default_views() {
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
   $handler->display->display_options['title'] = 'Recipes';
+  $handler->display->display_options['use_more_always'] = TRUE;
+  $handler->display->display_options['use_more_text'] = 'See All Recipes';
   $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -149,6 +151,7 @@ function et_recipe_view_views_default_views() {
   $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
   $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
   $handler->display->display_options['filters']['keys']['expose']['label'] = 'What do you care about?';
+  $handler->display->display_options['filters']['keys']['expose']['use_operator'] = TRUE;
   $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
   $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keys';
   $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
@@ -176,8 +179,6 @@ function et_recipe_view_views_default_views() {
   $handler = $view->new_display('block', 'Block', 'block_1');
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
-  $handler->display->display_options['use_more_always'] = TRUE;
-  $handler->display->display_options['use_more_text'] = 'See All Recipes';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -199,7 +200,7 @@ function et_recipe_view_views_default_views() {
   $translatables['recipes'] = array(
     t('Master'),
     t('Recipes'),
-    t('more'),
+    t('See All Recipes'),
     t('Engage'),
     t('Reset'),
     t('Sort by'),
@@ -212,8 +213,8 @@ function et_recipe_view_views_default_views() {
     t('All'),
     t('What do you care about?'),
     t('Page'),
+    t('more'),
     t('Block'),
-    t('See All Recipes'),
   );
   $export['recipes'] = $view;
 
