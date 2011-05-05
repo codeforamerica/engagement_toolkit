@@ -71,52 +71,49 @@
  * @see template_process()
  */
 ?>
-<div id="container">
-  <div id="header">
-    <div class="header-logo-container">
-      <?php print $logo_image_link; ?>
+<div id="container" class="container_12">
+  <div id="header" class="grid_12">
+    <div class="header-logo-container grid_2  alpha">
+      <?php print $logo_image_link; ?>LOGO
     </div>
     
-    <div class="header-sub-site-name">
+    <div class="header-sub-site-name grid_1">
       <?php print $sub_site_name; ?>
     </div>
-  
-    <div class="header-gap-container">
-      <?php print render($page['header_gap']); ?>
-    </div>
     
-    <div class="header-menu-container">
+    <div class="header-menu-container grid_4">
       <?php print render($page['header_menu']); ?>
     </div>
-    
-    <div class="header-signin-container">
+ 
+    <div class="header-gap-container grid_3">
+      <?php print render($page['header_gap']); ?>
+    </div>
+   
+    <div class="header-signin-container grid_2 omega">
       <?php print render($page['header_signin']); ?>
       <?php print $account_link; ?>
     </div>
   </div>
-  
-  <div id="main" role="main">
+  <div class="clear"></div>
+  <div id="main" role="main" class="grid_12 alpha">
     <div class="preface-container">
       <?php print render($page['preface']); ?>
     </div>
-    
+    <div class="clear"></div>
     <div class="messages-container">
       <?php print $messages; ?>
     </div>
-
-    <div class="sidebar-first-container">
-      <?php print render($page['sidebar_first']); ?>
-    </div>
+    <div class="clear"></div>
     
-    <div class="main-content-region">
+    <div class="main-content-region grid_8 alpha">
       <div class="tabs-container">
         <?php print render($tabs); ?>
       </div>
-      
+      <div class="clear"></div>      
       <div class="help-container">
         <?php print render($page['help']); ?>
       </div>
-
+      <div class="clear"></div> 
       <div class="title-container">
         <?php print render($title_prefix); ?>
         <?php if ($title): ?>
@@ -124,13 +121,13 @@
         <?php endif; ?>
         <?php print render($title_suffix); ?>
       </div>
-      
+      <div class="clear"></div>       
       <div class="action-links-container">
         <?php if ($action_links): ?>
           <ul class="action-links"><?php print render($action_links); ?></ul>
         <?php endif; ?>
       </div>
-                                
+      <div class="clear"></div>                      
       <?php if ($page['content']): ?>
         <div id="content-content" class="content-content">
           <?php print render($page['content']); ?>
@@ -138,16 +135,24 @@
       <?php endif; ?>
     </div>
 
-    <div class="sidebar-second-container">
-      <?php print render($page['sidebar_second']); ?>
+    <div class="sidebar-container grid_4 omega">
+      <div class="sidebar-first-container">
+        <?php print render($page['sidebar_first']); ?>
+      </div>
+  
+      <div class="sidebar-second-container">
+        <?php print render($page['sidebar_second']); ?>
+      </div>
     </div>
-    
-    <div class="postscript-container">
+    <div class="clear"></div>
+    <div class="postscript-container grid_12 alpha">
       <?php print render($page['postscript']); ?>
     </div>
+    <div class="clear"></div>
   </div>
-  
-  <div id="footer">
+  <div class="clear"></div>
+  <div id="footer" class="grid_12 alpha">
     <?php print render($page['footer']); ?>
   </div>
+  <div class="clear"></div>
 </div>

@@ -631,21 +631,3 @@ div.poll div.bar div.foreground {
 .profile dt {
   background-color: #ccc;
 }
-
-
-/* Skinr
-/-------------------------------------------------------------- */
-
-/* This is a sample Skinr style to get you started. See fusion_starter.info */
-.fusion-example-stylename .inner {
-  /* When setting the background color, also set foreground colors for text and
-    links, even if it's similar to the default body style. Remember, this block
-    style may be used in regions with other foreground colors, thus making text
-    invisible if left unspecified */
-  background-color: #ccc;
-  color: #000;
-  /* All padding and borders should go on the .inner div, so as not to break
-    the widths of the grid */
-  border: 3px solid #000;
-  padding: 10px;
-}
