@@ -40,11 +40,11 @@ function et_flags_flag_default_flags() {
     'i18n' => 0,
     'flag_confirmation' => 'Are you sure you want to join this project?',
     'unflag_confirmation' => 'Are you sure you want to leave this project?',
-    'api_version' => 2,
     'module' => 'et_flags',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 2,
   );
   // Exported flag: "Like".
   $flags['like'] = array(
@@ -75,11 +75,11 @@ function et_flags_flag_default_flags() {
     'show_on_form' => 0,
     'access_author' => '',
     'i18n' => 0,
-    'api_version' => 2,
     'module' => 'et_flags',
     'locked' => array(
       0 => 'name',
     ),
+    'api_version' => 2,
   );
   return $flags;
 }

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ET Tags View feature.
+ */
+
+include_once('et_tags_view.features.inc');

@@ -13,8 +13,15 @@ function et_site_configuration_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'admin_theme';
+  $strongarm->value = 'et_admin';
+  $export['admin_theme'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'anonymous';
-  $strongarm->value = 'Anonymous';
+  $strongarm->value = 'Guest';
   $export['anonymous'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -69,6 +76,83 @@ function et_site_configuration_strongarm() {
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_confirm_email_at_registration';
+  $strongarm->value = '1';
+  $export['logintoboggan_confirm_email_at_registration'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_immediate_login_on_register';
+  $strongarm->value = 1;
+  $export['logintoboggan_immediate_login_on_register'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_login_successful_message';
+  $strongarm->value = '1';
+  $export['logintoboggan_login_successful_message'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_login_with_email';
+  $strongarm->value = '1';
+  $export['logintoboggan_login_with_email'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_minimum_password_length';
+  $strongarm->value = '0';
+  $export['logintoboggan_minimum_password_length'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_override_destination_parameter';
+  $strongarm->value = 1;
+  $export['logintoboggan_override_destination_parameter'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_pre_auth_role';
+  $strongarm->value = '6';
+  $export['logintoboggan_pre_auth_role'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_purge_unvalidated_user_interval';
+  $strongarm->value = '0';
+  $export['logintoboggan_purge_unvalidated_user_interval'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_redirect_on_confirm';
+  $strongarm->value = '<front>';
+  $export['logintoboggan_redirect_on_confirm'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_redirect_on_register';
+  $strongarm->value = '<front>';
+  $export['logintoboggan_redirect_on_register'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'logintoboggan_unified_login';
+  $strongarm->value = 1;
+  $export['logintoboggan_unified_login'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'menu_expanded';
   $strongarm->value = array();
   $export['menu_expanded'] = $strongarm;
@@ -116,14 +200,14 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_403';
-  $strongarm->value = '';
+  $strongarm->value = 'toboggan/denied';
   $export['site_403'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_404';
-  $strongarm->value = '';
+  $strongarm->value = 'node/6190';
   $export['site_404'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -137,7 +221,7 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
-  $strongarm->value = 'Engagement Toolkit';
+  $strongarm->value = 'City Hero';
   $export['site_name'] = $strongarm;
 
   $strongarm = new stdClass;
@@ -181,9 +265,9 @@ function et_site_configuration_strongarm() {
     'theme_grid' => 'grid16-960',
     'fluid_grid_width' => 'fluid-100',
     'sidebar_layout' => 'sidebars-split',
-    'sidebar_first_width' => '3',
-    'sidebar_second_width' => '3',
-    'theme_font' => 'none',
+    'sidebar_first_width' => '1',
+    'sidebar_second_width' => '5',
+    'theme_font' => 'font-family-sans-serif-sm',
     'theme_font_size' => 'font-size-13',
     'breadcrumb_display' => 0,
     'search_snippet' => 1,
@@ -225,6 +309,13 @@ function et_site_configuration_strongarm() {
   $strongarm->name = 'user_admin_role';
   $strongarm->value = '3';
   $export['user_admin_role'] = $strongarm;
+
+  $strongarm = new stdClass;
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'user_cancel_method';
+  $strongarm->value = 'user_cancel_block_unpublish';
+  $export['user_cancel_method'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -272,14 +363,14 @@ function et_site_configuration_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_pictures';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['user_pictures'] = $strongarm;
 
   $strongarm = new stdClass;
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'user_register';
-  $strongarm->value = '2';
+  $strongarm->value = '1';
   $export['user_register'] = $strongarm;
 
   return $export;

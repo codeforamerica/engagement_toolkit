@@ -22,5 +22,11 @@ function et_site_configuration_user_default_roles() {
     'weight' => '2',
   );
 
+  // Exported role: pre-authenticated
+  $roles['pre-authenticated'] = array(
+    'name' => 'pre-authenticated',
+    'weight' => '5',
+  );
+
   return $roles;
 }

@@ -63,6 +63,7 @@ function et_site_configuration_user_default_permissions() {
       0 => 'anonymous user',
       1 => 'authenticated user',
       2 => 'developer',
+      3 => 'pre-authenticated',
     ),
     'module' => 'comment',
   );
@@ -74,6 +75,7 @@ function et_site_configuration_user_default_permissions() {
       0 => 'anonymous user',
       1 => 'authenticated user',
       2 => 'developer',
+      3 => 'pre-authenticated',
     ),
     'module' => 'node',
   );
@@ -82,7 +84,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['access content overview'] = array(
     'name' => 'access content overview',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -130,8 +133,18 @@ function et_site_configuration_user_default_permissions() {
       0 => 'anonymous user',
       1 => 'authenticated user',
       2 => 'developer',
+      3 => 'pre-authenticated',
     ),
     'module' => 'user',
+  );
+
+  // Exported permission: access workbench
+  $permissions['access workbench'] = array(
+    'name' => 'access workbench',
+    'roles' => array(
+      0 => 'developer',
+    ),
+    'module' => 'workbench',
   );
 
   // Exported permission: administer actions
@@ -199,6 +212,15 @@ function et_site_configuration_user_default_permissions() {
     'module' => 'feeds',
   );
 
+  // Exported permission: administer fieldgroups
+  $permissions['administer fieldgroups'] = array(
+    'name' => 'administer fieldgroups',
+    'roles' => array(
+      0 => 'developer',
+    ),
+    'module' => 'field_group',
+  );
+
   // Exported permission: administer filters
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
@@ -206,6 +228,15 @@ function et_site_configuration_user_default_permissions() {
       0 => 'developer',
     ),
     'module' => 'filter',
+  );
+
+  // Exported permission: administer flags
+  $permissions['administer flags'] = array(
+    'name' => 'administer flags',
+    'roles' => array(
+      0 => 'developer',
+    ),
+    'module' => 'flag',
   );
 
   // Exported permission: administer image styles
@@ -242,6 +273,12 @@ function et_site_configuration_user_default_permissions() {
       0 => 'developer',
     ),
     'module' => 'node',
+  );
+
+  // Exported permission: administer openlayers
+  $permissions['administer openlayers'] = array(
+    'name' => 'administer openlayers',
+    'roles' => array(),
   );
 
   // Exported permission: administer pathauto
@@ -361,6 +398,15 @@ function et_site_configuration_user_default_permissions() {
     'module' => 'views',
   );
 
+  // Exported permission: administer workbench
+  $permissions['administer workbench'] = array(
+    'name' => 'administer workbench',
+    'roles' => array(
+      0 => 'developer',
+    ),
+    'module' => 'workbench',
+  );
+
   // Exported permission: block IP addresses
   $permissions['block IP addresses'] = array(
     'name' => 'block IP addresses',
@@ -385,6 +431,7 @@ function et_site_configuration_user_default_permissions() {
     'roles' => array(
       0 => 'authenticated user',
       1 => 'developer',
+      2 => 'pre-authenticated',
     ),
     'module' => 'user',
   );
@@ -429,7 +476,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['create likemindedsource content'] = array(
     'name' => 'create likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -437,7 +485,29 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: create page content
   $permissions['create page content'] = array(
     'name' => 'create page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: create qa content
+  $permissions['create qa content'] = array(
+    'name' => 'create qa content',
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: create recipe content
+  $permissions['create recipe content'] = array(
+    'name' => 'create recipe content',
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: create url aliases
@@ -462,7 +532,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['delete any likemindedsource content'] = array(
     'name' => 'delete any likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -470,7 +541,31 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: delete any page content
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any qa content
+  $permissions['delete any qa content'] = array(
+    'name' => 'delete any qa content',
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any recipe content
+  $permissions['delete any recipe content'] = array(
+    'name' => 'delete any recipe content',
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: delete backup files
@@ -486,7 +581,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['delete own likemindedsource content'] = array(
     'name' => 'delete own likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -494,7 +590,31 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: delete own page content
   $permissions['delete own page content'] = array(
     'name' => 'delete own page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own qa content
+  $permissions['delete own qa content'] = array(
+    'name' => 'delete own qa content',
+    'roles' => array(
+      0 => 'authenticated user',
+      1 => 'content manager',
+      2 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete own recipe content
+  $permissions['delete own recipe content'] = array(
+    'name' => 'delete own recipe content',
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: delete revisions
@@ -528,7 +648,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['edit any likemindedsource content'] = array(
     'name' => 'edit any likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -536,7 +657,31 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: edit any page content
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit any qa content
+  $permissions['edit any qa content'] = array(
+    'name' => 'edit any qa content',
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit any recipe content
+  $permissions['edit any recipe content'] = array(
+    'name' => 'edit any recipe content',
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: edit own comments
@@ -545,6 +690,7 @@ function et_site_configuration_user_default_permissions() {
     'roles' => array(
       0 => 'authenticated user',
       1 => 'developer',
+      2 => 'pre-authenticated',
     ),
     'module' => 'comment',
   );
@@ -553,7 +699,8 @@ function et_site_configuration_user_default_permissions() {
   $permissions['edit own likemindedsource content'] = array(
     'name' => 'edit own likemindedsource content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'content manager',
+      1 => 'developer',
     ),
     'module' => 'node',
   );
@@ -561,7 +708,29 @@ function et_site_configuration_user_default_permissions() {
   // Exported permission: edit own page content
   $permissions['edit own page content'] = array(
     'name' => 'edit own page content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'content manager',
+      1 => 'developer',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own qa content
+  $permissions['edit own qa content'] = array(
+    'name' => 'edit own qa content',
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'node',
+  );
+
+  // Exported permission: edit own recipe content
+  $permissions['edit own recipe content'] = array(
+    'name' => 'edit own recipe content',
+    'roles' => array(
+      0 => 'authenticated user',
+    ),
+    'module' => 'node',
   );
 
   // Exported permission: execute php code
@@ -645,6 +814,7 @@ function et_site_configuration_user_default_permissions() {
       0 => 'anonymous user',
       1 => 'authenticated user',
       2 => 'developer',
+      3 => 'pre-authenticated',
     ),
     'module' => 'comment',
   );
@@ -675,6 +845,7 @@ function et_site_configuration_user_default_permissions() {
       0 => 'anonymous user',
       1 => 'authenticated user',
       2 => 'developer',
+      3 => 'pre-authenticated',
     ),
     'module' => 'search',
   );
@@ -723,6 +894,7 @@ function et_site_configuration_user_default_permissions() {
       0 => 'anonymous user',
       1 => 'authenticated user',
       2 => 'developer',
+      3 => 'pre-authenticated',
     ),
     'module' => 'search',
   );
@@ -745,11 +917,22 @@ function et_site_configuration_user_default_permissions() {
     'module' => 'coder_review',
   );
 
+  // Exported permission: view date repeats
+  $permissions['view date repeats'] = array(
+    'name' => 'view date repeats',
+    'roles' => array(
+      0 => 'developer',
+    ),
+    'module' => 'date',
+  );
+
   // Exported permission: view own unpublished content
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
     'roles' => array(
-      0 => 'developer',
+      0 => 'authenticated user',
+      1 => 'developer',
+      2 => 'pre-authenticated',
     ),
     'module' => 'node',
   );

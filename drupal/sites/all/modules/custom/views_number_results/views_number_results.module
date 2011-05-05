@@ -20,12 +20,14 @@ function views_number_results_views_api() {
  * Implements hook_views_data()
  */
 function views_number_results_views_data()  {
-
   $data['views']['views_number_results'] = array(
     'title' => t('Total Number Results'),
     'help' => t('Displays the total number of results for this view.'),
     'field' => array(
       'handler' => 'views_number_results_handler_field_counter_total',
+    ),
+    'area' => array(
+      'handler' => 'views_number_results_handler_area_counter_total',
     ),
     'group' => t('Global'),
   );

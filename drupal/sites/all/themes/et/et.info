@@ -1,21 +1,35 @@
 ; Theme basics
 name = Engagement Toolkit
 description = A subtheme of Fusion.
-base theme = fusion_core
+; base theme = fusion_core
 core = 7.x
 engine = phptemplate
 
 ; Styles
-stylesheets[all][] = css/et.css
-stylesheets[all][] = css/et-wireframe.css
+; 960 grid system (60 12 20)
+stylesheets[all][] = css/960_60_12_20.css
+; Classes that override drupal core and module css
+stylesheets[all][] = css/drupal_reset.css
+; Styles that effect the font styling of the site
+stylesheets[all][] = css/typography.css
+; Custom layout elements - margins and padding mainly
+stylesheets[all][] = css/layout.css
+; Custom site styles - backgrounds, etc. Can be merged with layout as it makes sense.
+stylesheets[all][] = css/style.css
+; Changes to admin interface.
+stylesheets[all][] = css/admin.css
+; Changes to the logged in content editor experience (forms etc)
+stylesheets[all][] = css/edit.css
+; Custom overrides to styles (special content layouts)
+stylesheets[all][] = css/overrides.css
 
 ; Scripts
 scripts[] = js/script.js
 
 ; Regions
 regions[page_top] = Page top
-regions[header_gap] = "Header gap"
 regions[header_menu] = "Header menu"
+regions[header_gap] = "Header gap"
 regions[header_signin] = "Header signin"
 regions[sidebar_first] = "Sidebar first"
 regions[sidebar_second] = "Sidebar second"
@@ -36,62 +50,3 @@ features[] = slogan
 features[] = node_user_picture
 features[] = comment_user_picture
 features[] = favicon
-
-; Fusion and Skinr specific items
-
-; Default theme settings (override values inherited from fusion_core)
-; REMOVE THESE ONCE PATCH TO FIX SETTINGS INHERITANCE (#563708) IS IN CORE
-settings[theme_grid] = grid16-960
-settings[theme_grid_options][] = grid16-960
-settings[theme_grid_options][] = grid16-fluid
-settings[theme_grid_options][] = grid12-960
-settings[theme_grid_options][] = grid12-fluid
-settings[fluid_grid_width] = fluid-100
-settings[sidebar_layout] = sidebars-split
-settings[sidebar_first_width] = 3
-settings[sidebar_second_width] = 3
-settings[theme_font] = none
-settings[theme_font_size] = font-size-13
-settings[breadcrumb_display] = 1
-settings[search_snippet] = 1
-settings[search_info_type] = 1
-settings[search_info_user] = 1
-settings[search_info_date] = 1
-settings[search_info_comment] = 1
-settings[search_info_upload] = 1
-settings[grid_mask] = 0
-
-; Grid layout settings
-; REMOVE THESE ONCE PATCH TO FIX SETTINGS INHERITANCE (#563708) IS IN CORE
-; Nested grid regions without full-width wrappers
-settings[grid_nested_regions][] = sidebar_first
-settings[grid_nested_regions][] = sidebar_second
-settings[grid_nested_regions][] = header
-settings[grid_nested_regions][] = preface_bottom
-settings[grid_nested_regions][] = content
-settings[grid_nested_regions][] = postscript_top
-settings[grid_nested_regions][] = node_top
-settings[grid_nested_regions][] = node_bottom
-settings[grid_nested_regions][] = help
-; Nested region width adjustments: adjacent regions to subtract for correct region width
-settings[grid_adjusted_regions][preface_bottom][] = sidebar_first
-settings[grid_adjusted_regions][help][] = sidebar_first
-settings[grid_adjusted_regions][help][] = sidebar_second
-settings[grid_adjusted_regions][content][] = sidebar_first
-settings[grid_adjusted_regions][content][] = sidebar_second
-settings[grid_adjusted_regions][node_top][] = sidebar_first
-settings[grid_adjusted_regions][node_top][] = sidebar_second
-settings[grid_adjusted_regions][node_bottom][] = sidebar_first
-settings[grid_adjusted_regions][node_bottom][] = sidebar_second
-settings[grid_adjusted_regions][postscript_top][] = sidebar_first
-; Nested group width adjustments: adjacent regions to subtract for correct group width
-settings[grid_adjusted_groups][main_group][] = sidebar_first
-settings[grid_adjusted_groups][content_group][] = sidebar_first
-settings[grid_adjusted_groups][content_group][] = sidebar_second
-; Nested region fluid width adjustments: regions outside a parent group to subtract to get correct parent width
-settings[grid_adjusted_regions_fluid][sidebar_second][] = sidebar_first
-settings[grid_adjusted_regions_fluid][content][] = sidebar_first
-settings[grid_adjusted_regions_fluid][content][] = sidebar_second
-; Nested group fluid width adjustments: regions inside a parent group to subtract to get remaining width
-settings[grid_adjusted_groups_fluid][content_group][] = sidebar_second
-

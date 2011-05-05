@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ET All feature.
+ */
+
+include_once('et_all.features.inc');

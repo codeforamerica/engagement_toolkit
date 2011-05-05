@@ -109,7 +109,7 @@
     </div><!-- /node-top -->
     <?php endif; ?>
 
-    <div class="content"<?php print $content_attributes; ?>>
+    <div class="content <?php print $node_content_width; ?>"<?php print $content_attributes; ?>>
       <?php
         // We hide the comments and links now so that we can render them later.
         hide($content['comments']);
@@ -118,9 +118,19 @@
       ?>
     </div>
 
-    <?php print render($content['links']); ?>
+  <?php if ($node_sidebar && !$teaser): ?>
+    <div id="node-sidebar" class="node-sidebar row nested grid_4 omega">
+      <div id="node-sidebar-inner" class="node-sidebar-inner inner">
+        <?php print $node_sidebar; ?>
+      </div><!-- /node-sidebar-inner -->
+    </div><!-- /node-sidebar -->
+    <div class="clear"></div>
+  <?php endif; ?>
 
+    <?php print render($content['links']); ?>
+    <div class="clear"></div>
     <?php print render($content['comments']); ?>
+    <div class="clear"></div>
   </div><!-- /inner -->
 
   <?php if ($node_bottom && !$teaser): ?>
