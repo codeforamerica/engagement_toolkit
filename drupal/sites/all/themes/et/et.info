@@ -37,6 +37,7 @@ regions[preface] = "Preface"
 regions[help] = Help
 regions[content] = "Content"
 regions[node_top] = Node top
+regions[node_sidebar] = Node sidebar
 regions[node_bottom] = Node bottom
 regions[postscript] = "Postscript"
 regions[footer] = Footer
