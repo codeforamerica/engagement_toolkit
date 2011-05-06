@@ -156,6 +156,10 @@ function et_preprocess_node(&$vars) {
   if (function_exists($function)) {
     $function($vars);
   }
+  $vars['node_top'] = '';
+  $vars['node_bottom'] = '';
+  $vars['node_sidebar'] = '';
+  $vars['node_content_width'] = 'grid_16';
 }
 
 /**
@@ -178,7 +182,7 @@ function et_preprocess_node_project(&$vars) {
     $vars['node_content_width'] = 'grid_16';
   }
 */
-  $vars['node_content_width'] = 'grid_16';
+
 }
 
 /**
