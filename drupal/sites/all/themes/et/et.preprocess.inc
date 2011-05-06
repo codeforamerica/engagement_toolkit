@@ -208,18 +208,17 @@ function et_fb_like(&$vars) {
  * Preprocessing function for node types.
  */
 function et_preprocess_node_project(&$vars) {
-
-  // Create content variables for node.
+  // Create content variables for this node type.
   $vars['location'] =  et_node_location($vars);
-  $vars['share'] = et_node_share(&$vars);
-
+  $vars['share'] = et_node_share($vars);
 }
 
 /**
  * Comment preprocessing
  */
 function et_preprocess_comment(&$vars) {
-  static $comment_odd = TRUE;                                                                             // Comment is odd or even
+  static $comment_odd = TRUE;
+ // Comment is odd or even
 
   // Add to array of handy comment classes
   $vars['classes_array'][] = $comment_odd ? 'odd' : 'even';
