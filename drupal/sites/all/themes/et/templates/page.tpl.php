@@ -72,7 +72,7 @@
  */
 ?>
 <div id="container" class="container_16">
-  <div id="header" class="grid_16">
+  <div id="header" class="grid_16 alpha">
     <div class="header-logo-container grid_4 alpha">
       <?php // print $site_name; ?>
       <?php print $sub_site_name; ?>
@@ -104,6 +104,15 @@
     </div>
     <div class="clear"></div>
     
+    <div class="title-container">
+      <?php print render($title_prefix); ?>
+      <?php if ($title): ?>
+        <h1 class="title"><?php print $title; ?></h1>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
+    </div>
+    <div class="clear"></div> 
+
     <div class="main-content-region <?php print $main_region_width; ?> alpha">
       <div class="tabs-container">
         <?php print render($tabs); ?>
@@ -111,14 +120,6 @@
       <div class="clear"></div>      
       <div class="help-container">
         <?php print render($page['help']); ?>
-      </div>
-      <div class="clear"></div> 
-      <div class="title-container">
-        <?php print render($title_prefix); ?>
-        <?php if ($title): ?>
-          <h1 class="title"><?php print $title; ?></h1>
-        <?php endif; ?>
-        <?php print render($title_suffix); ?>
       </div>
       <div class="clear"></div>       
       <div class="action-links-container">

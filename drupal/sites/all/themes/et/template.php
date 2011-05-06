@@ -29,8 +29,10 @@ function et_region__header($vars) {
  * File element override
  * Sets form file input max width
  */
+/*
 function et_file($element) {
   $element['#size'] = ($element['#size'] > 40) ? 40 : $element['#size'];
   return theme_file($element);
 }
+*/
 
