@@ -13,7 +13,7 @@
         <?php if ($display_submitted): ?>
         <?php if($node->type == 'project'): ?>
           <span class="submitted">
-            <?php print t('Created by !username, !location', array('!username' => $name, '!location' => $location)); ?>
+            <?php print t('Created by !username!location', array('!username' => $name, '!location' => $location)); ?>
           </span>
         <?php else: ?>
           <span class="submitted">
@@ -48,7 +48,6 @@
       <?php if($node->type == 'project'): ?>
         <?php hide($content['body']); ?>
         <div class="about">
-          <h3><?php print t("About"); ?></h3>
           <?php print render($content['body']); ?>
         </div>
       <?php endif; ?>

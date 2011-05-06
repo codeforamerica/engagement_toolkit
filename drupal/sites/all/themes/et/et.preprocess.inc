@@ -164,17 +164,17 @@ function et_preprocess_node(&$vars) {
 function et_node_location(&$vars) {
   $output = '';
   if(!empty($vars['field_location_text']['und'][0]['value'])) {
-    $output .= $vars['field_location_text']['und'][0]['value'];
+    $output .=  t(', ') . $vars['field_location_text']['und'][0]['value'];
   }
   else {
     if(!empty($vars['field_neighborhood']['und'][0]['taxonomy_term']->name)) {
-      $output .= $vars['field_neighborhood']['und'][0]['taxonomy_term']->name . t(', ');
+      $output .= t(', ') . $vars['field_neighborhood']['und'][0]['taxonomy_term']->name;
     }
     if(!empty($vars['field_city']['und'][0]['taxonomy_term']->name)) {
-      $output .= $vars['field_city']['und'][0]['taxonomy_term']->name . t(', ');
+      $output .= t(', ') . $vars['field_city']['und'][0]['taxonomy_term']->name;
     }
     if(!empty($vars['field_state']['und'][0]['taxonomy_term']->name)) {
-      $output .= $vars['field_state']['und'][0]['taxonomy_term']->name;
+      $output .= t(', ') . $vars['field_state']['und'][0]['taxonomy_term']->name;
     }
   }
   return $output;

@@ -35,6 +35,10 @@ a:hover, a:active {
     box-shadow: 0px 2px 5px #666;
 }
 
+p {
+    line-height: 1.5em;
+}
+
 /* Header Elements */
 .nav-links {
     /* for vertical alignment */
@@ -219,5 +223,31 @@ a:hover, a:active {
 }
 .wrapper > header > h2 > a {
     color: #992739;
+}
+
+.project_text {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.project_overview {
+    background-color: #333333;
+    color: white;
+    margin-left: -40px;
+    margin-right: -20px;
+    padding-left: 40px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    margin-bottom: 1em;
+}
+
+.project_overview > header > h1 {
+    font-weight: bold;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    line-height: 1.2em;
+    padding-top: 0.5em;
+    margin-bottom: 1em;
 }
 /* END Main Content Section
