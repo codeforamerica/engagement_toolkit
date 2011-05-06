@@ -104,19 +104,17 @@ body.logged-in #block-system-user-menu ul.menu li.first {
 }
 
 /* Project Metric Block Style
- * TODO: Needs the ID changed to the custom block
- * block-block-1 to _____
 */
-#block-block-1 {
+#block-et_blocks-et_ph_project_supported {
   background-color: #533549;
 }
 
-#block-block-1 .inner {
+#block-et_blocks-et_ph_project_supported .inner {
   background-color: #ffffff;
   margin: 20px;
 }
 
-#block-block-1 .content {
+#block-et_blocks-et_ph_project_supported .content {
   text-transform: uppercase;
   color: #533549;
   font-size: 18px;
@@ -124,10 +122,17 @@ body.logged-in #block-system-user-menu ul.menu li.first {
   font-weight: bold;
 }
 
-#block-block-1 .content p {
+#block-et_blocks-et_ph_project_supported .content span {
+  display:block;
   margin: 0;
   padding-top: 10px;
   padding-bottom: 5px;
+}
+
+#block-et_blocks-et_ph_project_supported .content .supporters-link {
+  background-color: #992739;
+  color: #ffffff;
+  text-decoration: underline;
 }
 /* END Project Metric Block */
 
