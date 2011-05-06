@@ -233,14 +233,27 @@ p {
 }
 
 .project_overview {
-    background-color: #333333;
+    background-color: transparent;
     color: white;
     margin-left: -40px;
     margin-right: -20px;
-    padding-left: 40px;
-    padding-bottom: 10px;
-    padding-right: 20px;
     margin-bottom: 1em;
+    
+    border-width: 0px 0px 10px 0px;
+    -webkit-border-image: url(images/project-overview-dropshadow.png) 0 0 10 0 stretch;
+    border-image: url(images/project-overview-dropshadow.png) 0 0 10 0 stretch;
+}
+
+.project_overview > * {
+    background-color: #333333;
+    padding-left: 40px;
+    padding-right: 20px;
+}
+
+.project_overview > p {
+    padding-bottom: 10px;
+    margin-top: 0px;
+    padding-top: 1em;
 }
 
 .project_overview > header > h1,
