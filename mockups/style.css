@@ -73,6 +73,10 @@ p {
 	float:left;
 }
 
+#sidebar {
+    margin-bottom: 1em;
+}
+
 /* Generic Sidebar Box */
 .sidebar_box {
     border: 1px #ccc solid;
@@ -128,6 +132,11 @@ p {
     background-color: #ffffff;
     font-size: 12px;
     border: 1px solid #ccc;
+    min-height: 150px;
+}
+
+.sb_container {
+    margin-bottom: 20px;
 }
 /* END Generic Sidebar box */
 
