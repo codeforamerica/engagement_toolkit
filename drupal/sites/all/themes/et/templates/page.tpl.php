@@ -71,31 +71,29 @@
  * @see template_process()
  */
 ?>
-<div id="container" class="container_12">
-  <div id="header" class="grid_12">
-    <div class="header-logo-container grid_2  alpha">
-      <?php print $logo_image_link; ?>LOGO
-    </div>
-    
-    <div class="header-sub-site-name grid_1">
+<div id="container" class="container_16">
+  <div id="header" class="grid_16">
+    <div class="header-logo-container grid_4 alpha">
+      <?php // print $site_name; ?>
       <?php print $sub_site_name; ?>
+      <?php // print $logo_image_link; ?>
     </div>
     
-    <div class="header-menu-container grid_4">
+    <div class="header-menu-container grid_6">
       <?php print render($page['header_menu']); ?>
     </div>
- 
-    <div class="header-gap-container grid_3">
-      <?php print render($page['header_gap']); ?>
-    </div>
-   
+
     <div class="header-signin-container grid_2 omega">
       <?php print render($page['header_signin']); ?>
       <?php print $account_link; ?>
     </div>
+
+    <div class="header-gap-container grid_4">
+      <?php print render($page['header_gap']); ?>
+    </div>
   </div>
   <div class="clear"></div>
-  <div id="main" role="main" class="grid_12 alpha">
+  <div id="main" role="main" class="grid_16 alpha">
     <div class="preface-container">
       <?php print render($page['preface']); ?>
     </div>
@@ -135,7 +133,7 @@
       <?php endif; ?>
     </div>
 
-    <div class="sidebar-container grid_4 omega">
+    <div class="sidebar-container grid_5 omega">
       <div class="sidebar-first-container">
         <?php print render($page['sidebar_first']); ?>
       </div>
@@ -145,13 +143,13 @@
       </div>
     </div>
     <div class="clear"></div>
-    <div class="postscript-container grid_12 alpha">
+    <div class="postscript-container grid_16 alpha">
       <?php print render($page['postscript']); ?>
     </div>
     <div class="clear"></div>
   </div>
   <div class="clear"></div>
-  <div id="footer" class="grid_12 alpha">
+  <div id="footer" class="grid_16 alpha">
     <?php print render($page['footer']); ?>
   </div>
   <div class="clear"></div>

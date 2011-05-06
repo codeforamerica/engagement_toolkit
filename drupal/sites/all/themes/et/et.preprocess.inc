@@ -39,18 +39,20 @@ function et_preprocess_page(&$vars) {
 
   // If sidebars are empty, make main region full width.
   if(count($vars['page']['sidebar_first']) == 0 && count($vars['page']['sidebar_second']) == 0) {
-    $vars['main_region_width'] = 'grid_12';
+    $vars['main_region_width'] = 'grid_16';
   }
   else {
-    $vars['main_region_width'] = 'grid_8';
+    $vars['main_region_width'] = 'grid_11';
   }
 
   // Create some resource variables
+/*
   $vars['logo_image'] = theme('image', array(
     'path' => drupal_get_path('theme', 'et') . '/images/header_logo.gif', 
     )
   );
-  $vars['logo_image_link'] = l($vars['logo_image'], '<front>', array('html' => TRUE));
+*/
+//  $vars['logo_image_link'] = l($vars['logo_image'], '<front>', array('html' => TRUE));
   
   // Create login link
   $account_text = t('Sign in');
@@ -154,6 +156,10 @@ function et_preprocess_node(&$vars) {
   if (function_exists($function)) {
     $function($vars);
   }
+  $vars['node_top'] = '';
+  $vars['node_bottom'] = '';
+  $vars['node_sidebar'] = '';
+  $vars['node_content_width'] = 'grid_16';
 }
 
 /**
@@ -161,16 +167,22 @@ function et_preprocess_node(&$vars) {
  */
 function et_preprocess_node_project(&$vars) {
   /* dpm($vars); */
+/*
   $vars['node_top'] = "THIS IS NODE TOP";
   $vars['node_bottom'] = "THIS IS NODE Bottom";
   $vars['node_sidebar'] = "THIS IS NODE SIDE";
+*/
 
+/*
+  @TODO Come back to this later.
   if(!empty($vars['node_sidebar'])){
-    $vars['node_content_width'] = 'grid_8';
+    $vars['node_content_width'] = 'grid_11';
   }
   else {
-    $vars['node_content_width'] = 'grid_12';
+    $vars['node_content_width'] = 'grid_16';
   }
+*/
+
 }
 
 /**
