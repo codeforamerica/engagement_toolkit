@@ -299,4 +299,11 @@ p {
 .project_ingredients li {
     line-height: 1.7em;
 }
+
+.social_bar {
+    padding: 8px;
+    background-color: #ccc;
+    margin-top: 7px;
+    height: 24px;
+}
 /* END Main Content Section
