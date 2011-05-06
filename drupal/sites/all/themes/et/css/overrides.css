@@ -102,3 +102,69 @@ body.logged-in #block-system-user-menu ul.menu li.first {
 .meta {
   font-size: 120%;
 }
+
+
+#header {
+  background-color: #533549;
+  height: 50px;
+  width: 100%;
+}
+
+h1.title {
+  font-family:Helvetica;
+  color: #992739;
+  text-transform: uppercase;
+}
+
+.content {
+}
+
+.node-project .content {
+  background-color: #e9e9e9;
+}
+
+.field-label {
+  color: #533549;
+}
+
+.field-name-body {
+  margin-left:5px;
+  background-color: #666666;
+}
+
+.field-name-field-process, .field-name-field-ingredients {
+  background-color: #ffffff;
+  margin-left:5px;
+}
+
+.block-et-blocks .content {
+  background-color:red;
+}
+
+.menu li.last {
+  display:none;
+}
+
+#block-block-1 {
+  background-color: #533549;
+}
+
+#block-block-1 .inner {
+  background-color: #ffffff;
+  margin: 20px;
+}
+
+#block-block-1 .content {
+  text-transform: uppercase;
+  color: #533549;
+  font-size: 18px;
+  padding: 0 10px 10px 10px;
+  font-weight: bold;
+}
+
+#block-block-1 .content p {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
