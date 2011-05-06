@@ -47,7 +47,7 @@ function et_projects_field_default_fields() {
       'description' => 'Provide a short, compelling description of your project. About 200 words.',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -65,7 +65,7 @@ function et_projects_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'body',
-      'label' => 'Description',
+      'label' => 'About',
       'required' => 0,
       'settings' => array(
         'display_summary' => 1,
@@ -80,7 +80,7 @@ function et_projects_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => '12',
+        'weight' => '1',
       ),
       'widget_type' => 'text_textarea_with_summary',
     ),
@@ -154,7 +154,7 @@ function et_projects_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '20',
+        'weight' => '6',
       ),
     ),
   );
@@ -228,7 +228,7 @@ function et_projects_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '16',
+        'weight' => '5',
       ),
     ),
   );
@@ -301,7 +301,7 @@ function et_projects_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '18',
+        'weight' => '4',
       ),
     ),
   );
@@ -374,7 +374,7 @@ function et_projects_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '19',
+        'weight' => '5',
       ),
     ),
   );
@@ -453,7 +453,7 @@ function et_projects_field_default_fields() {
           'progress_indicator' => 'throbber',
         ),
         'type' => 'image_image',
-        'weight' => '14',
+        'weight' => '3',
       ),
     ),
   );
@@ -529,7 +529,7 @@ function et_projects_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '13',
+        'weight' => '19',
       ),
     ),
   );
@@ -606,7 +606,7 @@ function et_projects_field_default_fields() {
         'module' => 'link',
         'settings' => array(),
         'type' => 'link_field',
-        'weight' => '15',
+        'weight' => '4',
       ),
     ),
   );
@@ -659,7 +659,7 @@ function et_projects_field_default_fields() {
         'module' => 'geofield',
         'settings' => array(),
         'type' => 'geofield_latlon',
-        'weight' => '22',
+        'weight' => '9',
       ),
     ),
   );
@@ -696,7 +696,8 @@ function et_projects_field_default_fields() {
       'bundle' => 'project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'Describe where this project is happening.',
+      'description' => 'If it\'s a bit hard to explain where your project is, describe the location here.
+You can also input a map.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -713,20 +714,20 @@ function et_projects_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_location_text',
-      'label' => 'Location Description',
+      'label' => 'Complicated location?',
       'required' => 0,
       'settings' => array(
-        'text_processing' => '0',
+        'text_processing' => '1',
         'user_register_form' => FALSE,
       ),
       'widget' => array(
         'active' => 1,
         'module' => 'text',
         'settings' => array(
-          'rows' => '5',
+          'rows' => '1',
         ),
         'type' => 'text_textarea',
-        'weight' => '16',
+        'weight' => '8',
       ),
     ),
   );
@@ -799,7 +800,7 @@ function et_projects_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '17',
+        'weight' => '3',
       ),
     ),
   );
@@ -906,7 +907,7 @@ function et_projects_field_default_fields() {
       'description' => 'How are you going about doing this project?',
       'display' => array(
         'default' => array(
-          'label' => 'hidden',
+          'label' => 'above',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
@@ -934,7 +935,7 @@ function et_projects_field_default_fields() {
           'rows' => '10',
         ),
         'type' => 'text_textarea',
-        'weight' => '11',
+        'weight' => '17',
       ),
     ),
   );
@@ -1012,7 +1013,7 @@ function et_projects_field_default_fields() {
           'size' => '60',
         ),
         'type' => 'node_reference_autocomplete',
-        'weight' => '12',
+        'weight' => '18',
       ),
     ),
   );
@@ -1152,29 +1153,30 @@ function et_projects_field_default_fields() {
           'size' => 60,
         ),
         'type' => 'taxonomy_autocomplete',
-        'weight' => '21',
+        'weight' => '7',
       ),
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('About');
   t('Add some categories for this project to help others find it more easily. (Ex. urban farming, community event)');
   t('Area Code');
   t('Categories');
   t('City');
+  t('Complicated location?');
   t('County');
-  t('Describe where this project is happening.');
-  t('Description');
   t('Enter the Area Code this applies to, if needed.');
   t('How are you going about doing this project?');
+  t('If it\'s a bit hard to explain where your project is, describe the location here.
+You can also input a map.');
   t('If you know it, which county are you in?');
   t('If your project already has a URL or link for more information, go ahead and add that here.');
   t('Images');
   t('Ingredients that were helpful to this project');
   t('Link');
   t('Location');
-  t('Location Description');
   t('Neighborhood');
   t('Problem');
   t('Process');
