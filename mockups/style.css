@@ -107,8 +107,48 @@ a:hover, a:active {
 	float:left;
 	}
 
-/* Project Metric Block Style
-*/
+/* Generic Sidebar Box */
+.sidebar_box {
+    border: 1px #ccc solid;
+}
+
+.sidebar_box .sidebar_box_image{
+    width: 150px;
+    height: 150px;
+    background-color: #ff88c0;
+}
+
+.sidebar_box .sidebar_box_title {
+    text-transform: uppercase;
+    background-color: #e89a41;
+    padding: 10px 0 10px 20px;
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.sidebar_box .sidebar_box_name {
+    color: #992739;
+    text-transform: uppercase;
+}
+
+.sidebar_box .sidebar_box_text {    
+    color: #533549;
+}
+
+.sidebar_box .sidebar_box_more_info {
+    color: #533549;
+    font-size: 18px;
+}
+
+.sidebar_box .sidebar_box_content {
+    padding: 10px 10px 20px 20px;
+    background-color: #ffffff;
+}
+/* END Generic Sidebar box */
+
+/* Project Metric Block Style */
 #metric_block {
   background-color: #533549;
 }

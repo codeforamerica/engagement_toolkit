@@ -23,7 +23,6 @@
         <?php endif; ?>
       </div>
     <?php endif; ?>
-
     <?php if ($node_top && !$teaser): ?>
     <div id="node-top" class="node-top row nested">
       <div id="node-top-inner" class="node-top-inner inner">

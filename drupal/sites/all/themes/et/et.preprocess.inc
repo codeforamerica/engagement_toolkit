@@ -142,16 +142,12 @@ function et_preprocess_block(&$vars) {
  * Node preprocessing
  */
 function et_preprocess_node(&$vars) {
+  // dpm($vars); not working, use this krumo call instead to see the node object.
+/*   var_dump(krumo($vars)); */
 
-/* dpm($vars); */
   // Add to array of handy node classes
   $vars['classes_array'][] = $vars['zebra'];                              // Node is odd or even
-  $vars['classes_array'][] = (!$vars['teaser']) ? 'full-node' : '';       // Node is teaser or full-node
-
-  // Add node_top and node_bottom region content
-//  $vars['node_top'] = theme('blocks', 'node_top');
-//  $vars['node_bottom'] = theme('blocks', 'node_bottom');
-
+  $vars['classes_array'][] = (!$vars['teaser']) ? 'full-node grid_16 alpha' : '';       // Node is teaser or full-node
   
   // Add preprocess functions for all node types.
   $function = __FUNCTION__ . '_' . $vars['node']->type;
@@ -159,12 +155,16 @@ function et_preprocess_node(&$vars) {
     $function($vars);
   }
 
+/*
+  // Node top, bottom & sidebar can't be set with context, unfortunately, until we can figure out
+  // how to access blocks set by context. Context seems to override the entire block system...
+  // So for now, node regions should only be set in preprocessing
+  // functions - to be used for certain fields and the like.
   $vars['node_top'] = '';
   $vars['node_bottom'] = '';
   $vars['node_sidebar'] = '';
-  $vars['node_content_width'] = 'grid_16';
-
-
+*/
+  $vars['node_content_width'] = 'grid_11 alpha';
 }
 
 /**
@@ -173,13 +173,10 @@ function et_preprocess_node(&$vars) {
 function et_preprocess_node_project(&$vars) {
   // Fix node title.
 
-
   /* dpm($vars); */
-/*
-  $vars['node_top'] = "THIS IS NODE TOP";
-  $vars['node_bottom'] = "THIS IS NODE Bottom";
-  $vars['node_sidebar'] = "THIS IS NODE SIDE";
-*/
+  $vars['node_top'] = '';
+  $vars['node_bottom'] = '';
+  $vars['node_sidebar'] = '';
 
 /*
   @TODO Come back to this later.
