@@ -25,9 +25,9 @@ function et_projects_field_group_info() {
       0 => 'field_problem',
       1 => 'field_result',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => '',
         'required_fields' => 1,
@@ -54,9 +54,9 @@ function et_projects_field_group_info() {
       3 => 'field_image',
       4 => 'title',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => '',
         'required_fields' => 1,
@@ -74,7 +74,7 @@ function et_projects_field_group_info() {
   $field_group->mode = 'form';
   $field_group->parent_name = 'group_plan';
   $field_group->data = array(
-    'label' => 'Location',
+    'label' => 'Where are you? (in more detail)',
     'weight' => '19',
     'children' => array(
       0 => 'field_city',
@@ -85,13 +85,15 @@ function et_projects_field_group_info() {
       5 => 'field_location_text',
       6 => 'field_neighborhood',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Where are you? (in more detail)',
       'instance_settings' => array(
-        'classes' => '',
         'required_fields' => 1,
+        'classes' => '',
+        'description' => '',
       ),
+      'formatter' => 'closed',
     ),
   );
   $export['group_location|node|project|form'] = $field_group;
@@ -113,12 +115,11 @@ function et_projects_field_group_info() {
       2 => 'group_location',
       3 => 'group_process',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tabs',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'formatter' => NULL,
       'instance_settings' => array(
         'classes' => '',
-        'required_fields' => 1,
       ),
     ),
   );
@@ -140,9 +141,9 @@ function et_projects_field_group_info() {
       1 => 'field_recipes',
       2 => 'field_ingredients',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'tab',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'formatter' => 'closed',
       'instance_settings' => array(
         'classes' => '',
         'required_fields' => 1,
