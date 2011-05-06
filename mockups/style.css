@@ -1,5 +1,5 @@
 body {
-  background:#CCC;
+  background:#fff;
 	font-family:Helvetica, Arial, sans-serif;
 	color:#333;
 	font-size:12px;
@@ -19,39 +19,50 @@ a:hover, a:active {
   text-decoration:underline;
   }
 
+.right { float:right; }
+.left { float:left; }
+
 #header {
-    position:absolute;
-    background-color: #533549;
-    top:0;
-    left:0;
-    height:40px;
-    width:100%;
+    height:20px;
+    padding:10px 20px;
+    margin-bottom:20px;
     
     text-transform: uppercase;
-    
+    color:#fff;
+    background-color: #533549;
     -webkit-box-shadow: 0px 2px 5px #666;
     -moz-box-shadow: 0px 2px 5px #666;
-    box-shadow: 0px 2px 5px #666;}
+    box-shadow: 0px 2px 5px #666;
+}
+
+/* Header Elements */
+.nav-links {
+    /* for vertical alignment */
+    padding-top:5px; 
+}
+
+#title {
+    width:200px;
+    color: #ffffff;
+    font-size:18px;
+}
+
+#user-links {
+    width:150px;
+}
 
 #header a {
     color: #ffffff;
     font-size: 11px;
 }
 
-#title {
-    color: #ffffff;
-    font-size:18px;
-    font-weight:bold;
+.wrapper {
+    width:960px;
+    position:absolute;
+    left:50%;
+    margin-left:-480px;
 }
 
-#wrapper {
-  width:960px;
-  position:absolute;
-  top:80px;
-  left:50%;
-  margin-left:-480px;
-  background:#FFF;
-  }
 #nav {
   width:935px;
   padding:5px 5px 5px 20px;
@@ -77,13 +88,6 @@ a:hover, a:active {
   font-size:10px;
   text-decoration:underline;
   }
-#content {
-	width:700px;
-	margin-right:20px;
-	padding:10px;
-	background:#0FF;
-	float:left;
-	}
 #tabcontent {
 	background: #FFF;
 	padding: 20px;
@@ -183,3 +187,30 @@ a:hover, a:active {
   text-decoration: underline;
 }
 /* END Project Metric Block */
+
+/* Main Content Section */
+#content {
+    background-color: #e9e9e9;
+	float:left;
+    width: 570px;
+    padding: 20px;
+	margin-right:20px;
+}
+
+.wrapper > header > h1 {
+    font-weight: bold;
+    font-size: 4.2em;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    color: #992739;
+}
+
+.wrapper > header > h2 {
+    font-weight: bold;
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+.wrapper > header > h2 > a {
+    color: #992739;
+}
+/* END Main Content Section

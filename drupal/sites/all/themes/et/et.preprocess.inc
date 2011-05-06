@@ -96,15 +96,6 @@ function et_preprocess_page(&$vars) {
       $vars['sub_site_name'] = t('Development');
       break;
   }
-  
-  // Facebook Like link (TODO: Use module)
-  // Make URL, Facebook is not ok with a "localhost" URL.
-  $url = ($_SERVER['SERVER_PORT'] == '443') ? 'https' : 'http';
-  $url .= '://';
-  $url .= ($_SERVER['HTTP_HOST'] == 'localhost') ? 'localhost.com' : $_SERVER['HTTP_HOST'];
-  $url .= $_SERVER['REQUEST_URI'];
-  $vars['fb_like'] = '<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="' . urlencode($url) . '" send="true" width="200" show_faces="false" font=""></fb:like>';
-
 
   // Remove breadcrumbs if disabled
   if (theme_get_setting('breadcrumb_display') == 0) {
@@ -159,42 +150,75 @@ function et_preprocess_node(&$vars) {
   // Node top, bottom & sidebar can't be set with context, unfortunately, until we can figure out
   // how to access blocks set by context. Context seems to override the entire block system...
   // So for now, node regions should only be set in preprocessing
-  // functions - to be used for certain fields and the like.
+  // functions - to be used for certain fields and the like.*/
+
   $vars['node_top'] = '';
   $vars['node_bottom'] = '';
   $vars['node_sidebar'] = '';
-*/
-  $vars['node_content_width'] = 'grid_11 alpha';
+
+  // Set margin in grid system for node to flush
+  $vars['node_content_width'] = 'alpha';
 }
 
+/* Load location data for nodes */
+function et_node_location(&$vars) {
+  $output = '';
+  if(!empty($vars['field_location_text']['und'][0]['value'])) {
+    $output .= $vars['field_location_text']['und'][0]['value'];
+  }
+  else {
+    if(!empty($vars['field_neighborhood']['und'][0]['taxonomy_term']->name)) {
+      $output .= $vars['field_neighborhood']['und'][0]['taxonomy_term']->name . t(', ');
+    }
+    if(!empty($vars['field_city']['und'][0]['taxonomy_term']->name)) {
+      $output .= $vars['field_city']['und'][0]['taxonomy_term']->name . t(', ');
+    }
+    if(!empty($vars['field_state']['und'][0]['taxonomy_term']->name)) {
+      $output .= $vars['field_state']['und'][0]['taxonomy_term']->name;
+    }
+  }
+  return $output;
+}
+
+function et_node_share(&$vars) {
+  et_fb_like($vars);
+  $output = '';
+  $output .= '<div class="node-share">';
+  $output .= 'Facebook';
+  $output .= '<div class="facebook">' . $vars['fb_like'] . '</div>';
+  $output .= '<div class="twitter">Twitter</div>';
+  $output .= '<div class="supporters">23</div>';
+  $output .= '</div>';
+  return $output;
+}
+
+function et_fb_like(&$vars) {
+  
+  // Facebook Like link (TODO: Use module)
+  // Make URL, Facebook is not ok with a "localhost" URL.
+  $url = ($_SERVER['SERVER_PORT'] == '443') ? 'https' : 'http';
+  $url .= '://';
+  $url .= ($_SERVER['HTTP_HOST'] == 'localhost') ? 'localhost.com' : $_SERVER['HTTP_HOST'];
+  $url .= $_SERVER['REQUEST_URI'];
+  // @TODO replace with block from context.
+  $vars['fb_like'] = '<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="' . urlencode($url) . '" send="true" width="200" show_faces="false" font=""></fb:like>';
+
+}
 /**
  * Preprocessing function for node types.
  */
 function et_preprocess_node_project(&$vars) {
-  // Fix node title.
-
-  /* dpm($vars); */
-  $vars['node_top'] = '';
-  $vars['node_bottom'] = '';
-  $vars['node_sidebar'] = '';
-
-/*
-  @TODO Come back to this later.
-  if(!empty($vars['node_sidebar'])){
-    $vars['node_content_width'] = 'grid_11';
-  }
-  else {
-    $vars['node_content_width'] = 'grid_16';
-  }
-*/
-
+  // Create content variables for this node type.
+  $vars['location'] =  et_node_location($vars);
+  $vars['share'] = et_node_share($vars);
 }
 
 /**
  * Comment preprocessing
  */
 function et_preprocess_comment(&$vars) {
-  static $comment_odd = TRUE;                                                                             // Comment is odd or even
+  static $comment_odd = TRUE;
+ // Comment is odd or even
 
   // Add to array of handy comment classes
   $vars['classes_array'][] = $comment_odd ? 'odd' : 'even';
