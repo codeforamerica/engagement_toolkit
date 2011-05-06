@@ -29,11 +29,23 @@ function et_projects_extra_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'et_blocks-et_ph_project_supported' => array(
+          'module' => 'et_blocks',
+          'delta' => 'et_ph_project_supported',
+          'region' => 'sidebar_second',
+          'weight' => '-26',
+        ),
+        'et_blocks-et_ph_project_location' => array(
+          'module' => 'et_blocks',
+          'delta' => 'et_ph_project_location',
+          'region' => 'sidebar_second',
+          'weight' => '-25',
+        ),
         'et_blocks-et_custom_facebook_like' => array(
           'module' => 'et_blocks',
           'delta' => 'et_custom_facebook_like',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-24',
         ),
       ),
     ),
