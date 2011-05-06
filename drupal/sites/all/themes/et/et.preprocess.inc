@@ -96,13 +96,6 @@ function et_preprocess_page(&$vars) {
       $vars['sub_site_name'] = t('Development');
       break;
   }
-  
-  // Facebook Like link (TODO: Use module)
-  // Make URL, Facebook is not ok with a "localhost" URL.
-  $url = ($_SERVER['SERVER_PORT'] == '443') ? 'https' : 'http';
-  $url .= '://';
-  $url .= ($_SERVER['HTTP_HOST'] == 'localhost') ? 'localhost.com' : $_SERVER['HTTP_HOST'];
-  $url .= $_SERVER['REQUEST_URI'];
 
   // Remove breadcrumbs if disabled
   if (theme_get_setting('breadcrumb_display') == 0) {
@@ -165,12 +158,6 @@ function et_preprocess_node(&$vars) {
 
   // Set margin in grid system for node to flush
   $vars['node_content_width'] = 'alpha';
-
-  // Create content variables for node.
-  $vars['location'] =  et_node_location($vars);
-  $vars['media'] = et_node_media($vars);
-  $vars['share'] = et_node_share($vars);
-
 }
 
 /* Load location data for nodes */
@@ -193,16 +180,8 @@ function et_node_location(&$vars) {
   return $output;
 }
 
-function et_node_media(&$vars) {
-  $output = '';
-  
-  return $output;
-}
-
 function et_node_share(&$vars) {
-  // @TODO replace with block from context.
-  $vars['fb_like'] = '<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="' . urlencode($url) . '" send="true" width="200" show_faces="false" font=""></fb:like>';
-
+  et_fb_like($vars);
   $output = '';
   $output .= '<div class="node-share">';
   $output .= 'Facebook';
@@ -213,19 +192,33 @@ function et_node_share(&$vars) {
   return $output;
 }
 
+function et_fb_like(&$vars) {
+  
+  // Facebook Like link (TODO: Use module)
+  // Make URL, Facebook is not ok with a "localhost" URL.
+  $url = ($_SERVER['SERVER_PORT'] == '443') ? 'https' : 'http';
+  $url .= '://';
+  $url .= ($_SERVER['HTTP_HOST'] == 'localhost') ? 'localhost.com' : $_SERVER['HTTP_HOST'];
+  $url .= $_SERVER['REQUEST_URI'];
+  // @TODO replace with block from context.
+  $vars['fb_like'] = '<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="' . urlencode($url) . '" send="true" width="200" show_faces="false" font=""></fb:like>';
+
+}
 /**
  * Preprocessing function for node types.
  */
 function et_preprocess_node_project(&$vars) {
-  // Fix node title.
-
+  // Create content variables for this node type.
+  $vars['location'] =  et_node_location($vars);
+  $vars['share'] = et_node_share($vars);
 }
 
 /**
  * Comment preprocessing
  */
 function et_preprocess_comment(&$vars) {
-  static $comment_odd = TRUE;                                                                             // Comment is odd or even
+  static $comment_odd = TRUE;
+ // Comment is odd or even
 
   // Add to array of handy comment classes
   $vars['classes_array'][] = $comment_odd ? 'odd' : 'even';
