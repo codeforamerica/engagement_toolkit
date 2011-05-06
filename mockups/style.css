@@ -189,7 +189,7 @@ a:hover, a:active {
 
 .wrapper > header > h1 {
     font-weight: bold;
-    font-size: 50px;
+    font-size: 4.2em;
     margin-bottom: -10px;
     text-transform: uppercase;
     color: #992739;
@@ -197,7 +197,7 @@ a:hover, a:active {
 
 .wrapper > header > h2 {
     font-weight: bold;
-    font-size: 19px;
+    font-size: 1.6em;
     text-transform: uppercase;
 }
 .wrapper > header > h2 > a {
