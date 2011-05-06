@@ -1,0 +1,7 @@
+name = "ET clone"
+description = "Custom module for node cloning."
+core = "7.x"
+package = "ET"
+core = 7.x
+files[] = similar_content.module
+dependencies[] = clone

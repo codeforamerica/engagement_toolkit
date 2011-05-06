@@ -39,18 +39,20 @@ function et_preprocess_page(&$vars) {
 
   // If sidebars are empty, make main region full width.
   if(count($vars['page']['sidebar_first']) == 0 && count($vars['page']['sidebar_second']) == 0) {
-    $vars['main_region_width'] = 'grid_12';
+    $vars['main_region_width'] = 'grid_16';
   }
   else {
-    $vars['main_region_width'] = 'grid_8';
+    $vars['main_region_width'] = 'grid_11';
   }
 
   // Create some resource variables
+/*
   $vars['logo_image'] = theme('image', array(
     'path' => drupal_get_path('theme', 'et') . '/images/header_logo.gif', 
     )
   );
-  $vars['logo_image_link'] = l($vars['logo_image'], '<front>', array('html' => TRUE));
+*/
+//  $vars['logo_image_link'] = l($vars['logo_image'], '<front>', array('html' => TRUE));
   
   // Create login link
   $account_text = t('Sign in');
@@ -119,7 +121,6 @@ function et_preprocess_region(&$vars) {
   $vars['region_style'] = $vars['fluid_width'] = '';
   $vars['region_name'] = str_replace('_', '-', $vars['region']);
   $vars['classes_array'][] = $vars['region_name'];
-
 }
 
 
@@ -141,36 +142,55 @@ function et_preprocess_block(&$vars) {
  * Node preprocessing
  */
 function et_preprocess_node(&$vars) {
+
+/* dpm($vars); */
   // Add to array of handy node classes
   $vars['classes_array'][] = $vars['zebra'];                              // Node is odd or even
   $vars['classes_array'][] = (!$vars['teaser']) ? 'full-node' : '';       // Node is teaser or full-node
 
   // Add node_top and node_bottom region content
-  $vars['node_top'] = theme('blocks', 'node_top');
-  $vars['node_bottom'] = theme('blocks', 'node_bottom');
+//  $vars['node_top'] = theme('blocks', 'node_top');
+//  $vars['node_bottom'] = theme('blocks', 'node_bottom');
+
   
   // Add preprocess functions for all node types.
   $function = __FUNCTION__ . '_' . $vars['node']->type;
   if (function_exists($function)) {
     $function($vars);
   }
+
+  $vars['node_top'] = '';
+  $vars['node_bottom'] = '';
+  $vars['node_sidebar'] = '';
+  $vars['node_content_width'] = 'grid_16';
+
+
 }
 
 /**
  * Preprocessing function for node types.
  */
 function et_preprocess_node_project(&$vars) {
+  // Fix node title.
+
+
   /* dpm($vars); */
+/*
   $vars['node_top'] = "THIS IS NODE TOP";
   $vars['node_bottom'] = "THIS IS NODE Bottom";
   $vars['node_sidebar'] = "THIS IS NODE SIDE";
+*/
 
+/*
+  @TODO Come back to this later.
   if(!empty($vars['node_sidebar'])){
-    $vars['node_content_width'] = 'grid_8';
+    $vars['node_content_width'] = 'grid_11';
   }
   else {
-    $vars['node_content_width'] = 'grid_12';
+    $vars['node_content_width'] = 'grid_16';
   }
+*/
+
 }
 
 /**

@@ -28,6 +28,12 @@ function et_blocks_block_info() {
   $blocks['et_custom_facebook_like'] = array(
     'info' => t('Custom: Facebook Like'),
   );
+  $blocks['et_ph_project_supported'] = array(
+    'info' => t('Placeholder: Project Supporter'),
+  );
+  $blocks['et_ph_project_location'] = array(
+    'info' => t('Placeholder: Project Location'),
+  );
 
   return $blocks;
 }
@@ -60,6 +66,16 @@ function et_blocks_block_view($delta = '') {
     case 'et_ph_clone_recipe':
       $block['subject'] = '';
       $block['content'] = et_blocks_placeholder('clone_recipe');
+      break;
+      
+    case 'et_ph_project_supported':
+      $block['subject'] = '';
+      $block['content'] = et_blocks_placeholder('project_supported');
+      break;
+      
+    case 'et_ph_project_location':
+      $block['subject'] = t('Location');
+      $block['content'] = et_blocks_placeholder('project_location');
       break;
       
     case 'et_custom_facebook_like':
@@ -116,10 +132,33 @@ function et_blocks_placeholder($type) {
       ';
       break;
       
-    case 'clone_recipe':
+    case 'project_supported':
       $output .= '
-        <div class="ph-clone-recipe">
-          ' . t('I want to make this recipe into a project.') . '
+        <div class="ph-project-supported">
+          <span class="supporters-numbers">
+            ' . t('34') . '
+          </span>
+          <span class="supporters-label">
+            ' . t('Supporters') . '
+          </span>
+          <span class="supporters-link">
+            ' . l('Support this project', '') . '
+          </span>
+          
+        </div>
+      ';
+      break;
+      
+    case 'project_location':
+      $output .= '
+        <div class="ph-project-location">
+          <div id="project-map">
+          </div>
+          <div class="project-address">
+            <span class="project-address-title">' . t('Parker Plaza') . '</span>
+            ' . t('16th & Mission St.') . '<br />
+            ' . t('San Francisco') . '
+          </div>
         </div>
       ';
       break;

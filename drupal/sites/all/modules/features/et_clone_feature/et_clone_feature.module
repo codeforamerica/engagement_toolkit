@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the ET Clone Feature feature.
+ */
+
+include_once('et_clone_feature.features.inc');

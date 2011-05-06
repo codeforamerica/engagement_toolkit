@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Custom node cloning module for ET.  Main
+ * module file.
+ */
+ 
+/**
+ * Implementation of hook_menu_alter().
+ */
+function et_clone_menu_alter(&$items) {
+  $items['node/%node/clone']['type'] = MENU_NORMAL_ITEM;
+}
+
+/**
+ * Implements hook_clone_node_alter().
+ */
+function et_clone_clone_node_alter(&$node, $context) {
+  // Taken from Clone module:
+  // The function signature is: hook_clone_node_alter(&$node, $context)
+  // $context is an array with two elements, 'method' and 'original_node',
+  // where 'method' is either 'prepopulate' or 'save-edit'.
+  
+  // We'll get an extra argument to see if we want to switch
+  // the content type.
+  $new_type = arg(3);
+  $new_type_obj = node_type_load($new_type);
+  // TODO: Abstract out from just recipe -> project.
+  if ($context['method'] == 'prepopulate' && !empty($new_type) && $new_type = 'project') {
+    $node->type = $new_type;
+
+    drupal_set_message(t('You are making a project from recipe: %recipe', array(
+      '%recipe' => check_plain($context['original_node']->title),
+    )));
+    
+    $node->title = t('New project from recipe: !title', array('!title' => $context['original_node']->title));
+    drupal_set_title($node->title);
+    
+    // For right now, we just want to map original ID with
+    // project nodereference
+    $node->field_recipes['und'][0]['nid'] = $context['original_node']->nid;
+  }
+}
+ 
+/**
+ * Implements hook_block_info().
+ */
+function et_clone_block_info() {
+  $blocks = array();
+
+  $blocks['et_clone_block'] = array(
+    'info' => t('ET Clone: Node Clone Block'),
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function et_clone_block_view($delta = '') {
+  $block = array();
+
+  switch ($delta) {
+    case 'et_clone_block':
+      $block['subject'] = '';
+      $block['content'] = 'HI';
+
+      // Get the node object
+      $node = menu_get_object();
+      if (is_object($node) && isset($node->nid)) {
+        switch ($node->type) {
+          case 'recipe':
+            $block['content'] = l(t('Turn this recipe into a project'), 'node/' . $node->nid . '/clone/project');
+            break;
+            
+          case 'project':
+            $block['content'] = l(t('Fork this project'), 'node/' . $node->nid . '/clone');
+            break;
+            
+          default:
+            $block['content'] = l(t('Clone this content'), 'node/' . $node->nid . '/clone');
+            break;
+            
+        }
+      }
+      break;
+  }
+  return $block;
+}
+
+/**
+ * Field mapping for node clones into different
+ * types.
+ */
+function et_clone_clone_mapping() {
+  // Should be in format ['content_type_x']['content_type_y']['field_name_b']['field_name_a']
+  // TODO: Implement this.
+  return array(
+    'recipes' => array(
+      'projects' => array(
+        // Field mapping here.
+      ),
+    ),
+  );
+}
