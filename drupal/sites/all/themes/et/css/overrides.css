@@ -19,7 +19,7 @@ body.front span.submitted {
 /* Join button ("Let's Do this") */
 .flag-join {
   margin: 20px;
-}
+}   
 
 .flag-join .flag-wrapper {
   padding: 20px;
@@ -102,3 +102,55 @@ body.logged-in #block-system-user-menu ul.menu li.first {
 .meta {
   font-size: 120%;
 }
+
+/* Project Metric Block Style
+ * TODO: Needs the ID changed to the custom block
+ * block-block-1 to _____
+*/
+#block-block-1 {
+  background-color: #533549;
+}
+
+#block-block-1 .inner {
+  background-color: #ffffff;
+  margin: 20px;
+}
+
+#block-block-1 .content {
+  text-transform: uppercase;
+  color: #533549;
+  font-size: 18px;
+  padding: 0 10px 10px 10px;
+  font-weight: bold;
+}
+
+#block-block-1 .content p {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+/* END Project Metric Block */
+
+/* Generic Block Style */
+.sidebar-container h2.block-title {
+    text-transform: uppercase;
+    background-color: #e89a41;
+    padding: 10px 0 10px 20px;
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.sidebar-container .block {
+    border: 1px #ccc solid;
+}
+
+.sidebar-container .content {
+    padding: 10px 10px 20px 20px;
+}   
+
+.sidebar-container .content p {
+    margin: 0;
+}
+/* END Generic Block Style */
