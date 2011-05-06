@@ -149,6 +149,16 @@ p {
 }
 /* END Generic Sidebar box */
 
+/* Custom supporter sidebar box */
+.supporter_image {
+  height: 40px;
+  width: 40px;
+  background-color: #ff88c0;
+  float: left;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
 /* Project Metric Block Style */
 #metric_block {
   background-color: #533549;
