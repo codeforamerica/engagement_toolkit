@@ -186,4 +186,21 @@ a:hover, a:active {
     padding: 20px;
 	margin-right:20px;
 }
+
+.wrapper > header > h1 {
+    font-weight: bold;
+    font-size: 50px;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    color: #992739;
+}
+
+.wrapper > header > h2 {
+    font-weight: bold;
+    font-size: 19px;
+    text-transform: uppercase;
+}
+.wrapper > header > h2 > a {
+    color: #992739;
+}
 /* END Main Content Section
