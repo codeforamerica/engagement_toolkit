@@ -25,9 +25,9 @@ function et_projects_field_group_info() {
       0 => 'field_problem',
       1 => 'field_result',
     ),
-    'format_type' => 'tab',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'classes' => '',
         'required_fields' => 1,
@@ -54,9 +54,9 @@ function et_projects_field_group_info() {
       3 => 'field_image',
       4 => 'title',
     ),
-    'format_type' => 'tab',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'classes' => '',
         'required_fields' => 1,
@@ -85,9 +85,9 @@ function et_projects_field_group_info() {
       5 => 'field_location_text',
       6 => 'field_neighborhood',
     ),
-    'format_type' => 'tab',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'classes' => '',
         'required_fields' => 1,
@@ -108,16 +108,17 @@ function et_projects_field_group_info() {
     'label' => 'What are you doing?',
     'weight' => '1',
     'children' => array(
-      0 => 'group_location',
+      0 => 'group_backstory',
       1 => 'group_general',
-      2 => 'group_backstory',
+      2 => 'group_location',
       3 => 'group_process',
     ),
-    'format_type' => 'tabs',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => NULL,
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'classes' => '',
+        'required_fields' => 1,
       ),
     ),
   );
@@ -139,9 +140,9 @@ function et_projects_field_group_info() {
       1 => 'field_recipes',
       2 => 'field_ingredients',
     ),
-    'format_type' => 'tab',
+    'format_type' => 'fieldset',
     'format_settings' => array(
-      'formatter' => 'closed',
+      'formatter' => 'collapsible',
       'instance_settings' => array(
         'classes' => '',
         'required_fields' => 1,
