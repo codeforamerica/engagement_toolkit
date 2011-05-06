@@ -158,11 +158,6 @@ function et_preprocess_node(&$vars) {
 
   // Set margin in grid system for node to flush
   $vars['node_content_width'] = 'alpha';
-
-  // Create content variables for node.
-  $vars['location'] =  et_node_location($vars);
-  $vars['share'] = et_node_share(&$vars);
-
 }
 
 /* Load location data for nodes */
@@ -213,7 +208,10 @@ function et_fb_like(&$vars) {
  * Preprocessing function for node types.
  */
 function et_preprocess_node_project(&$vars) {
-  // Fix node title.
+
+  // Create content variables for node.
+  $vars['location'] =  et_node_location($vars);
+  $vars['share'] = et_node_share(&$vars);
 
 }
 

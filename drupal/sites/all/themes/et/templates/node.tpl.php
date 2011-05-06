@@ -36,7 +36,7 @@
 
       <div class="content-top">
         <?php print render($content['field_image']); ?>
-        <?php print $share; ?>
+        <?php if($share): print $share; endif; ?>
       </div>
 
       <?php if($node->type == 'project'): ?>
