@@ -96,13 +96,6 @@ function et_preprocess_page(&$vars) {
       $vars['sub_site_name'] = t('Development');
       break;
   }
-  
-  // Facebook Like link (TODO: Use module)
-  // Make URL, Facebook is not ok with a "localhost" URL.
-  $url = ($_SERVER['SERVER_PORT'] == '443') ? 'https' : 'http';
-  $url .= '://';
-  $url .= ($_SERVER['HTTP_HOST'] == 'localhost') ? 'localhost.com' : $_SERVER['HTTP_HOST'];
-  $url .= $_SERVER['REQUEST_URI'];
 
   // Remove breadcrumbs if disabled
   if (theme_get_setting('breadcrumb_display') == 0) {
@@ -168,8 +161,7 @@ function et_preprocess_node(&$vars) {
 
   // Create content variables for node.
   $vars['location'] =  et_node_location($vars);
-  $vars['media'] = et_node_media($vars);
-  $vars['share'] = et_node_share($vars);
+  $vars['share'] = et_node_share(&$vars);
 
 }
 
@@ -193,16 +185,8 @@ function et_node_location(&$vars) {
   return $output;
 }
 
-function et_node_media(&$vars) {
-  $output = '';
-  
-  return $output;
-}
-
 function et_node_share(&$vars) {
-  // @TODO replace with block from context.
-  $vars['fb_like'] = '<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="' . urlencode($url) . '" send="true" width="200" show_faces="false" font=""></fb:like>';
-
+  et_fb_like(&$vars);
   $output = '';
   $output .= '<div class="node-share">';
   $output .= 'Facebook';
@@ -213,6 +197,18 @@ function et_node_share(&$vars) {
   return $output;
 }
 
+function et_fb_like(&$vars) {
+  
+  // Facebook Like link (TODO: Use module)
+  // Make URL, Facebook is not ok with a "localhost" URL.
+  $url = ($_SERVER['SERVER_PORT'] == '443') ? 'https' : 'http';
+  $url .= '://';
+  $url .= ($_SERVER['HTTP_HOST'] == 'localhost') ? 'localhost.com' : $_SERVER['HTTP_HOST'];
+  $url .= $_SERVER['REQUEST_URI'];
+  // @TODO replace with block from context.
+  $vars['fb_like'] = '<script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="' . urlencode($url) . '" send="true" width="200" show_faces="false" font=""></fb:like>';
+
+}
 /**
  * Preprocessing function for node types.
  */
