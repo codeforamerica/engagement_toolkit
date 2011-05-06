@@ -99,7 +99,7 @@ p {
     background-color: #e89a41;
     padding: 10px 0 10px 20px;
     color: #ffffff;
-    font-size: 18px;
+    font-size: 1.5em;
     margin: 0;
     font-weight: bold;
 }
@@ -141,11 +141,32 @@ p {
     background-color: #ffffff;
     font-size: 12px;
     border: 1px solid #ccc;
-    min-height: 150px;
 }
 
 .sb_container {
     margin-bottom: 20px;
+}
+
+.sidebar_box .help_list {
+    list-style-type: none;
+}
+.sidebar_box .help_list li {
+    background-color:#ccc;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    background-image: url(images/check-white-icon.png);
+    background-repeat: no-repeat;
+    background-position: 90% center;
+}
+
+.sidebar_box li.needs_help {
+    color: #663333;
+    background-color: #ffffff;
 }
 /* END Generic Sidebar box */
 
@@ -317,4 +338,7 @@ p {
     margin-top: 7px;
     height: 24px;
 }
-/* END Main Content Section
+/* END Main Content Section */
+.clear { 
+    clear: both;
+}
