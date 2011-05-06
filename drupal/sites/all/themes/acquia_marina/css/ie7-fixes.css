@@ -1,0 +1,53 @@
+
+/* Block */
+.block {
+  position: relative;
+}
+
+/* Pager - current */
+.item-list ul.pager li.pager-current {
+  margin-right: 2px;
+  padding-right: 3px;
+}
+
+/* Marina - Icons */
+.title-icon .block-icon,
+#comments .block-icon {
+  left: 4px;
+  top: 2px;
+}
+
+/* Marina - Title - Rounded Blue/Green */
+.marina-rounded-corners.marina-title-rounded-blue h2.block-title,
+.marina-rounded-corners.marina-title-rounded-green h2.block-title {
+  margin-top: 0;
+}
+
+/* Header - Search */
+#block-search-form .inner {
+  text-align: right;
+  white-space: nowrap;
+  width: 270px;
+}
+
+/* Search box - Corners */
+#block-search-form #search .corner-bottom-left {
+  left: -1px;
+  position: absolute;
+}
+
+/* Primary menu */
+.block-superfish ul.sf-style-default li ul,
+.block-superfish ul.sf-style-default li:hover ul {
+  margin-top: 0;
+}
+
+/* Comments */
+#comments .marina-rounded-corners .corner-bottom {
+  margin-top: -2px;
+}
+
+/* Block content */
+.marina-rounded-corners .inner-wrapper .inner-inner {
+  padding-top: 0;  
+}

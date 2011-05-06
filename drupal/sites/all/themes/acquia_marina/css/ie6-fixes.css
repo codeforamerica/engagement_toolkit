@@ -1,0 +1,97 @@
+
+/* Pager - current */
+.item-list ul.pager li.pager-current {
+  margin-right: 2px;
+  padding-right: 3px;
+}
+
+/* Marina - Title - Rounded Blue/Green */
+.marina-title-rounded-blue h2.block-title,
+.marina-title-rounded-green h2.block-title {
+  width: auto;
+}
+
+.marina-rounded-corners.marina-title-rounded-blue h2.block-title,
+.marina-rounded-corners.marina-title-rounded-green h2.block-title {
+  margin-top: 0;
+}
+
+.marina-rounded-corners .inner-wrapper .inner-inner {
+  padding-top: 0; 
+}
+
+/* Marina - Icons */
+.title-icon .block-icon,
+#comments .block-icon {
+  left: 4px;
+  top: 2px;
+}
+
+
+
+
+/* Preface top and Postscript bottom */
+.preface-top-wrapper,
+.postscript-bottom-wrapper {
+  height: 24px; /* Set heights rather than min-height as IE6 doesn't understand min-height */
+}
+
+
+
+
+/* Header - Search  */
+#block-search-form .inner {
+  text-align: right;
+  white-space: nowrap;
+  width: 250px;
+}
+
+
+
+
+
+
+
+/* Secondary menu */
+#secondary-menu.block {
+  margin-bottom: 0;
+}
+
+#secondary-menu.block ul.links {
+  float: right;
+}
+
+/* Comments */
+#comments .marina-rounded-corners .corner-bottom {
+  margin-top: -2px;
+}
+
+
+/* Rounded corners
+/-------------------------------------------------------------- */
+div.corner-top-left, 
+div.corner-top-right, 
+div.corner-bottom-left, 
+div.corner-bottom-right { 
+  font-size: 2px;                                 /* IE div correction */
+  height: 8px;                                    /* height of an image corner */
+  position: relative;
+}
+
+.corner-top,
+.corner-bottom {
+  position: relative;
+  z-index: 100;
+}
+
+
+/* Fluid width
+/-------------------------------------------------------------- */
+.grid-type-fluid #header-top,
+.grid-type-fluid #header-group,
+.grid-type-fluid #preface-top,
+.grid-type-fluid #page-inner {
+  margin: 0 auto;
+  width: expression((document.body.clientWidth > 1141)? "1140px" : "auto");
+  max-width: 1140px;
+}

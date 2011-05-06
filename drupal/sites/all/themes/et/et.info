@@ -6,8 +6,8 @@ core = 7.x
 engine = phptemplate
 
 ; Styles
-; 960 grid system (60 12 20)
-stylesheets[all][] = css/960_60_12_20.css
+; 960 grid system (50 column 16 columns 10 gutter )
+stylesheets[all][] = css/960_50_16_10.css
 ; Classes that override drupal core and module css
 stylesheets[all][] = css/drupal_reset.css
 ; Styles that effect the font styling of the site

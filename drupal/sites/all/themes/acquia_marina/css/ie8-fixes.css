@@ -1,0 +1,14 @@
+
+
+/* Marina - Icons */
+.title-icon .block-icon,
+#comments .block-icon {
+  top: 0;
+}
+
+/* Header - Search  */
+#block-search-form .inner {
+  text-align: right;
+  white-space: nowrap;
+  width: 250px;
+}
