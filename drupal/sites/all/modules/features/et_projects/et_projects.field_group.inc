@@ -190,10 +190,6 @@ function et_projects_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'field_categories',
-      1 => 'field_city',
-      2 => 'field_state',
-      3 => 'field_location_text',
-      4 => 'field_neighborhood',
     ),
     'format_type' => 'div',
     'format_settings' => array(
