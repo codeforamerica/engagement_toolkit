@@ -18,18 +18,16 @@ a:hover, a:active {
   }
 
 #header {
-    position:absolute;
-    background-color: #533549;
-    top:0;
-    left:0;
     height:40px;
     width:100%;
+    margin-bottom:20px;
     
     text-transform: uppercase;
-    
+    background-color: #533549;    
     -webkit-box-shadow: 0px 2px 5px #666;
     -moz-box-shadow: 0px 2px 5px #666;
-    box-shadow: 0px 2px 5px #666;}
+    box-shadow: 0px 2px 5px #666;
+}
 
 #header a {
     color: #ffffff;
@@ -42,14 +40,13 @@ a:hover, a:active {
     font-weight:bold;
 }
 
-#wrapper {
-  width:960px;
-  position:absolute;
-  top:80px;
-  left:50%;
-  margin-left:-480px;
-  background:#FFF;
-  }
+.wrapper {
+    width:960px;
+    position:absolute;
+    left:50%;
+    margin-left:-480px;
+}
+
 #nav {
   width:935px;
   padding:5px 5px 5px 20px;
