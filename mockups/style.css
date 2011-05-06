@@ -79,14 +79,10 @@ p {
 
 /* Generic Sidebar Box */
 .sidebar_box {
-    border: 1px #ccc solid;
     border-width: 1px 1px 8px 1px;
-
     -webkit-border-image: url(images/civicopia-widget-bottom-dropshadow.png) 0 0 10 0 stretch;
     border-image: url(images/civicopia-widget-bottom-dropshadow.png) 0 0 10 0 stretch;
     -moz-border-image: url(images/civicopia-widget-bottom-dropshadow.png) 0 0 10 0 stretch;
-
-    border-left: 1px #ff0000 solid;
 }
 
 .sidebar_box .sidebar_box_image{
@@ -120,8 +116,20 @@ p {
 .sidebar_box .sidebar_box_more_info a {
     color: #533549;
     font-size: 18px;
-    background-color: transparent;
+    text-transform: uppercase;
+}
+
+.arrow-icon {
     background-image: url(images/arrow-right.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 35px;
+}
+
+.target-icon {
+    background-image: url(images/target-icon.png);
+    background-color: transparent;
     background-repeat: no-repeat;
     background-position: 0 0;
     padding-left: 35px;
