@@ -181,7 +181,7 @@ function et_node_location(&$vars) {
 }
 
 function et_node_share(&$vars) {
-  et_fb_like(&$vars);
+  et_fb_like($vars);
   $output = '';
   $output .= '<div class="node-share">';
   $output .= 'Facebook';
