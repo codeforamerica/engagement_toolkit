@@ -275,9 +275,8 @@ function et_projects_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '11',
         ),
         'teaser' => array(
@@ -516,7 +515,7 @@ function et_projects_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_ingredients',
-      'label' => 'Ingredients',
+      'label' => 'Ingredients that were helpful to this project',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -701,9 +700,8 @@ function et_projects_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'above',
-          'module' => 'text',
           'settings' => array(),
-          'type' => 'text_default',
+          'type' => 'hidden',
           'weight' => '9',
         ),
         'teaser' => array(
@@ -775,9 +773,8 @@ function et_projects_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '10',
         ),
         'teaser' => array(
@@ -981,7 +978,7 @@ function et_projects_field_default_fields() {
       'bundle' => 'project',
       'default_value' => NULL,
       'deleted' => '0',
-      'description' => 'What recipes were used in getting this project done?',
+      'description' => 'What recipes were used in getting this project done? Search through our questions, or ask on on in our knowledgebase.',
       'display' => array(
         'default' => array(
           'label' => 'above',
@@ -1001,7 +998,7 @@ function et_projects_field_default_fields() {
       ),
       'entity_type' => 'node',
       'field_name' => 'field_recipes',
-      'label' => 'Recipes',
+      'label' => 'Recipes used on this project',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -1129,9 +1126,8 @@ function et_projects_field_default_fields() {
       'display' => array(
         'default' => array(
           'label' => 'inline',
-          'module' => 'taxonomy',
           'settings' => array(),
-          'type' => 'taxonomy_term_reference_link',
+          'type' => 'hidden',
           'weight' => '12',
         ),
         'teaser' => array(
@@ -1175,7 +1171,7 @@ function et_projects_field_default_fields() {
   t('If you know it, which county are you in?');
   t('If your project already has a URL or link for more information, go ahead and add that here.');
   t('Images');
-  t('Ingredients');
+  t('Ingredients that were helpful to this project');
   t('Link');
   t('Location');
   t('Location Description');
@@ -1183,7 +1179,7 @@ function et_projects_field_default_fields() {
   t('Problem');
   t('Process');
   t('Provide a short, compelling description of your project. About 200 words.');
-  t('Recipes');
+  t('Recipes used on this project');
   t('Result');
   t('Select your city');
   t('Select your state');
@@ -1191,7 +1187,7 @@ function et_projects_field_default_fields() {
   t('State');
   t('What is the problem this project helps to solve?');
   t('What neighborhood are you working in?');
-  t('What recipes were used in getting this project done?');
+  t('What recipes were used in getting this project done? Search through our questions, or ask on on in our knowledgebase.');
   t('Which ingredients were helpful in doing this project?');
   t('You will soon be able to select your location on a map. Don\'t worry about that just yet.');
 
