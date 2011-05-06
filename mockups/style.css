@@ -6,6 +6,7 @@ body {
 	padding:0;
 	margin:0;
 }
+
 h1 { font-size:24px; line-height:150%; margin-bottom:15px;}
 h2 { font-size:18px; line-height:150%; margin-bottom:15px;}
 h3 { font-size:16px; line-height:150%; margin-bottom:15px;}
@@ -110,6 +111,8 @@ a:hover, a:active {
     width: 150px;
     height: 150px;
     background-color: #ff88c0;
+    float: left;
+    margin-right: 15px;
 }
 
 .sidebar_box .sidebar_box_title {
@@ -129,16 +132,23 @@ a:hover, a:active {
 
 .sidebar_box .sidebar_box_text {    
     color: #533549;
+    margin-bottom: 10px;
 }
 
-.sidebar_box .sidebar_box_more_info {
+.sidebar_box .sidebar_box_more_info a {
     color: #533549;
     font-size: 18px;
+    background-color: transparent;
+    background-image: url(images/arrow-right.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding-left: 35px;
 }
 
 .sidebar_box .sidebar_box_content {
     padding: 10px 10px 20px 20px;
     background-color: #ffffff;
+    font-size: 12px;
 }
 /* END Generic Sidebar box */
 
@@ -185,5 +195,22 @@ a:hover, a:active {
     width: 570px;
     padding: 20px;
 	margin-right:20px;
+}
+
+.wrapper > header > h1 {
+    font-weight: bold;
+    font-size: 4.2em;
+    margin-bottom: -10px;
+    text-transform: uppercase;
+    color: #992739;
+}
+
+.wrapper > header > h2 {
+    font-weight: bold;
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+.wrapper > header > h2 > a {
+    color: #992739;
 }
 /* END Main Content Section
