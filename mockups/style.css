@@ -36,6 +36,7 @@ a:hover, a:active {
 }
 
 p {
+    margin-top: 1em;
     line-height: 1.5em;
 }
 
@@ -235,12 +236,20 @@ p {
     margin-bottom: 1em;
 }
 
-.project_overview > header > h1 {
+.project_overview > header > h1,
+.project_recipe > header > h1 {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-transform: uppercase;
     line-height: 1.2em;
     padding-top: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: 0px;
 }
+
+.project_recipe > header > h2 {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 /* END Main Content Section
