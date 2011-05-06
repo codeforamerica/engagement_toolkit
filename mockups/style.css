@@ -98,13 +98,19 @@ a:hover, a:active {
 #sidebar {
 	width:275px;
 	padding:10px;
-	background:#9CF;
 	float:left;
 	}
 
 /* Generic Sidebar Box */
 .sidebar_box {
     border: 1px #ccc solid;
+    border-width: 1px 1px 8px 1px;
+
+    -webkit-border-image: url(images/civicopia-widget-bottom-dropshadow.png) 0 0 10 0 stretch;
+    border-image: url(images/civicopia-widget-bottom-dropshadow.png) 0 0 10 0 stretch;
+    -moz-border-image: url(images/civicopia-widget-bottom-dropshadow.png) 0 0 10 0 stretch;
+
+    border-left: 1px #ff0000 solid;
 }
 
 .sidebar_box .sidebar_box_image{
@@ -149,6 +155,7 @@ a:hover, a:active {
     padding: 10px 10px 20px 20px;
     background-color: #ffffff;
     font-size: 12px;
+    border: 1px solid #ccc;
 }
 /* END Generic Sidebar box */
 
