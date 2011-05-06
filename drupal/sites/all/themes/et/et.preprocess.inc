@@ -121,7 +121,6 @@ function et_preprocess_region(&$vars) {
   $vars['region_style'] = $vars['fluid_width'] = '';
   $vars['region_name'] = str_replace('_', '-', $vars['region']);
   $vars['classes_array'][] = $vars['region_name'];
-
 }
 
 
@@ -143,29 +142,38 @@ function et_preprocess_block(&$vars) {
  * Node preprocessing
  */
 function et_preprocess_node(&$vars) {
+
+/* dpm($vars); */
   // Add to array of handy node classes
   $vars['classes_array'][] = $vars['zebra'];                              // Node is odd or even
   $vars['classes_array'][] = (!$vars['teaser']) ? 'full-node' : '';       // Node is teaser or full-node
 
   // Add node_top and node_bottom region content
-  $vars['node_top'] = theme('blocks', 'node_top');
-  $vars['node_bottom'] = theme('blocks', 'node_bottom');
+//  $vars['node_top'] = theme('blocks', 'node_top');
+//  $vars['node_bottom'] = theme('blocks', 'node_bottom');
+
   
   // Add preprocess functions for all node types.
   $function = __FUNCTION__ . '_' . $vars['node']->type;
   if (function_exists($function)) {
     $function($vars);
   }
+
   $vars['node_top'] = '';
   $vars['node_bottom'] = '';
   $vars['node_sidebar'] = '';
   $vars['node_content_width'] = 'grid_16';
+
+
 }
 
 /**
  * Preprocessing function for node types.
  */
 function et_preprocess_node_project(&$vars) {
+  // Fix node title.
+
+
   /* dpm($vars); */
 /*
   $vars['node_top'] = "THIS IS NODE TOP";

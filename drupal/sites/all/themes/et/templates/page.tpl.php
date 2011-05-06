@@ -83,14 +83,15 @@
       <?php print render($page['header_menu']); ?>
     </div>
 
+    <div class="header-gap-container grid_4">
+      <?php print render($page['header_gap']); ?>
+    </div>
+
     <div class="header-signin-container grid_2 omega">
       <?php print render($page['header_signin']); ?>
       <?php print $account_link; ?>
     </div>
 
-    <div class="header-gap-container grid_4">
-      <?php print render($page['header_gap']); ?>
-    </div>
   </div>
   <div class="clear"></div>
   <div id="main" role="main" class="grid_16 alpha">

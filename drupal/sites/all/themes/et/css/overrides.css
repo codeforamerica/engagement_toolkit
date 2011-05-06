@@ -19,7 +19,7 @@ body.front span.submitted {
 /* Join button ("Let's Do this") */
 .flag-join {
   margin: 20px;
-}
+}   
 
 .flag-join .flag-wrapper {
   padding: 20px;
@@ -101,4 +101,24 @@ body.logged-in #block-system-user-menu ul.menu li.first {
 
 .meta {
   font-size: 120%;
+}
+
+.sidebar-container h2.block-title {
+    text-transform: uppercase;
+    background-color: #e89a41;
+    padding: 10px 0 10px 20px;
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+.sidebar-container .block {
+    border: 1px #ccc solid;
+}
+
+.sidebar-container .content {
+    padding: 10px 10px 20px 20px;
+}   
+.sidebar-container .content p {
+    margin: 0;
 }
