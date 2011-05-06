@@ -11,10 +11,16 @@
     <?php if ($display_submitted || !empty($content['links']['terms'])): ?>
       <div class="meta">
         <?php if ($display_submitted): ?>
+        <?php if($node->type == 'project'): ?>
           <span class="submitted">
             <?php print t('Created by !username, !location', array('!username' => $name, '!location' => $location)); ?>
           </span>
+        <?php else: ?>
+          <span class="submitted">
+            <?php print t('Created by !username', array('!username' => $name)); ?>
+          </span>
         <?php endif; ?>
+      <?php endif; ?>
 
         <?php if (!empty($content['links']['terms'])): ?>
           <div class="terms terms-inline">
