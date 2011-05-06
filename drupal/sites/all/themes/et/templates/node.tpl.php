@@ -48,7 +48,6 @@
       <?php if($node->type == 'project'): ?>
         <?php hide($content['body']); ?>
         <div class="about">
-          <h3><?php print t("About"); ?></h3>
           <?php print render($content['body']); ?>
         </div>
       <?php endif; ?>
