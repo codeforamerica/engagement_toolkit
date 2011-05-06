@@ -68,43 +68,15 @@ p {
     margin-left:-480px;
 }
 
-#nav {
-  width:935px;
-  padding:5px 5px 5px 20px;
-  background:#333;
-  height:12px;
-  }
-#nav ul {
-  display:block;
-  list-style:none;
-  }
-#nav ul li {
-  float:left;
-  margin-right:20px;
-  line-height:100%;
-  }
-#nav ul li a:link, #nav ul li a:visited {
-  color:#FFF;
-  font-size:10px;
-  text-decoration:none;
-  }
-#nav ul li a:hover, #nav ul li a:active {
-  color:#CCC;
-  font-size:10px;
-  text-decoration:underline;
-  }
-#tabcontent {
-	background: #FFF;
-	padding: 20px;
-	border: 1px solid black;
-	border-top: none;
-	z-index: 2;
-	}
 #sidebar {
-	width:275px;
-	padding:10px;
+	width:320px;
+	padding:0;
 	float:left;
-	}
+}
+
+#sidebar {
+    margin-bottom: 1em;
+}
 
 /* Generic Sidebar Box */
 .sidebar_box {
@@ -161,40 +133,53 @@ p {
     background-color: #ffffff;
     font-size: 12px;
     border: 1px solid #ccc;
+    min-height: 150px;
+}
+
+.sb_container {
+    margin-bottom: 20px;
 }
 /* END Generic Sidebar box */
 
 /* Project Metric Block Style */
 #metric_block {
   background-color: #533549;
+  padding: 20px;
 }
 
 #metric_content {
   background-color: #ffffff;
-  margin: 20px;
 }
 
 #metric_content ul {
   text-transform: uppercase;
   color: #533549;
-  font-size: 18px;
-  padding: 0 10px 10px 10px;
   font-weight: bold;
+  margin-left: 10px;
 }
 
-#block-et_blocks-et_ph_project_supported .content li {
+#metric_content li {
   display:block;
   margin: 0;
   padding-top: 10px;
   padding-bottom: 5px;
+  font-size:1.5em;
 }
 
 #metric_content .metric_value {
+  font-size: 1.8em;
   color: #992739;
+  margin-right: 10px;
 }
 
-#metric_content a {
-  background-color: #992739;
+#metric_content #join_project {
+    width: 320px;
+    height: 40px;
+    background-color: #992739;
+    margin-left: -10px;
+}
+
+#metric_content #join_project a {
   color: #ffffff;
   text-decoration: underline;
 }
