@@ -19,7 +19,7 @@ body.front span.submitted {
 /* Join button ("Let's Do this") */
 .flag-join {
   margin: 20px;
-}
+}   
 
 .flag-join .flag-wrapper {
   padding: 20px;
@@ -103,48 +103,10 @@ body.logged-in #block-system-user-menu ul.menu li.first {
   font-size: 120%;
 }
 
-
-#header {
-  background-color: #533549;
-  height: 50px;
-  width: 100%;
-}
-
-h1.title {
-  font-family:Helvetica;
-  color: #992739;
-  text-transform: uppercase;
-}
-
-.content {
-}
-
-.node-project .content {
-  background-color: #e9e9e9;
-}
-
-.field-label {
-  color: #533549;
-}
-
-.field-name-body {
-  margin-left:5px;
-  background-color: #666666;
-}
-
-.field-name-field-process, .field-name-field-ingredients {
-  background-color: #ffffff;
-  margin-left:5px;
-}
-
-.block-et-blocks .content {
-  background-color:red;
-}
-
-.menu li.last {
-  display:none;
-}
-
+/* Project Metric Block Style
+ * TODO: Needs the ID changed to the custom block
+ * block-block-1 to _____
+*/
 #block-block-1 {
   background-color: #533549;
 }
@@ -167,4 +129,28 @@ h1.title {
   padding-top: 10px;
   padding-bottom: 5px;
 }
+/* END Project Metric Block */
 
+/* Generic Block Style */
+.sidebar-container h2.block-title {
+    text-transform: uppercase;
+    background-color: #e89a41;
+    padding: 10px 0 10px 20px;
+    color: #ffffff;
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.sidebar-container .block {
+    border: 1px #ccc solid;
+}
+
+.sidebar-container .content {
+    padding: 10px 10px 20px 20px;
+}   
+
+.sidebar-container .content p {
+    margin: 0;
+}
+/* END Generic Block Style */

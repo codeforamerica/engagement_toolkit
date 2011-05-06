@@ -26,18 +26,7 @@ function et_recipes_extra_context_default_contexts() {
       ),
     ),
   );
-  $context->reactions = array(
-    'block' => array(
-      'blocks' => array(
-        'et_blocks-et_ph_clone_recipe' => array(
-          'module' => 'et_blocks',
-          'delta' => 'et_ph_clone_recipe',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
-      ),
-    ),
-  );
+  $context->reactions = array();
   $context->condition_mode = 0;
 
   // Translatables
