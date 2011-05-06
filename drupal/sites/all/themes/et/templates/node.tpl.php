@@ -12,7 +12,7 @@
       <div class="meta">
         <?php if ($display_submitted): ?>
           <span class="submitted">
-            <?php print t('Submitted by !username on !datetime', array('!username' => $name, '!datetime' => $date)); ?>
+            <?php print t('Created by !username, !location', array('!username' => $name, '!location' => $location)); ?>
           </span>
         <?php endif; ?>
 
@@ -32,6 +32,21 @@
     <?php endif; ?>
 
     <div class="content <?php print $node_content_width; ?>"<?php print $content_attributes; ?>>
+        <?php hide($content['field_image']); ?>
+
+      <div class="content-top">
+        <?php print render($content['field_image']); ?>
+        <?php print $share; ?>
+      </div>
+
+      <?php if($node->type == 'project'): ?>
+        <?php hide($content['body']); ?>
+        <div class="about">
+          <h3><?php print t("About"); ?></h3>
+          <?php print render($content['body']); ?>
+        </div>
+      <?php endif; ?>
+
       <?php
         // We hide the comments and links now so that we can render them later.
         hide($content['comments']);
