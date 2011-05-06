@@ -11,11 +11,11 @@ h1 { font-size:24px; line-height:150%; margin-bottom:15px;}
 h2 { font-size:18px; line-height:150%; margin-bottom:15px;}
 h3 { font-size:16px; line-height:150%; margin-bottom:15px;}
 a:link, a:visited {
-  color:#099;
+  color:#96a044;
   text-decoration:none;
   }
 a:hover, a:active {
-  color:#099;
+  color:#96a044;
   text-decoration:underline;
   }
 
@@ -212,6 +212,7 @@ p {
     width: 570px;
     padding: 20px;
 	margin-right:20px;
+	margin-bottom: 20px;
 	box-shadow: #888 0px 5px 5px;
 }
 
@@ -263,6 +264,8 @@ p {
 }
 
 .project_overview > header > h1,
+.helpful_questions > header > h1,
+.project_ingredients > header > h1,
 .project_recipe > header > h1 {
     font-weight: bold;
     font-size: 1.2em;
@@ -278,4 +281,22 @@ p {
     text-transform: uppercase;
 }
 
+.recipe_steps {
+    list-style: decimal;
+    padding-left: 2em;
+    margin-bottom: 1em;
+}
+
+.helpful_questions ul,
+.project_ingredients ul {
+    list-style-image: url(images/list-item-check.png);
+    padding-left: 2em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.helpful_questions li,
+.project_ingredients li {
+    line-height: 1.7em;
+}
 /* END Main Content Section
