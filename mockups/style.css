@@ -259,7 +259,6 @@ p {
     width: 570px;
     padding: 20px;
 	margin-right:20px;
-	margin-bottom: 20px;
 	box-shadow: #888 0px 5px 5px;
 }
 
@@ -374,4 +373,47 @@ p {
 /* END Main Content Section */
 .clear { 
     clear: both;
+}
+
+/* Footer */
+#footer {
+    float: left;
+    width: 630px;
+    height: 140px;
+    font-weight: bold;
+}
+
+#footer ul li {
+    list-style: none;
+    display: block;
+    float: left;
+    border-right: 1px solid #666;
+    padding: 0 4px 0 4px;
+}
+
+#footer ul li:last-child {
+    border:none;
+}
+
+#footer ul li a {
+    color: #533549;
+    text-transform: uppercase;
+}
+
+#footer ul, #footer p {
+    float: left;
+    display: block;
+}
+
+#footer img {
+    float:right;
+    margin-top: -20px;
+}
+
+#footer span {
+    color: #333333;
+}
+
+#footer p {
+    color: #999999;
 }
