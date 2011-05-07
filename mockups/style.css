@@ -192,6 +192,10 @@ p {
     line-height: 120%;
     float: right;
     margin-top: -10px;
+    
+    -moz-box-shadow: 0 0 7px #888;
+    -webkit-box-shadow: 0 0 7px #888;
+    box-shadow: 0 0 7px #888;
 }
 
 /* END Generic Sidebar box */
