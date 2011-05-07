@@ -254,13 +254,17 @@ p {
 
 /* Main Content Section */
 #content {
-    background-color: #e9e9e9;
+    background-color: transparent;
 	float:left;
     width: 570px;
-    padding: 20px;
+/*    padding: 20px;*/
 	margin-right:20px;
 	margin-bottom: 20px;
-	box-shadow: #888 0px 5px 5px;
+	
+	border-width: 20px 24px 29px 24px;
+	-webkit-border-image: url(images/content-border.png) 20 24 29 24 stretch;
+/*	-webkit-border-image-slice: fill;*/
+/*	box-shadow: #888 0px 5px 5px;*/
 }
 
 .wrapper > header > h1 {
