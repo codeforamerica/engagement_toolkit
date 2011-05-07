@@ -125,6 +125,10 @@ p {
     bottom: 20px;
 }
 
+.sidebar_box .supporters_fix {
+    right: 30px;
+}
+
 .arrow-icon {
     background-image: url(images/arrow-right.png);
     background-color: transparent;
@@ -139,6 +143,7 @@ p {
     background-repeat: no-repeat;
     background-position: 0 0;
     padding-left: 35px;
+    padding-bottom: 1px;
 }
 
 .sidebar_box .sidebar_box_content {
