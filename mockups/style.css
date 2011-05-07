@@ -116,7 +116,7 @@ p {
 
 .sidebar_box .sidebar_box_more_info a {
     color: #533549;
-    font-size: 18px;
+    font-size: 1.5em;
     text-transform: uppercase;
 }
 
@@ -139,7 +139,7 @@ p {
 .sidebar_box .sidebar_box_content {
     padding: 10px 10px 20px 20px;
     background-color: #ffffff;
-    font-size: 12px;
+    font-size: 1em;
     border: 1px solid #ccc;
 }
 
@@ -167,7 +167,22 @@ p {
 .sidebar_box li.needs_help {
     color: #663333;
     background-color: #ffffff;
+    padding-right: 0;
 }
+
+.sidebar_box li .i_can_help {
+    background-color: #992739;
+    color: #ffffff;
+    font-size: 0.8em;
+    display: block;
+    width: 40px;
+    height: 30px;    
+    padding: 5px 20px;
+    line-height: 120%;
+    float: right;
+    margin-top: -10px;
+}
+
 /* END Generic Sidebar box */
 
 /* Custom supporter sidebar box */
