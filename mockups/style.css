@@ -337,6 +337,24 @@ p {
     margin-top: 7px;
     height: 24px;
 }
+
+.progress_bar {
+    float: right;
+    font-weight: bold;
+    font-size: 1.6em;
+    
+    margin-right: 10px;
+    margin-top: -2em;
+}
+
+#progress_indicator {
+    display: inline-block;
+    width: 150px;
+    height: 12px;
+    background-image: url(images/progress-background.png);
+    background-position: 25% 50%;
+    margin-right: 0.5em;
+}
 /* END Main Content Section */
 .clear { 
     clear: both;
