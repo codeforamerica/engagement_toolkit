@@ -209,8 +209,13 @@ p {
 
 /* Project Metric Block Style */
 #metric_block {
-  background-color: #533549;
-  padding: 20px;
+  background-color: transparent;
+  padding: 0px;
+  
+  border-width: 20px 24px 29px 24px;
+  border-image: url(images/stats-border.png) 20 24 29 24 stretch;
+  -moz-border-image: url(images/stats-border.png) 20 24 29 24 stretch;
+  -webkit-border-image: url(images/stats-border.png) 20 24 29 24 stretch;
 }
 
 #metric_content {
@@ -240,12 +245,12 @@ p {
 
 #metric_content #join_project {
     background-color: #992739;
-    width:316px;
+    width:308px;
     height: 40px;
 }
 
 #join_project_wrapper {
-    width: 316px;
+    width: 308px;
     height: 40px;
     margin-left: -11px;
     border-width: 0 0 8px 0;
