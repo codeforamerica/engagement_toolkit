@@ -4,7 +4,7 @@
       request = require('request'),
       semhack = require('./semantic_hacker.js'),
       options = {
-        semanticHackerApiKey: 'wgif00l7'
+        semanticHackerApiKey: 'YOUR API KEY'
       };
 
   //Parse a single line of a file
@@ -101,7 +101,7 @@
               if (data.length === taggedData.length) {
                 console.log(data.length + ' records! Writing file.');
                 callback(taggedData);
-              }              
+              }
             });
           }, (c * throttle));
 
@@ -138,10 +138,12 @@
       headers[headers.length-1] = strip(headers[headers.length-1]);
 
       for (i=1; i<lines.length; i++) {
-        parsedData.push(parseLine(lines[i], headers));
+        //parseLine can return a dataObject or an array of dataObjects.
+        //concat is smart enough to handle either.
+        parsedData = parsedData.concat(parseLine(lines[i], headers));
       }
     } else {
-      console.log('Usage: node parse_mt_csv.js turk_file_to_parse.csv');
+      console.log('No input was specified.');
     }
     
     return parsedData;
