@@ -2,9 +2,9 @@
   var fs = require('fs'),
       path = require('path'),
       request = require('request'),
+      semhack = require('./semantic_hacker.js'),
       options = {
-        semanticHackerUrl: 'http://api.semantichacker.com/YOUR_API_KEY/concept?format=json',
-        minTagWeight: 0.002
+        semanticHackerApiKey: 'YOUR API KEY'
       };
 
   //Parse a single line of a file
@@ -120,46 +120,26 @@
           //SemanticHacker throttles you to 300 requests per minutes,
           //so this code will slow that down
           setTimeout(function(){
-            request({
-                method: 'POST', 
-                uri: options.semanticHackerUrl,
-                body: text
-            }, function (error, response, jsonStr) {
-              var jsonObj, 
-                  tags = [], 
-                  concepts, 
+            semhack.getTags({apiKey: options.semanticHackerApiKey}, text, function(tagsObj){
+              var tags = [],
                   i;
 
-              if (!error && response.statusCode === 200) {
-                jsonObj = JSON.parse(jsonStr);
-                
-                //Extract the tags from the response
-                if (jsonObj.conceptExtractor && jsonObj.conceptExtractor.conceptExtractorResponse) {
-                  concepts = jsonObj.conceptExtractor.conceptExtractorResponse.concepts;
+              for(i=0; i<tagsObj.length; i++) {
+                tags.push(tagsObj[i].label);
+              }
+              
+              //Always add tags, even if blank
+              data[c].tags = tags;
 
-                  for(i=0; i<concepts.length; i++) {
-                    tags.push(concepts[i].label);
-                  }
-                } else {
-                  //We'll see an error here if we go faster than 300 req/min
-                  console.log(jsonObj);
-                }
+              taggedData.push(data[c]);
 
-                //Always add tags, even if blank
-                data[c].tags = tags;
-
-                taggedData.push(data[c]);
-
-                console.log(taggedData.length + ' of ' + data.length);
-                
-                //Callback once the tagged data is the same size as the
-                //original data
-                if (data.length === taggedData.length) {
-                  console.log(data.length + ' records! Writing file.');
-                  callback(taggedData);
-                }
-              } else {
-                console.log('Error getting SemanticHacker response.');
+              console.log(taggedData.length + ' of ' + data.length);
+              
+              //Callback once the tagged data is the same size as the
+              //original data
+              if (data.length === taggedData.length) {
+                console.log(data.length + ' records! Writing file.');
+                callback(taggedData);
               }
             });
           }, (c * throttle));
@@ -190,16 +170,19 @@
       fileStr = fileStr.replace(/([^"])(\r\n)+/g, '$1 ');
 
       lines = fileStr.split('\n');
+      
       //NOTE: this leave extra double-quotes on the first and last value
       headers = lines[0].split('","');
       headers[0] = strip(headers[0]);
       headers[headers.length-1] = strip(headers[headers.length-1]);
 
       for (i=1; i<lines.length; i++) {
+        //parseLine can return a dataObject or an array of dataObjects.
+        //concat is smart enough to handle either.
         parsedData = parsedData.concat(parseLine(lines[i], headers));
       }
     } else {
-      console.log('Usage: node parse_mt_csv.js turk_file_to_parse.csv');
+      console.log('No input was specified.');
     }
     
     return parsedData;
@@ -207,10 +190,10 @@
   
   //Function to synchronously process a list of files
   var processFiles = function(filePaths, outputDir) {
-    var parsedData, 
+    var parsedData,
         fileName = filePaths.pop();
 
-    if (fileName && fileName.indexOf('.csv') !== -1) {      
+    if (fileName && fileName.indexOf('.csv') !== -1) {
       //Parse the file
       parsedData = dedupe(parseFile(fileName));
 
@@ -244,8 +227,6 @@
       
       if (exists) {
         fs.readdir(input, function(error, files) {
-          var allTaggedData = [];
-          
           //Process a single file
           if (error && error.code === 'ENOTDIR') {
             filePaths.unshift(input);
@@ -261,6 +242,6 @@
       } else {
         console.log(input + ' does not exist.');
       }
-    });    
+    });
   })();
 })();
