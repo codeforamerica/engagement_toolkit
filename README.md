@@ -34,3 +34,5 @@ and are doing an experimental project where we match people together
 to help them actually solve problems.
 
 https://github.com/codeforamerica/Catalyze
+
+[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/engagement_toolkit.png)](http://stats.codeforamerica.org/projects/engagement_toolkit)
